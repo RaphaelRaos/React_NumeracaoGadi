@@ -14,18 +14,18 @@ export const Menu = () => {
             <Container>
                 <DivMenu>
                     <Link to="/comunicados"><BotaoMenu>COMUNICADOS</BotaoMenu></Link>
-                    <BotaoMenu>DESPACHOS</BotaoMenu>
-                    <BotaoMenu>INSTRUÇÕES</BotaoMenu>
+                    <Link to ="/despachos"><BotaoMenu>DESPACHOS</BotaoMenu></Link>
+                    <Link to ="/instrucoes"><BotaoMenu>INSTRUÇÕES</BotaoMenu></Link>
                 </DivMenu>
                 <DivMenu>
-                    <BotaoMenu>MEMORANDOS</BotaoMenu>
-                    <BotaoMenu>NÚMERO DE REFERÊNCIA</BotaoMenu>
-                    <BotaoMenu>OCORRÊNCIAS</BotaoMenu>
+                    <Link to ="/Memorandos"><BotaoMenu>MEMORANDOS</BotaoMenu></Link>
+                    <Link to ="/NumReferencia"><BotaoMenu>NÚMERO DE REFERÊNCIA</BotaoMenu></Link>    
+                    <Link to ="/Ocorrencias"><BotaoMenu>OCORRÊNCIAS</BotaoMenu></Link>    
                 </DivMenu>
                 <DivMenu>
-                    <BotaoMenu>OFÍCIOS</BotaoMenu>
-                    <BotaoMenu>RELAÇÃO DE REMESSA</BotaoMenu>
-                    <BotaoMenu>RELATÓRIOS</BotaoMenu>
+                    <Link to ="/Oficios">  <BotaoMenu>OFÍCIOS</BotaoMenu></Link>  
+                    <Link to ="/RelRemessa"><BotaoMenu>RELAÇÃO DE REMESSA</BotaoMenu></Link>    
+                    <Link to ="/Relatorios"><BotaoMenu>RELATÓRIOS</BotaoMenu></Link>    
                 </DivMenu>   
             </Container>
          </div>

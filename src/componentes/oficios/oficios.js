@@ -4,17 +4,17 @@ import {Link} from 'react-router-dom';
 import { Header } from '../header/header';
 
 
-export const Comunicados = () => {
+export const Oficios = () => {
 
     return (
         <div>
-            <Header/>
+            <Header />
             <Container>
                 <ConteudoTitulo>
                     <Link to="/menu">
                             <ButtonSuccess>Menu</ButtonSuccess>
                     </Link>
-                    <Titulo>COMUNICADOS</Titulo>
+                    <Titulo> OFÍCIOS </Titulo>
                     <BotaoAcao>                            
                         <Link>
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
@@ -24,16 +24,18 @@ export const Comunicados = () => {
                 <Table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>NUMERO DESPACHO</th>
+                            <th>PROCESSO / SISRAD</th>
+                            <th>UA</th>
+                            <th>UO</th>
+                            <th>INTERESSADO</th>
                             <th>ASSUNTO</th>
-                            <th>DATA ELABORAÇÃO</th>
-                            <th>EXECUTOR</th>
-                            <th>ÁREA</th>
-                            <th>OBSERVAÇÃO</th>
-                            <th>AÇÕES</th>                            
+                            <th>DATA ENTRADA</th>
+                            <th>OBS</th>                            
                         </tr>
                     </thead>
                     <tbody>
+                        <LineTD></LineTD>
                         <LineTD></LineTD>
                         <LineTD></LineTD>
                         <LineTD></LineTD>
