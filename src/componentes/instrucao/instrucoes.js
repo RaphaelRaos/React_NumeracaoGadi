@@ -16,7 +16,7 @@ export const Instrucoes = () => {
                     </Link>
                     <Titulo> INSTRUÇÕES </Titulo>
                     <BotaoAcao>                            
-                        <Link>
+                        <Link to="/formInstrucao">
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary } from './styles';
+import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, } from './styles';
 import {Link} from 'react-router-dom';
 import { Header } from '../header/header';
 
@@ -16,7 +16,7 @@ export const Comunicados = () => {
                     </Link>
                     <Titulo>COMUNICADOS</Titulo>
                     <BotaoAcao>                            
-                        <Link>
+                        <Link to="/formComunicados">
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>

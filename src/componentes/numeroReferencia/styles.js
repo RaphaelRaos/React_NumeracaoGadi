@@ -14,7 +14,7 @@ export const Container = styled.section`
     z-index:10;  
     overflow:hidden;
     box-shadow: 2px 0 18px rgba(0, 0, 0, 0.26);
-
+    overflow:auto;
 `;
 
 export const Table = styled.table `
@@ -69,7 +69,7 @@ export const ButtonSuccess = styled.button`
 export const LineTD = styled.td`
     border 2px solid rgb(8, 63, 165);
     text-align: center;
-    width: 9%
+    width: 9%;
 `;
 
 export const ButtonPrimary = styled.button`
@@ -83,4 +83,84 @@ export const ButtonPrimary = styled.button`
         background-color: rgb(8, 63, 165);
         color: #fff;
     }
+`;
+
+export const TableForm = styled.table`
+
+    width: 99%;
+    height: 70%;
+    th{
+        height: 100%;
+        background-color: #fff;
+        color: rgb(8, 63, 165);
+        padding: 20px;
+        text-align: left;
+        margin: 3px;
+        
+    }
+`;
+
+export const TextArea = styled.textarea`
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: boder-box;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    resize:vertical;
+`;
+
+export const Input = styled.input`
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: boder-box;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    resize:vertical;
+`;
+
+export const Label = styled.label`
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    font-size: 18px;
+`;
+
+export const Select = styled.select`
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: boder-box;
+    margin-top: 5px;
+    margin-bottom: 8px;
+    font-size: 18px;
+    resize:vertical;
+`;
+
+export const ButtonCadastrar = styled.button`
+    background-color: #fff;
+    color: rgb(8, 63, 165);
+    padding: 10px 20px;
+    border: 1px solid rgb(8, 63, 165);;
+    border-radius: 4px;
+    cursor:pointer;
+    font-size: 20px;
+    :hover{
+        background-color: rgb(8, 63, 165);;
+        color: #fff;
+    }
+`;
+export const DivButton = styled.div`
+    
+    text-align: center;
+    left: 16em;
+    width: 85%;    
+
 `;

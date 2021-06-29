@@ -16,7 +16,7 @@ export const Ocorrencias = () => {
                     </Link>
                     <Titulo> OCORRÊNCIAS </Titulo>
                     <BotaoAcao>                            
-                        <Link>
+                        <Link to = "/formOcorrencias">
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>

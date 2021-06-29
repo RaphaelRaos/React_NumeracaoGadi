@@ -16,7 +16,7 @@ export const NumReferencia = () => {
                     </Link>
                     <Titulo> NÚMEROS DE REFERÊNCIAS - INFORMAÇÃO </Titulo>
                     <BotaoAcao>                            
-                        <Link>
+                        <Link to="/formNumReferencias">
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>

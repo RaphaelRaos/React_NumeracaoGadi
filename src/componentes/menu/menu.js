@@ -11,6 +11,7 @@ export const Menu = () => {
         <Body>
          <Header/>
          <div>
+             <br></br>
             <Container>
                 <DivMenu>
                     <Link to="/comunicados"><BotaoMenu>COMUNICADOS</BotaoMenu></Link>

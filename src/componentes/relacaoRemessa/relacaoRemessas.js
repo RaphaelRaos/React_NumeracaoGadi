@@ -16,7 +16,7 @@ export const RelRemessa = () => {
                     </Link>
                     <Titulo> RELAÇÃO DE REMESSAS </Titulo>
                     <BotaoAcao>                            
-                        <Link>
+                        <Link to="/formRelRemessa">
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>

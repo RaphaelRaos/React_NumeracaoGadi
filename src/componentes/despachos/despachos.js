@@ -16,7 +16,7 @@ export const Despachos = () => {
                     </Link>
                     <Titulo> DESPACHOS </Titulo>
                     <BotaoAcao>                            
-                        <Link>
+                        <Link to = "/formDespachos">
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>

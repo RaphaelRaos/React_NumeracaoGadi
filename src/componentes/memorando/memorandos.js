@@ -15,7 +15,7 @@ export const Memorandos = () => {
                     </Link>
                     <Titulo> MEMORANDOS </Titulo>
                     <BotaoAcao>                            
-                        <Link>
+                        <Link to="/formMemorando">
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>
