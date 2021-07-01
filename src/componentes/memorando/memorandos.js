@@ -23,19 +23,16 @@ export const Memorandos = () => {
                 <Table>
                     <thead>
                         <tr>
-                            <th>NUMERO DESPACHO</th>
-                            <th>PROCESSO / SISRAD</th>
-                            <th>UA</th>
-                            <th>UO</th>
+                            <th>NUMERO DO MEMORANDO</th>
                             <th>INTERESSADO</th>
                             <th>ASSUNTO</th>
-                            <th>DATA ENTRADA</th>
-                            <th>OBS</th>                            
+                            
+                            <th>EXECUTOR</th>
+                            <th>ÁREA</th>
+                            <th>AÇÕES</th>                                            
                         </tr>
                     </thead>
                     <tbody>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
                         <LineTD></LineTD>
                         <LineTD></LineTD>
                         <LineTD></LineTD>

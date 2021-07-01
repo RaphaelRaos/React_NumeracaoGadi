@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from '../header/header';
-import { Container, Table, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, TableForm, Label, Input, Select } from './styles';
+import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select } from './styles';
 import { Link } from 'react-router-dom';
 
 export const FormCadOcorrencias = () => {

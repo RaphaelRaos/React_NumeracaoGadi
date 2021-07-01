@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from '../header/header';
-import { Container, Table, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, TableForm, Label, Input, Select } from './styles';
+import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select } from './styles';
 import { Link } from 'react-router-dom';
 
 export const FormCadInstrucao = () => {
@@ -19,19 +19,20 @@ export const FormCadInstrucao = () => {
                 </ConteudoTitulo>
                 <TableForm>
                     <th>
-                        <Label>ASSUNTO: </Label>
-                            <Input type="text" name="assunto_comunicado" placeholder="Assunto"></Input>
-                        <Label>DATA ELABORAÇÃO: </Label>
-                            <Input type="date" name="data_elaboracao"></Input>
-                        <Label>EXECUTOR: </Label>
-                            <Input type="text" name="executor_comunicado"></Input>
-                        <Label>AREA: </Label>
-                            <Select name = "setor_comunicado">
+                        <Label>INTERESSADO</Label>
+                            <Input type="text" placeholder="Interessado Instrução" name="interessado_instrucao"></Input>
+                        <Label>ASSUNTO</Label>
+                            <Input type="text" placeholder="Assunto da Instrução" name="assunto_instrucao"></Input>
+                        <Label>DATA EMISSÃO</Label>
+                            <Input type="date" name="data_instrucao"></Input>
+                        <Label>EXECUTOR</Label>
+                            <Input type="text" placeholder="Executor Instrução" name="executor_instrucao"></Input>
+                        <Label>SETOR</Label>
+                            <Select>
                                 <option value="#">Selecione</option>
-                                
                             </Select>
                         <Label>OBSERVAÇÃO</Label>
-                        <TextArea name = "observacao_comunicado" cols = "50 rows" rows = "5" id=""></TextArea>
+                            <TextArea name = "observacao_despacho" cols = "50 rows" rows = "5" id=""></TextArea>
                     </th>
                 </TableForm>
                 <DivButton>

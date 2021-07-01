@@ -10,26 +10,26 @@ export const Menu = () => {
     return (
         <Body>
          <Header/>
-         <div>
-             <br></br>
-            <Container>
-                <DivMenu>
-                    <Link to="/comunicados"><BotaoMenu>COMUNICADOS</BotaoMenu></Link>
-                    <Link to ="/despachos"><BotaoMenu>DESPACHOS</BotaoMenu></Link>
-                    <Link to ="/instrucoes"><BotaoMenu>INSTRUÇÕES</BotaoMenu></Link>
-                </DivMenu>
-                <DivMenu>
-                    <Link to ="/Memorandos"><BotaoMenu>MEMORANDOS</BotaoMenu></Link>
-                    <Link to ="/NumReferencia"><BotaoMenu>NÚMERO DE REFERÊNCIA</BotaoMenu></Link>    
-                    <Link to ="/Ocorrencias"><BotaoMenu>OCORRÊNCIAS</BotaoMenu></Link>    
-                </DivMenu>
-                <DivMenu>
-                    <Link to ="/Oficios">  <BotaoMenu>OFÍCIOS</BotaoMenu></Link>  
-                    <Link to ="/RelRemessa"><BotaoMenu>RELAÇÃO DE REMESSA</BotaoMenu></Link>    
-                    <Link to ="/Relatorios"><BotaoMenu>RELATÓRIOS</BotaoMenu></Link>    
-                </DivMenu>   
-            </Container>
-         </div>
+            <div>
+                <br></br>
+                <Container>
+                    <DivMenu>
+                        <Link to="/comunicados"><BotaoMenu>COMUNICADOS</BotaoMenu></Link>
+                        <Link to ="/despachos"><BotaoMenu>DESPACHOS</BotaoMenu></Link>
+                        <Link to ="/instrucoes"><BotaoMenu>INSTRUÇÕES</BotaoMenu></Link>
+                        <Link to ="/Memorandos"><BotaoMenu>MEMORANDOS</BotaoMenu></Link>
+                    </DivMenu>
+                    <DivMenu>                        
+                        <Link to ="/NumReferencia"><BotaoMenu>NÚMERO DE REFERÊNCIA</BotaoMenu></Link>
+                        <Link to ="/Oficios"><BotaoMenu>OFÍCIOS</BotaoMenu></Link>
+                        <Link to ="/RelRemessa"><BotaoMenu>RELAÇÃO DE REMESSA</BotaoMenu></Link>
+                        <Link to ="/Relatorios"><BotaoMenu>RELATÓRIOS</BotaoMenu></Link>
+                    </DivMenu>
+                    <DivMenu>                      
+
+                    </DivMenu>   
+                </Container>
+            </div>
         </Body>
     );
 }

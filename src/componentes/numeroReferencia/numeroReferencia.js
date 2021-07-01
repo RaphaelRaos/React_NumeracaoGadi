@@ -24,14 +24,14 @@ export const NumReferencia = () => {
                 <Table>
                     <thead>
                         <tr>
-                            <th>NUMERO DESPACHO</th>
+                            <th>NUMERO DE REFERÊNCIA</th>
                             <th>PROCESSO / SISRAD</th>
                             <th>UA</th>
-                            <th>UO</th>
                             <th>INTERESSADO</th>
                             <th>ASSUNTO</th>
                             <th>DATA ENTRADA</th>
-                            <th>OBS</th>                            
+                            <th>VIGÊNCIA</th>
+                            <th>AÇÕES</th>                            
                         </tr>
                     </thead>
                     <tbody>

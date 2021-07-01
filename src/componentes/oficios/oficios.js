@@ -24,20 +24,14 @@ export const Oficios = () => {
                 <Table>
                     <thead>
                         <tr>
-                            <th>NUMERO DESPACHO</th>
-                            <th>PROCESSO / SISRAD</th>
-                            <th>UA</th>
-                            <th>UO</th>
+                            <th>NUMERO OFICIO</th>
                             <th>INTERESSADO</th>
-                            <th>ASSUNTO</th>
-                            <th>DATA ENTRADA</th>
-                            <th>OBS</th>                            
+                            <th>DATA </th>
+                            <th>EXECUTOR</th>
+                            <th>AÇÕES</th>                                                     
                         </tr>
                     </thead>
                     <tbody>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
                         <LineTD></LineTD>
                         <LineTD></LineTD>
                         <LineTD></LineTD>

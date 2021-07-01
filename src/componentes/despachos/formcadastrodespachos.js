@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header } from '../header/header';
-import { Container, Table, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, TableForm, Label, Input, Select } from './styles';
+import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select } from './styles';
 import { Link } from 'react-router-dom';
 
 export const FormCadDespacho = () => {
@@ -19,19 +19,34 @@ export const FormCadDespacho = () => {
                 </ConteudoTitulo>
                 <TableForm>
                     <th>
-                        <Label>ASSUNTO: </Label>
-                            <Input type="text" name="assunto_comunicado" placeholder="Assunto"></Input>
-                        <Label>DATA ELABORAÇÃO: </Label>
-                            <Input type="date" name="data_elaboracao"></Input>
-                        <Label>EXECUTOR: </Label>
-                            <Input type="text" name="executor_comunicado"></Input>
-                        <Label>AREA: </Label>
-                            <Select name = "setor_comunicado">
-                                <option value="#">Selecione</option>
-                                
+                        <Label>NUMERO SISRAD/PROCESSOR</Label>
+                            <Input type="text" placeholder="Numero Sisrad / Processo" name="numero_processo"></Input>
+                        <Label>UNIDADE ADMINISTRATIVA</Label>
+                            <Select>
+                                <option value="#" name="unidade_despacho">Selecione</option>   
                             </Select>
-                        <Label>OBSERVAÇÃO</Label>
-                        <TextArea name = "observacao_comunicado" cols = "50 rows" rows = "5" id=""></TextArea>
+                        <Label>COORDENADORIA</Label>
+                            <Select>
+                                <option value="#" name="coord_despacho">Selecione</option>   
+                            </Select>
+                        <Label>INTERESSADO</Label>
+                            <Input type="text" placeholder="Interessado" name="interessado_despacho"></Input>
+                        <Label>ASSUNTO</Label>
+                            <Input type="text" placeholder="Assunto Despacho" name="assunto_despacho"></Input>
+                    </th>
+                    <th>
+                        <Label>DATA ENTRADA</Label>
+                            <Input type="date" placeholder="" name="data_entrada"></Input>
+                        <Label>DATA SAÍDA</Label>
+                            <Input type="date" placeholder="" name="data_saida"></Input>
+                        <Label>EXECUTOR</Label>
+                            <Input type="text" placeholder="Interessado" name ="executor_despacho"></Input>
+                        <Label>SETOR</Label>
+                            <Select>
+                                <option value="#" name="unidade_despacho">Selecione</option>   
+                            </Select>
+                        <Label>OBSERVAÇAO</Label>
+                            <TextArea name = "observacao_despacho" cols = "50 rows" rows = "5" id=""></TextArea>
                     </th>
                 </TableForm>
                 <DivButton>

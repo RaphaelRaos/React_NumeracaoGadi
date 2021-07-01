@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, } from './styles';
 import {Link} from 'react-router-dom';
 import { Header } from '../header/header';
@@ -6,6 +6,18 @@ import { Header } from '../header/header';
 
 export const Comunicados = () => {
 
+    const [data, setData ] = useState([]);
+
+    const getComunicados = async() => {
+        fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/lista_comunicados.php")
+        .then((response) =>response.json())
+        .then((responseJSON) => (
+            setData(responseJSON.registros_comunicados)
+        ));
+    }
+    useEffect(() => {
+        getComunicados();
+    },[])
     return (
         <div>
             <Header/>
@@ -24,7 +36,7 @@ export const Comunicados = () => {
                 <Table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>NUMERO COMUNICADO</th>
                             <th>ASSUNTO</th>
                             <th>DATA ELABORAÇÃO</th>
                             <th>EXECUTOR</th>
@@ -33,18 +45,28 @@ export const Comunicados = () => {
                             <th>AÇÕES</th>                            
                         </tr>
                     </thead>
-                    <tbody>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD>
-                            <ButtonPrimary>Visualizar</ButtonPrimary>
-                            <ButtonPrimary>Editar</ButtonPrimary>
-                            <ButtonPrimary>Apagar</ButtonPrimary>
-                        </LineTD>
+                    <tbody> 
+                        {Object.values(data).map(comunicados =>(
+                            <tr key={comunicados.id_comunicado}>
+                                <LineTD>{comunicados.numero_comunicado}</LineTD>
+                                <LineTD>{comunicados.assunto_comunicado}</LineTD>
+                                <LineTD>{comunicados.datEmissao_comunicado}</LineTD>
+                                <LineTD>{comunicados.executor_comunicado}</LineTD>
+                                <LineTD>{comunicados.area_comunicado}</LineTD>
+                                <LineTD>{comunicados.observacao_comunicado}</LineTD>                           
+                                <LineTD>
+                                        <Link>
+                                            <ButtonPrimary>Visualizar</ButtonPrimary>
+                                        </Link>
+                                        <Link>
+                                            <ButtonPrimary>Editar</ButtonPrimary>
+                                        </Link>
+                                        <Link>
+                                            <ButtonPrimary>Apagar</ButtonPrimary>
+                                        </Link>
+                                </LineTD>                                
+                            </tr>
+                            ))}                        
                     </tbody>
                 </Table>  
             </Container>

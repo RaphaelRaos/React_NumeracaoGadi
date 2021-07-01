@@ -24,18 +24,16 @@ export const Instrucoes = () => {
                 <Table>
                     <thead>
                         <tr>
-                            <th>NUMERO DESPACHO</th>
-                            <th>PROCESSO / SISRAD</th>
-                            <th>UA</th>
-                            <th>UO</th>
+                            <th>NUMERO DA INSTRUÇÃO</th>
                             <th>INTERESSADO</th>
                             <th>ASSUNTO</th>
-                            <th>DATA ENTRADA</th>
-                            <th>OBS</th>                            
+                            <th>DATA EMISSÃO</th>
+                            <th>EXECUTOR</th>
+                            <th>AREA</th>
+                            <th>AÇÕES</th>                            
                         </tr>
                     </thead>
                     <tbody>
-                        <LineTD></LineTD>
                         <LineTD></LineTD>
                         <LineTD></LineTD>
                         <LineTD></LineTD>
