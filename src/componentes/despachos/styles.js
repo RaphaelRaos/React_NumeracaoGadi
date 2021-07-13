@@ -101,7 +101,7 @@ export const TableForm = styled.table`
 `;
 
 export const TextArea = styled.textarea`
-    width: 100%;
+    width: 99%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -113,7 +113,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Input = styled.input`
-    width: 100%;
+    width: 99%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -125,7 +125,7 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
-    width: 100%;
+    width: 99%;
     padding: 12px;
     margin-top: 6px;
     margin-bottom: 16px;
@@ -133,7 +133,7 @@ export const Label = styled.label`
 `;
 
 export const Select = styled.select`
-    width: 100%;
+    width: 99%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -162,5 +162,24 @@ export const DivButton = styled.div`
     text-align: center;
     left: 16em;
     width: 85%;    
+
+`;
+
+export const AlertSuccess = styled.p`
+   background-color: #d1e7dd;
+   color: #0f5132;
+   margin: 20px 0;
+   border: 1px solid #badbcc;
+   border-radius: 4px;
+   padding: 7px;
+`;
+
+export const AlertDanger = styled.p`
+   background-color: #f8d7da;
+   color: #842029;
+   margin: 20px 0;
+   border: 1px solid #f5c2c7;
+   border-radius: 4px;
+   padding: 7px;
 
 `;

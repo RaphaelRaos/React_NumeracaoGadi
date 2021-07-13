@@ -55,12 +55,12 @@ export const Comunicados = () => {
                                 <LineTD>{comunicados.area_comunicado}</LineTD>
                                 <LineTD>{comunicados.observacao_comunicado}</LineTD>                           
                                 <LineTD>
-                                        <Link>
+                                        <Link to = {"/formViewComunicados/" + comunicados.id_comunicado}>
                                             <ButtonPrimary>Visualizar</ButtonPrimary>
-                                        </Link>
-                                        <Link>
+                                        </Link> {" "}
+                                        <Link to = {"/FormEditarComunicados/" + comunicados.id_comunicado}>
                                             <ButtonPrimary>Editar</ButtonPrimary>
-                                        </Link>
+                                        </Link> {" "}
                                         <Link>
                                             <ButtonPrimary>Apagar</ButtonPrimary>
                                         </Link>

@@ -9,7 +9,7 @@ export const Container = styled.section`
     height: 90%;
     list-style-type: none;
     margin: 50;
-    padding: 0;
+    padding: 10px;
     background: #f7f7f7;
     z-index:10;  
     overflow:hidden;
@@ -180,4 +180,9 @@ export const AlertDanger = styled.p`
    border: 1px solid #f5c2c7;
    border-radius: 4px;
    padding: 7px;
+`;
+
+export const ContComunicado = styled.p`    
+    font-size: 23px;
+    color: #3e3e3e;
 `;

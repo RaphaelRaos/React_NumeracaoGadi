@@ -1,9 +1,14 @@
 import React, {useState} from 'react'
+import {useForm} from 'react-hook-form';
 import { Header } from '../header/header';
 import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess} from './styles';
 import { Link } from 'react-router-dom';
 
-export const FormCadComunicado = () => {
+export const FormCadComunicado = () => {   
+    
+    const {register, handleSubmit} = useForm(
+
+  );
 
     const[comunicado, setComunicado] = useState({
         assunto_comunicado: "",
@@ -20,8 +25,10 @@ export const FormCadComunicado = () => {
 
     const valorInput = e => setComunicado({...comunicado,[e.target.name]: e.target.value});
 
-    const cadComunicados = async e => { // conexão com a api
+    const cadComunicados = async e => { // conexão com a api        
+        
         e.preventDefault();
+        //handleSubmit();
         
         await fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/cadastrar_comunicados.php", {
         method:'POST',
@@ -34,18 +41,18 @@ export const FormCadComunicado = () => {
             if(responseJson.erro){
             setStatus({
               type: 'erro',
-              mensagem: responseJson.message
+              mensagem: responseJson.mensagem
             });
           } else {
             setStatus({
-              type: 'erro',
-              mensagem: responseJson.message
+              type: 'success',
+              mensagem: responseJson.mensagem
             });
           }
         }).catch(() => {
           setStatus({
-            type: 'success',
-            mensagem: 'Autorização Governamental Cadastrada com Sucesso !!'
+            type: 'erro',
+            mensagem: 'Comunicado não cadastrado. Contate o Administrador do Sistema!!'
           });
         });
       }
@@ -63,24 +70,27 @@ export const FormCadComunicado = () => {
                         </Link>
                     </BotaoAcao>
                 </ConteudoTitulo>
-                
-                <form onSubmit={cadComunicados} >
+                {status.type === 'erro'? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
+                {status.type === 'success'? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
+                <form onSubmit={handleSubmit(cadComunicados)}>
                     <TableForm >
+                      <tr>
                         <th>
                             <Label>ASSUNTO: </Label>
-                                <Input type="text" name="assunto_comunicado" placeholder="Assunto" onChange={valorInput}></Input>
+                                <Input type="text" name="assunto_comunicado" placeholder="Assunto" onChange={valorInput} ref={register()}></Input>
                             <Label>DATA ELABORAÇÃO: </Label>
-                                <Input type="date" name="data_elaboracao" onChange={valorInput}></Input>
+                                <Input type="date" name="data_elaboracao" onChange={valorInput} ref={register()}></Input>
                             <Label>EXECUTOR: </Label>
-                                <Input type="text" name="executor_comunicado" placeholder="Executor Comunicado" onChange={valorInput}></Input>
+                                <Input type="text" name="executor_comunicado" placeholder="Executor Comunicado" onChange={valorInput} ref={register()}></Input>
                             <Label>AREA: </Label>
-                                <Select name = "setor_comunicado" onChange={valorInput}>
+                                <Select name = "setor_comunicado" onChange={valorInput} ref={register()}>
                                     <option value="#">Selecione</option>
                                     <option>Opção 1</option>                                    
                                 </Select>
                             <Label>OBSERVAÇÃO</Label>
                             <TextArea name = "observacao_comunicado" cols = "50 rows" rows = "5" onChange={valorInput}></TextArea>
                         </th>
+                      </tr>
                     </TableForm>
                     <DivButton>
                         <br></br>
