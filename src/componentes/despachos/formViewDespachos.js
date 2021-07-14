@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess} from './styles';
+import { Container, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess,ContDespachos} from './styles';
 import { Header } from '../header/header';
 import {Link} from 'react-router-dom';
 
@@ -14,7 +14,7 @@ export const FormViewDespachos = (props) => {
             await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/visualizar_despachos.php?id="+ id)
             .then((response) => response.json())
             .then((responseJson) => {
-               setData (responseJson.despachos);
+               setData (responseJson.despacho);
             })
         }
         getDespachos();
@@ -33,7 +33,17 @@ export const FormViewDespachos = (props) => {
                             <ButtonSuccess>Index</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>
-                </ConteudoTitulo>              
+                </ConteudoTitulo>
+                <ContDespachos> NÚMERO DESPACHO: {data.numero_despacho} </ContDespachos>
+                <ContDespachos> NÚMERO SISRAD / PROCESSO : {data.numero_sisrad_processo} </ContDespachos>
+                <ContDespachos> UNIDADE CADASTRANTE: {data.des_ua} </ContDespachos>
+                <ContDespachos> COORDENADORIA: {data.des_ugo} </ContDespachos>
+                <ContDespachos> INTERESSADO: {data.interessado_despacho} </ContDespachos>
+                <ContDespachos> ASSUNTO: {data.assunto_despacho} </ContDespachos>
+                <ContDespachos> DATA DE ENTRADA: {data.datEntrada_despacho} </ContDespachos>
+                <ContDespachos> EXECUTOR: {data.executor_despacho} </ContDespachos>
+                <ContDespachos> SETOR CADASTRANTE: {data.setor} </ContDespachos>
+                <ContDespachos> OBSERVAÇÕES DESPACHO: {data.observacao_despacho} </ContDespachos>
             </Container>
         </div> 
     );

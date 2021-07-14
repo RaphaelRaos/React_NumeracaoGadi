@@ -11,6 +11,7 @@ export const FormCadDespacho = () => {
         des_ugo: "",
         interessado_despacho: "",
         datEntrada_despacho: "",
+        assunto_despacho: "",
         executor_despacho: "",
         setor: "",
         observacao_despacho: ""
@@ -18,6 +19,7 @@ export const FormCadDespacho = () => {
 
     const [nomenclaturaUA, setDestinacao] = useState([]);
     const [nomenclaturaUGO, setOrcamentaria] = useState([]);
+    const [nomenclaturaSetor, setSetor] = useState([]);
         
     const [status,setStatus] = useState({
         type: '', 
@@ -68,9 +70,17 @@ export const FormCadDespacho = () => {
             setOrcamentaria(responseJson.registro_UO);
         })
     }
+    const setores = async() =>{
+        await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+        .then((response) => response.json())
+        .then((responseJson) => {
+            setSetor(responseJson.registro_setor);
+        })
+    }
     useEffect (() => {
         unidadeAdministrativa();
-        unidadeOrcamentaria();   
+        unidadeOrcamentaria();
+        setores(); 
     },[])     
     
     return (
@@ -121,7 +131,9 @@ export const FormCadDespacho = () => {
                                     <Label>SETOR</Label>
                                         <Select onChange={valorInput} name="setor">
                                             <option>Selecione</option>
-                                            <option>OPÇÃO 1</option>  
+                                            {Object.values(nomenclaturaSetor).map(setor => (
+                                                <option key={setor.id_setor}>{setor.nome_setor}</option>
+                                            ))}                                            
                                         </Select>
                                     <Label>OBSERVAÇAO</Label>
                                         <TextArea name = "observacao_despacho" cols = "50 rows" rows = "5" id="" onChange={valorInput} ></TextArea>                                

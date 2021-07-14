@@ -183,3 +183,7 @@ export const AlertDanger = styled.p`
    padding: 7px;
 
 `;
+export const ContDespachos = styled.p`    
+    font-size: 23px;
+    color: #3e3e3e;
+`;

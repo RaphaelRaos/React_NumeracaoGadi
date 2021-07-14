@@ -5,25 +5,36 @@ import './App.css';
 import {Login} from './componentes/login/login'
 import {Menu} from './componentes/menu/menu'
 import {Header} from './componentes/header/header'
+//COMUNICADOS
 import {Comunicados} from './componentes/comunicados/comunicados'
 import {FormCadComunicado} from './componentes/comunicados/formcadastrocomunicados'
 import {FormViewComunicados} from './componentes/comunicados/formViewComunicados'
 import {FormEditComunicados} from './componentes/comunicados/formEditarComunicados'
+//DESPACHOS
 import {Despachos} from './componentes/despachos/despachos'
 import {FormCadDespacho} from './componentes/despachos/formcadastrodespachos'
 import {FormViewDespachos} from './componentes/despachos/formViewDespachos'
+import {FormEditarDespachos} from './componentes/despachos/formEditarDespachos'
+import {FormExcluirDespachos} from './componentes/despachos/formExcluirDespacho'
+//INSTRUÇÕES
 import {Instrucoes} from './componentes/instrucao/instrucoes'
 import {FormCadInstrucao} from './componentes/instrucao/formcadinstrucao'
+//MEMORANDOS
 import {Memorandos} from './componentes/memorando/memorandos'
 import {FormCadMemorando} from './componentes/memorando/formcadmemorando'
+//NÚMERO DE REFERÊNCIA
 import {NumReferencia} from './componentes/numeroReferencia/numeroReferencia'
 import {FormCadNumRef} from './componentes/numeroReferencia/formcadnumreferencia'
+//OCORRÊNCIAS
 import {Ocorrencias} from './componentes/ocorrencias/ocorrencias'
 import {FormCadOcorrencias} from './componentes/ocorrencias/formcadocorrencias'
+//OFÍCIOS
 import {Oficios} from './componentes/oficios/oficios'
 import {FormCadOficios} from './componentes/oficios/formcadoficios'
+//RELAÇÃO DE REMESSA
 import {RelRemessa} from './componentes/relacaoRemessa/relacaoRemessas'
 import {FormCadRelRemessa} from './componentes/relacaoRemessa/formcadrelremessa'
+//RELATÓRIOS
 import {Relatorios} from './componentes/relatorios/relatorios'
 import {FormCadRelatorios} from './componentes/relatorios/formcadrelatorios'
 
@@ -46,6 +57,8 @@ function App() {
           <Route path="/despachos" component={Despachos} />
           <Route path="/formDespachos" component={FormCadDespacho} />
           <Route path="/formViewDespachos/:id" component={FormViewDespachos} />
+          <Route path="/FormEditarDespachos/:id" component={FormEditarDespachos} />
+          <Route path="/FormExcluirDespachos/:id" component={FormExcluirDespachos} />
           {/* INSTRUÇÕES */}
           <Route path="/instrucoes" component={Instrucoes} />
           <Route path="/formInstrucao" component={FormCadInstrucao} />

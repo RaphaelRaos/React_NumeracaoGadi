@@ -51,10 +51,14 @@ export const Despachos = () => {
                          <LineTD>{despachos.assunto_despacho}</LineTD>
                          <LineTD>
                              <Link to = {"/formViewDespachos/" + despachos.id_despacho}>
-                             <ButtonPrimary>Visualizar</ButtonPrimary>
-                             </Link>
-                             <ButtonPrimary>Editar</ButtonPrimary>
+                                <ButtonPrimary>Visualizar</ButtonPrimary>
+                             </Link>{" "}
+                             <Link to = {"/formEditarDespachos/" + despachos.id_despacho}>
+                                <ButtonPrimary>Editar</ButtonPrimary>
+                             </Link>{" "}
+                             <Link to = {"/formExcluirDespachos/"+ despachos.id_despacho}>                        
                              <ButtonPrimary>Apagar</ButtonPrimary>
+                             </Link>
                          </LineTD>
                          </tr>   
                         ))}                        
