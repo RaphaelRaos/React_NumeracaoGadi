@@ -3,7 +3,7 @@ import { Header } from '../header/header';
 import { Link } from 'react-router-dom';
 import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess, ContDespachos } from './styles';
 
-export const FormExcluirDespachos = (props) =>{
+export const FormSaidaDespachos = (props) =>{
 
     const [id_despacho] = useState(props.match.params.id);
     const [numero_sisrad_processo,setProcesso] = useState('');
@@ -77,7 +77,7 @@ export const FormExcluirDespachos = (props) =>{
             <Header/>
             <Container>
                <ConteudoTitulo>
-                    <Titulo>EXCLUIR DESPACHOS</Titulo>
+                    <Titulo>SAÍDA DE DESPACHOS</Titulo>
                     <BotaoAcao>
                         <Link to="/despachos">
                             <ButtonSuccess>Index</ButtonSuccess>

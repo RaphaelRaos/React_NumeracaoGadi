@@ -12,9 +12,10 @@ import {FormViewComunicados} from './componentes/comunicados/formViewComunicados
 import {FormEditComunicados} from './componentes/comunicados/formEditarComunicados'
 //DESPACHOS
 import {Despachos} from './componentes/despachos/despachos'
-import {FormCadDespacho} from './componentes/despachos/formcadastrodespachos'
+import {FormCadDespacho} from './componentes/despachos/formCadastroDespachos'
 import {FormViewDespachos} from './componentes/despachos/formViewDespachos'
 import {FormEditarDespachos} from './componentes/despachos/formEditarDespachos'
+import {FormSaidaDespachos} from './componentes/despachos/formSaidaDespachos'
 import {FormExcluirDespachos} from './componentes/despachos/formExcluirDespacho'
 //INSTRUÇÕES
 import {Instrucoes} from './componentes/instrucao/instrucoes'
@@ -58,6 +59,7 @@ function App() {
           <Route path="/formDespachos" component={FormCadDespacho} />
           <Route path="/formViewDespachos/:id" component={FormViewDespachos} />
           <Route path="/FormEditarDespachos/:id" component={FormEditarDespachos} />
+          <Route path="/FormSaidaDespachos/:id" component={FormSaidaDespachos} />
           <Route path="/FormExcluirDespachos/:id" component={FormExcluirDespachos} />
           {/* INSTRUÇÕES */}
           <Route path="/instrucoes" component={Instrucoes} />
