@@ -1,9 +1,70 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { Header } from '../header/header';
-import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select } from './styles';
+import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess} from './styles';
 import { Link } from 'react-router-dom';
 
 export const FormCadInstrucao = () => {
+
+    const [instrucao, setInstrucao] = useState({
+        interessado_instrucao: "",
+        assunto_instrucao: "",
+        datEmissao_instrucao: "",
+        executor_instrucao: "",
+        setor: "",
+        observacao_instrucao: ""
+    })
+
+    const [status,setStatus] = useState({
+        type: '', 
+        mensagem: ''
+    })
+
+
+    const valorInput = e => setInstrucao({...instrucao,[e.target.name]: e.target.value});
+    
+    const [nomenclaturaSetor, setSetor] = useState([]);
+
+
+    const setores = async() =>{
+        await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+        .then((response) => response.json())
+        .then((responseJson) => {
+            setSetor(responseJson.registro_setor);
+        })
+    }
+
+    useEffect(() => {
+        setores();
+    },[])
+
+    const cadInstrucao = async e => {
+        e.preventDefault();
+
+        await fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/cadastrar_instrucoes.php", {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({instrucao})   
+        })
+        .then((response) => response.json())
+        .then((responseJson) => {
+            if(responseJson.erro){
+                setStatus({
+                  type: 'erro',
+                  mensagem: responseJson.mensagem
+                });
+              } else {
+                setStatus({
+                  type: 'success',
+                  mensagem: responseJson.mensagem
+                });
+              }
+            }).catch(() => {
+              setStatus({
+                type: 'erro',
+                mensagem: 'Instrução. Contate o Administrador do Sistema!!'
+              });
+            });
+    }
 
     return (
         <div>
@@ -17,28 +78,35 @@ export const FormCadInstrucao = () => {
                         </Link>
                     </BotaoAcao>
                 </ConteudoTitulo>
+                {status.type === 'erro'? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
+                {status.type === 'success'? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}                
+            <form onSubmit={cadInstrucao}>
                 <TableForm>
                     <th>
                         <Label>INTERESSADO</Label>
-                            <Input type="text" placeholder="Interessado Instrução" name="interessado_instrucao"></Input>
+                            <Input type="text" placeholder="Interessado Instrução" name="interessado_instrucao" onChange={valorInput}></Input>
                         <Label>ASSUNTO</Label>
-                            <Input type="text" placeholder="Assunto da Instrução" name="assunto_instrucao"></Input>
+                            <Input type="text" placeholder="Assunto da Instrução" name="assunto_instrucao" onChange={valorInput}></Input>
                         <Label>DATA EMISSÃO</Label>
-                            <Input type="date" name="data_instrucao"></Input>
+                            <Input type="date" name="data_instrucao" onChange={valorInput}></Input>
                         <Label>EXECUTOR</Label>
-                            <Input type="text" placeholder="Executor Instrução" name="executor_instrucao"></Input>
+                        <Input type="text" placeholder="Executor "name="executor_instrucao" onChange={valorInput}></Input>
                         <Label>SETOR</Label>
-                            <Select>
-                                <option value="#">Selecione</option>
-                            </Select>
+                                        <Select onChange={valorInput} name="setor">
+                                            <option>Selecione</option>
+                                            {Object.values(nomenclaturaSetor).map(setor => (
+                                                <option key={setor.id_setor}>{setor.nome_setor}</option>
+                                            ))}                                            
+                                        </Select>
                         <Label>OBSERVAÇÃO</Label>
-                            <TextArea name = "observacao_despacho" cols = "50 rows" rows = "5" id=""></TextArea>
+                            <TextArea name = "observacao_despacho" cols = "50 rows" rows = "5" id="" onChange={valorInput}></TextArea>
                     </th>
                 </TableForm>
                 <DivButton>
                     <br></br>
                     <ButtonCadastrar type="submit">Cadastrar</ButtonCadastrar>
                 </DivButton>
+            </form>
                 </Container>
         </div>
     )

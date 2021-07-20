@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../header/header';
 import { Link } from 'react-router-dom';
-import { Container, DivButton, ButtonCadastrar, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input,AlertDanger, AlertSuccess, ContDespachos } from './styles';
+import { Container, DivButton, ButtonCadastrar, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, AlertDanger, AlertSuccess, ContDespachos } from './styles';
 
-export const FormSaidaDespachos = (props) =>{
+export const FormExcluirInstrucao = (props) =>{
 
     const [id_despacho] = useState(props.match.params.id);
     const [numero_sisrad_processo,setProcesso] = useState('');
@@ -14,8 +14,8 @@ export const FormSaidaDespachos = (props) =>{
     const [executor_despacho,setExecutor] = useState('');
     const [setor,setSetor] = useState('');
     const [observacao_despacho,setObservacao] = useState('');
-    const [datSaida_despacho, setSaida] = useState('');  
 
+     
 
 
     const [status, setStatus] = useState({
@@ -23,33 +23,35 @@ export const FormSaidaDespachos = (props) =>{
         mensagem: ''
     })
 
-    const saidaDespacho = async e => {
+    const exclDespacho = async e =>{
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/saida_despachos.php", {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({id_despacho, datSaida_despacho})   
-        }).then((response) => response.json())                   
-        .then((responseJson) => {
-            if(responseJson.erro){
-                setStatus({
-                  type: 'erro',
-                  mensagem: responseJson.mensagem
-                });
-              } else {
-                setStatus({
-                  type: 'success',
-                  mensagem: responseJson.mensagem
-                });
-              }
+        await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/excluir_despachos.php", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({id_despacho,numero_sisrad_processo, des_ua, des_ugo, interessado_despacho, assunto_despacho, executor_despacho, setor, observacao_despacho})
+        }).then((response) => response.json())
+            .then((responseJson) => {
+                if(responseJson.erro){
+                    setStatus({
+                        type:'error',
+                        mensagem:responseJson.mensagem
+                    });
+                } else {
+                    setStatus({
+                        type: 'success',
+                        mensagem: responseJson.mensagem
+                    });
+                }
             }).catch(() => {
-              setStatus({
-                type: 'erro',
-                mensagem: 'Saída não Realizada. Contate o Administrador do Sistema (Erro 1-F)!!'
-              });
-            });
-    }
+                setStatus({ 
+                    type: 'error',
+                    mensagem: "Despacho não Excluído, tente mais tarde!"
+                });
+            });       
+    } 
 
     useEffect(() => {
         const getDespachos = async() => {
@@ -67,7 +69,6 @@ export const FormSaidaDespachos = (props) =>{
             })
         }
         getDespachos();
-
     },[id_despacho]);
     
      return (
@@ -75,9 +76,9 @@ export const FormSaidaDespachos = (props) =>{
             <Header/>
             <Container>
                <ConteudoTitulo>
-                    <Titulo>SAÍDA DE DESPACHOS</Titulo>
+                    <Titulo>EXCLUIR DESPACHOS</Titulo>
                     <BotaoAcao>
-                        <Link to="/despachos">
+                        <Link to="/instrucoes">
                             <ButtonSuccess>Index</ButtonSuccess>
                         </Link>
                     </BotaoAcao>
@@ -85,7 +86,7 @@ export const FormSaidaDespachos = (props) =>{
                 {status.type === 'erro'? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
                 {status.type === 'success'? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
                 
-                <form onSubmit={saidaDespacho}>
+                <form onSubmit={exclDespacho}>
                     <TableForm>
                         <tbody>
                             <tr>
@@ -97,17 +98,14 @@ export const FormSaidaDespachos = (props) =>{
                                     <ContDespachos> ASSUNTO: {assunto_despacho} </ContDespachos>                                
                                     <ContDespachos> EXECUTOR: {executor_despacho} </ContDespachos>
                                     <ContDespachos> SETOR CADASTRANTE: {setor} </ContDespachos>
-                                    <ContDespachos> OBSERVAÇÕES DESPACHO: {observacao_despacho} </ContDespachos>
-                                    <hr></hr>
-                                    <Label>DATA SAIDA</Label>
-                                        <Input type="date" placeholder="" name="datSaida_despacho" value={datSaida_despacho} onChange={e => setSaida(e.target.value)}></Input>                            
+                                    <ContDespachos> OBSERVAÇÕES DESPACHO: {observacao_despacho} </ContDespachos>                              
                                 </th>
                             </tr>                               
                         </tbody>   
                     </TableForm>
                     <DivButton>
                         <br></br>
-                        <ButtonCadastrar type="submit">Saída</ButtonCadastrar>
+                        <ButtonCadastrar type="submit">Excluir</ButtonCadastrar>
                     </DivButton>
                 </form>
 

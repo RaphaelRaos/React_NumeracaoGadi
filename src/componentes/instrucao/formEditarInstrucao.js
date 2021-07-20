@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess } from './styles';
 
 
-export const FormEditarDespachos = (props) => {
+export const FormEditarInstrucao = (props) => {
 
     const [id_despacho] = useState(props.match.params.id);
     const [numero_sisrad_processo,setProcesso] = useState('');
@@ -106,7 +106,7 @@ const setores = async() =>{
                <ConteudoTitulo>
                     <Titulo>EDITAR DESPACHOS</Titulo>
                     <BotaoAcao>
-                        <Link to="/despachos">
+                        <Link to="/instrucoes">
                             <ButtonSuccess>Index</ButtonSuccess>
                         </Link>
                     </BotaoAcao>

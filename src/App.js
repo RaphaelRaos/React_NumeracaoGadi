@@ -19,7 +19,10 @@ import {FormSaidaDespachos} from './componentes/despachos/formSaidaDespachos'
 import {FormExcluirDespachos} from './componentes/despachos/formExcluirDespacho'
 //INSTRUÇÕES
 import {Instrucoes} from './componentes/instrucao/instrucoes'
-import {FormCadInstrucao} from './componentes/instrucao/formcadinstrucao'
+import {FormCadInstrucao} from './componentes/instrucao/formCadInstrucao'
+import {FormViewInstrucao} from './componentes/instrucao/formViewInstrucao'
+import {FormEditarInstrucao} from './componentes/instrucao/formEditarInstrucao'
+import {FormExcluirInstrucao} from './componentes/instrucao/formExcluirInstrucao'
 //MEMORANDOS
 import {Memorandos} from './componentes/memorando/memorandos'
 import {FormCadMemorando} from './componentes/memorando/formcadmemorando'
@@ -64,6 +67,9 @@ function App() {
           {/* INSTRUÇÕES */}
           <Route path="/instrucoes" component={Instrucoes} />
           <Route path="/formInstrucao" component={FormCadInstrucao} />
+          <Route path="/formViewInstrucao/:id" component={FormViewInstrucao} />
+          <Route path="/formEditarInstrucao/:id" component={FormEditarInstrucao} />
+          <Route path="/FormExcluirInstrucao/:id" component={FormExcluirInstrucao} />
           {/* MEMORANDOS*/}
           <Route path="/Memorandos" component={Memorandos} />
           <Route path="/formMemorando" component={FormCadMemorando} />
