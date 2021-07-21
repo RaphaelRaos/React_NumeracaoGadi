@@ -10,14 +10,14 @@ export const FormViewInstrucao = (props) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        const getDespachos = async() => {
+        const getInstrucao = async() => {
             await fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/visualizar_instrucoes.php?id="+ id)
             .then((response) => response.json())
             .then((responseJson) => {
                setData (responseJson.instrucao);
             })
         }
-        getDespachos();
+        getInstrucao();
     },[id]);
     return (
        <div>
@@ -38,7 +38,6 @@ export const FormViewInstrucao = (props) => {
                 <ContDespachos> INTERESSADO : {data.interessado_instrucao} </ContDespachos>
                 <ContDespachos> ASSUNTO : {data.assunto_instrucao} </ContDespachos>
                 <ContDespachos> DATA EMISSÃO : {data.datEmissao_instrucao} </ContDespachos>
-                <ContDespachos> INTERESSADO : {data.interessado_despacho} </ContDespachos>
                 <ContDespachos> EXECUTOR : {data.executor_instrucao} </ContDespachos>
                 <ContDespachos> SETOR : {data.setor} </ContDespachos>
                 <ContDespachos> OBSERVAÇÃO : {data.observacao_instrucao} </ContDespachos>

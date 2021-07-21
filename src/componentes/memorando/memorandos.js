@@ -1,9 +1,22 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary } from './styles';
 import {Link} from 'react-router-dom';
 import { Header } from '../header/header';
 
 export const Memorandos = () => {
+
+    const [data, setData] = useState([])
+
+    const getMemorando = async() => {
+        fetch("http://localhost/dashboard/sistemaNumeracao/memorandos/listar_memorandos.php")
+        .then(response => response.json())
+        .then((responseJSON) =>(
+            setData(responseJSON.registro_memorando)
+        ))
+    }
+    useEffect(() =>{
+        getMemorando();
+    },[])
 
     return (
         <div>
@@ -25,24 +38,25 @@ export const Memorandos = () => {
                         <tr>
                             <th>NUMERO DO MEMORANDO</th>
                             <th>INTERESSADO</th>
-                            <th>ASSUNTO</th>
-                            
-                            <th>EXECUTOR</th>
-                            <th>ÁREA</th>
+                            <th>ASSUNTO</th>                            
                             <th>AÇÕES</th>                                            
                         </tr>
                     </thead>
                     <tbody>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
+                    {Object.values(data).map(memorandos => (
+                            <tr key={memorandos.id_memorando}>
+                        <LineTD>{memorandos.numero_memorando}</LineTD>
+                        <LineTD>{memorandos.interessado_memorando}</LineTD>
+                        <LineTD>{memorandos.assunto_memorando}</LineTD>
                         <LineTD>
-                            <ButtonPrimary>Visualizar</ButtonPrimary>
-                            <ButtonPrimary>Editar</ButtonPrimary>
-                            <ButtonPrimary>Apagar</ButtonPrimary>
+                            <Link to={"/forViewMemorando/" + memorandos.id_memorando}>
+                            <ButtonPrimary>Visualizar</ButtonPrimary> 
+                            </Link>{" "}
+                            <ButtonPrimary>Editar</ButtonPrimary> {" "}
+                            <ButtonPrimary>Apagar</ButtonPrimary> {" "}
                         </LineTD>
+                            </tr>
+                        ))}
                     </tbody>
                 </Table>  
             </Container>

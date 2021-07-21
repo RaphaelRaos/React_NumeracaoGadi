@@ -58,7 +58,7 @@ export const Instrucoes = () => {
                             <Link to ={"/formEditarInstrucao/" + instrucoes.id_instrucao}>
                                 <ButtonPrimary>Editar</ButtonPrimary>
                             </Link> {" "}
-                            <Link to = {"/FormExcluirInstrucao"}> 
+                            <Link to = {"/formExcluirInstrucao/"+ instrucoes.id_instrucao}> 
                             <ButtonPrimary>Excluir</ButtonPrimary>
                             </Link>     
                             

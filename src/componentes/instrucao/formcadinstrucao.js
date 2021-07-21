@@ -88,7 +88,7 @@ export const FormCadInstrucao = () => {
                         <Label>ASSUNTO</Label>
                             <Input type="text" placeholder="Assunto da Instrução" name="assunto_instrucao" onChange={valorInput}></Input>
                         <Label>DATA EMISSÃO</Label>
-                            <Input type="date" name="data_instrucao" onChange={valorInput}></Input>
+                            <Input type="date" name="datEmissao_instrucao" onChange={valorInput}></Input>
                         <Label>EXECUTOR</Label>
                         <Input type="text" placeholder="Executor "name="executor_instrucao" onChange={valorInput}></Input>
                         <Label>SETOR</Label>

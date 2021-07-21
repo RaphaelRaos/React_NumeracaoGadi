@@ -6,17 +6,12 @@ import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo
 
 export const FormEditarInstrucao = (props) => {
 
-    const [id_despacho] = useState(props.match.params.id);
-    const [numero_sisrad_processo,setProcesso] = useState('');
-    const [des_ua,setUA] = useState('');
-    const [des_ugo,setUO] = useState('');
-    const [interessado_despacho,setInteressado] = useState('');
-    const [assunto_despacho,setAssunto] = useState('');
-    const [executor_despacho,setExecutor] = useState('');
+    const [id_instrucao] = useState(props.match.params.id);
+    const [interessado_instrucao,setInteressado] = useState('');
+    const [assunto_instrucao,setAssunto] = useState('');
+    const [executor_instrucao,setExecutor] = useState('');
     const [setor,setSetor] = useState('');
-    const [observacao_despacho,setObservacao] = useState('');
-    const [nomenclaturaUA, setDestinacao] = useState([]);
-    const [nomenclaturaUGO, setOrcamentaria] = useState([]);
+    const [observacao_instrucao,setObservacao] = useState('');
     const [nomenclaturaSetor, setSetorAlteracao] = useState([]);
      
 
@@ -26,15 +21,15 @@ export const FormEditarInstrucao = (props) => {
         mensagem: ''
     })
 
-    const editDespacho = async e =>{
+    const editInstrucao = async e =>{
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/editar_despacho.php", {
+        await fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/editar_instrucoes.php", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({id_despacho,numero_sisrad_processo, des_ua, des_ugo, interessado_despacho, assunto_despacho, executor_despacho, setor, observacao_despacho})
+            body: JSON.stringify({id_instrucao,interessado_instrucao, assunto_instrucao, executor_instrucao, setor, observacao_instrucao})
         }).then((response) => response.json())
             .then((responseJson) => {
                 if(responseJson.erro){
@@ -55,21 +50,8 @@ export const FormEditarInstrucao = (props) => {
                 });
             });       
     }
-    const unidadeAdministrativa = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/unidades/visualizar_ua.php")
-        .then((response) => response.json())
-        .then((responseJson) => {
-            setDestinacao(responseJson.registro_UA);
-        })
-    }
-const unidadeOrcamentaria = async() =>{
-    await fetch("http://localhost/dashboard/sistemaNumeracao/unidades/visualizar_uo.php")
-    .then((response) => response.json())
-    .then((responseJson) => {
-        setOrcamentaria(responseJson.registro_UO);
-    })
-}
-const setores = async() =>{
+
+    const setores = async() =>{
     await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
     .then((response) => response.json())
     .then((responseJson) => {
@@ -78,26 +60,21 @@ const setores = async() =>{
 }
 
     useEffect(() => {
-        const getDespachos = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/visualizar_despachos.php?id="+ id_despacho)
+        const getInstrucoes = async() => {
+            await fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/visualizar_instrucoes.php?id="+ id_instrucao)
             .then((response) => response.json())
             .then((responseJson) => {
-                setProcesso(responseJson.despacho.numero_sisrad_processo)
-                setUA(responseJson.despacho.des_ua)
-                setUO(responseJson.despacho.des_ugo)
-                setInteressado(responseJson.despacho.interessado_despacho)
-                setAssunto(responseJson.despacho.assunto_despacho)
-                setExecutor(responseJson.despacho.executor_despacho)
-                setSetor(responseJson.despacho.setor)
-                setObservacao(responseJson.despacho.observacao_despacho)
+                setInteressado(responseJson.instrucao.interessado_instrucao)
+                setAssunto(responseJson.instrucao.assunto_instrucao)
+                setExecutor(responseJson.instrucao.executor_instrucao)
+                setSetor(responseJson.instrucao.setor)
+                setObservacao(responseJson.instrucao.observacao_instrucao)
             })
         }
-        getDespachos();
+        getInstrucoes();
         setores();
-        unidadeOrcamentaria();
-        unidadeAdministrativa();
 
-    },[id_despacho]);
+    },[id_instrucao]);
     
      return (
         <div>
@@ -114,33 +91,18 @@ const setores = async() =>{
                 {status.type === 'erro'? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
                 {status.type === 'success'? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
                 
-                <form onSubmit={editDespacho}>
+                <form onSubmit={editInstrucao}>
                     <TableForm>
                         <tbody>
                             <tr>
                                 <th>
-                                    <Label>NUMERO SISRAD/PROCESSOR</Label>
-                                        <Input type="text" placeholder="Numero Sisrad / Processo" name="numero_sisrad_processo" value={numero_sisrad_processo} onChange={e => setProcesso(e.target.value)}></Input>
-                                    <Label>UNIDADE ADMINISTRATIVA</Label>                                
-                                        <Select name="des_ua" onChange={e => setUA(e.target.value)}>
-                                            <option value={des_ua}>{des_ua}</option>
-                                            {Object.values(nomenclaturaUA).map(unidadeAdministrativa =>(
-                                                <option key = {unidadeAdministrativa.CodTabUa}>{unidadeAdministrativa.UNIDADE_ADMINISTRATIVA}</option>
-                                            ))}                                                                                     
-                                        </Select>
-                                    <Label>UNIDADE ORÇAMENTÁRIA</Label>                                
-                                        <Select name="des_ugo" onChange={e => setUO(e.target.value)}>
-                                            <option value={des_ugo}>{des_ugo}</option>
-                                        {Object.values(nomenclaturaUGO).map(unidadeOrcamentaria =>(
-                                                <option key = {unidadeOrcamentaria.CodTabUGO}>{unidadeOrcamentaria.UNIDADE_ORCAMENTARIA}</option>
-                                        ))}
-                                        </Select>  
+                                                                         
                                     <Label>INTERESSADO</Label>
-                                        <Input type="text" placeholder="Interessado" name="interessado_despacho" value={interessado_despacho} onChange={e => setInteressado(e.target.value)}></Input>
+                                        <Input type="text" placeholder="Interessado" name="interessado_instrucao" value={interessado_instrucao} onChange={e => setInteressado(e.target.value)}></Input>
                                     <Label>ASSUNTO</Label>
-                                        <Input type="text" placeholder="Assunto Despacho" name="assunto_despacho" value ={assunto_despacho} onChange={e => setAssunto(e.target.value)}></Input>                       
+                                        <Input type="text" placeholder="Assunto Despacho" name="assunto_instrucao" value ={assunto_instrucao} onChange={e => setAssunto(e.target.value)}></Input>                       
                                     <Label>EXECUTOR</Label>
-                                        <Input type="text" placeholder="Interessado" name ="executor_despacho" value={executor_despacho} onChange={e => setExecutor(e.target.value)}></Input>
+                                        <Input type="text" placeholder="Interessado" name ="executor_instrucao" value={executor_instrucao} onChange={e => setExecutor(e.target.value)}></Input>
                                     <Label>SETOR</Label>
                                         <Select name="setor" onChange={e => setSetor(e.target.value)}>
                                             <option value={setor}>{setor}</option>
@@ -149,7 +111,7 @@ const setores = async() =>{
                                         ))}
                                         </Select>
                                     <Label>OBSERVAÇAO</Label>
-                                        <TextArea name = "observacao_despacho" cols = "50 rows" rows = "5" id="" value={observacao_despacho} onChange={e => setObservacao(e.target.value)}></TextArea>                                
+                                        <TextArea name = "observacao_instrucao" cols = "50 rows" rows = "5" id="" value={observacao_instrucao} onChange={e => setObservacao(e.target.value)}></TextArea>                                
                                 </th>
                             </tr>                               
                         </tbody>   
