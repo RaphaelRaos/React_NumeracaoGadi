@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess,ContDespachos} from './styles';
+import { Container, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess,ConteudoInstrucao} from './styles';
 import { Header } from '../header/header';
 import {Link} from 'react-router-dom';
 
@@ -34,13 +34,13 @@ export const FormViewInstrucao = (props) => {
                         </Link>                        
                     </BotaoAcao>
                 </ConteudoTitulo>
-                <ContDespachos> NÚMERO INSTRUÇÃO: {data.numero_instrucao} </ContDespachos>
-                <ContDespachos> INTERESSADO : {data.interessado_instrucao} </ContDespachos>
-                <ContDespachos> ASSUNTO : {data.assunto_instrucao} </ContDespachos>
-                <ContDespachos> DATA EMISSÃO : {data.datEmissao_instrucao} </ContDespachos>
-                <ContDespachos> EXECUTOR : {data.executor_instrucao} </ContDespachos>
-                <ContDespachos> SETOR : {data.setor} </ContDespachos>
-                <ContDespachos> OBSERVAÇÃO : {data.observacao_instrucao} </ContDespachos>
+                <ConteudoInstrucao> NÚMERO INSTRUÇÃO: {data.numero_instrucao} </ConteudoInstrucao>
+                <ConteudoInstrucao> INTERESSADO : {data.interessado_instrucao} </ConteudoInstrucao>
+                <ConteudoInstrucao> ASSUNTO : {data.assunto_instrucao} </ConteudoInstrucao>
+                <ConteudoInstrucao> DATA EMISSÃO : {data.datEmissao_instrucao} </ConteudoInstrucao>
+                <ConteudoInstrucao> EXECUTOR : {data.executor_instrucao} </ConteudoInstrucao>
+                <ConteudoInstrucao> SETOR : {data.setor} </ConteudoInstrucao>
+                <ConteudoInstrucao> OBSERVAÇÃO : {data.observacao_instrucao} </ConteudoInstrucao>
             </Container>
         </div> 
     );

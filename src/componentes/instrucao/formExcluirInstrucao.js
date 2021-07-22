@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../header/header';
 import { Link } from 'react-router-dom';
-import { Container, DivButton, ButtonCadastrar, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, AlertDanger, AlertSuccess, ContDespachos } from './styles';
+import { Container, DivButton, ButtonCadastrar, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, AlertDanger, AlertSuccess, ConteudoInstrucao } from './styles';
 
 export const FormExcluirInstrucao = (props) =>{
 
@@ -87,12 +87,12 @@ export const FormExcluirInstrucao = (props) =>{
                         <tbody>
                             <tr>
                                 <th> 
-                                    <ContDespachos> NÚMERO INSTRUÇÃO: {numero_instrucao} </ContDespachos>                                                            
-                                    <ContDespachos> INTERESSADO: {interessado_instrucao} </ContDespachos>
-                                    <ContDespachos> ASSUNTO: {assunto_instrucao} </ContDespachos>
-                                    <ContDespachos> EXECUTOR: {executor_instrucao} </ContDespachos>                                
-                                    <ContDespachos> SETOR CADASTRANTE: {setor} </ContDespachos>
-                                    <ContDespachos> OBSERVAÇÕES INSTRUÇÃO: {observacao_instrucao} </ContDespachos>                              
+                                    <ConteudoInstrucao> NÚMERO INSTRUÇÃO: {numero_instrucao} </ConteudoInstrucao>                                                            
+                                    <ConteudoInstrucao> INTERESSADO: {interessado_instrucao} </ConteudoInstrucao>
+                                    <ConteudoInstrucao> ASSUNTO: {assunto_instrucao} </ConteudoInstrucao>
+                                    <ConteudoInstrucao> EXECUTOR: {executor_instrucao} </ConteudoInstrucao>                                
+                                    <ConteudoInstrucao> SETOR CADASTRANTE: {setor} </ConteudoInstrucao>
+                                    <ConteudoInstrucao> OBSERVAÇÕES INSTRUÇÃO: {observacao_instrucao} </ConteudoInstrucao>                              
                                 </th>
                             </tr>                               
                         </tbody>   

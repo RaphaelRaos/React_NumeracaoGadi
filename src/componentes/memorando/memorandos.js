@@ -49,11 +49,15 @@ export const Memorandos = () => {
                         <LineTD>{memorandos.interessado_memorando}</LineTD>
                         <LineTD>{memorandos.assunto_memorando}</LineTD>
                         <LineTD>
-                            <Link to={"/forViewMemorando/" + memorandos.id_memorando}>
+                            <Link to={"/formViewMemorando/" + memorandos.id_memorando}>
                             <ButtonPrimary>Visualizar</ButtonPrimary> 
                             </Link>{" "}
-                            <ButtonPrimary>Editar</ButtonPrimary> {" "}
-                            <ButtonPrimary>Apagar</ButtonPrimary> {" "}
+                            <Link to ={"/formEditarMemorando/"+ memorandos.id_memorando}>
+                            <ButtonPrimary>Editar</ButtonPrimary> 
+                            </Link>{" "}
+                            <Link to ={"/formExcluirMemorando/"+ memorandos.id_memorando}>
+                            <ButtonPrimary>Apagar</ButtonPrimary> 
+                            </Link>{" "}
                         </LineTD>
                             </tr>
                         ))}
