@@ -31,7 +31,11 @@ import {FormEditarMemorando} from './componentes/memorando/formEditarMemorando'
 import {FormExcluirMemorando}from './componentes/memorando/formExcluirMemorando'
 //NÚMERO DE REFERÊNCIA
 import {NumReferencia} from './componentes/numeroReferencia/numeroReferencia'
-import {FormCadNumRef} from './componentes/numeroReferencia/formcadnumreferencia'
+import {FormCadNumRef} from './componentes/numeroReferencia/formCadNumReferencia'
+import {FormViewNumRef} from './componentes/numeroReferencia/formViewNumReferencia'
+import {FormEditarNumRef} from './componentes/numeroReferencia/formEditarNumReferencia'
+import {FormSaidaNumRef} from './componentes/numeroReferencia/formSaidaNumReferencia'
+import {FormExcluirNumRef} from './componentes/numeroReferencia/formExcluirNumReferencia'
 //OCORRÊNCIAS
 import {Ocorrencias} from './componentes/ocorrencias/ocorrencias'
 import {FormCadOcorrencias} from './componentes/ocorrencias/formcadocorrencias'
@@ -82,6 +86,10 @@ function App() {
           {/* NUMERO DE REFERÊNCIA - INFORMAÇÃO */}
           <Route path="/NumReferencia" component={NumReferencia} />
           <Route path="/formNumReferencias" component={FormCadNumRef} />
+          <Route path="/formViewNumReferencias/:id" component={FormViewNumRef} />
+          <Route path="/formEditarNumReferencias/:id" component={FormEditarNumRef} />
+          <Route path="/formSaidaNumReferencias/:id" component={FormSaidaNumRef} />
+          <Route path="/formExcluirNumReferencias/:id" component={FormExcluirNumRef} />
           {/* OCORRÊNCIAS */}
           <Route path="/Ocorrencias" component={Ocorrencias} />
           <Route path="/formOcorrencias" component={FormCadOcorrencias} />
