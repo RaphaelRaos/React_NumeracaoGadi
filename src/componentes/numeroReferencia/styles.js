@@ -195,3 +195,15 @@ export const ConteudoReferencia = styled.p`
 export const Tbody = styled.tbody`
     width: 50%;  
 `;
+
+export const InputSaida = styled.input`
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: boder-box;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    resize:vertical;
+`;

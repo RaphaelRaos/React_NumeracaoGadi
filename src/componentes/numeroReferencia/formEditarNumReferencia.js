@@ -188,13 +188,13 @@ export const FormEditarNumRef = (props) => {
                             <Label>OCORRENCIAS</Label>
                                 <TextArea name="ocorrencias_referencia" cols="50 rows" rows = "3" id="" value={ocorrencia_referencia} onChange={e => setOcorrencia(e.target.value)}></TextArea>
                             <Label>DATA DA VIGÊNCIA </Label>
-                                <Input type="date" name="vigencia_referencia" value={vigencia_referencia}></Input>
+                                <Input type="date" name="vigencia_referencia" value={vigencia_referencia} onChange={e => setVigencia(e.target.value)}></Input>
                             <Label>STATUS</Label>
                                 <Select  name="assunto" onChange={e => setAndamento(e.target.value)}>
                                     <option value={status_referencia}>{status_referencia}</option>
                                 </Select>
                             <Label>OBSERVAÇÃO</Label>
-                                <TextArea name = "observacao_referencia" cols = "20 rows" rows = "5" id=""  value={observacao_referencia}></TextArea>
+                                <TextArea name = "observacao_referencia" cols = "20 rows" rows = "5" id=""  value={observacao_referencia} onChange={e => setObservacao(e.target.value)}></TextArea>
                         </TH>
                     </TableForm>
                     <DivButton>

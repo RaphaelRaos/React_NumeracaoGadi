@@ -40,9 +40,7 @@ export const NumReferencia = () => {
                             <th>NUMERO DE REFERÊNCIA</th>
                             <th>PROCESSO / SISRAD</th>
                             <th>UA</th>
-                            <th>ASSUNTO</th>
-                            
-                            <th>VIGÊNCIA</th>
+                            <th>ASSUNTO</th>                       
                             <th>AÇÕES</th>                            
                         </tr>
                     </thead>
@@ -52,19 +50,22 @@ export const NumReferencia = () => {
                                 <LineTD>{referencias.numero_referencia}</LineTD>
                                 <LineTD>{referencias.num_processo_referencia}</LineTD>
                                 <LineTD>{referencias.des_ua}</LineTD>
-                                <LineTD>{referencias.assunto}</LineTD>
-                                
-                                <LineTD>{referencias.vigencia_referencia}</LineTD>                                
+                                <LineTD>{referencias.assunto}</LineTD>           
+                              
                                 <LineTD>
                                     <Link to= {"/formViewNumReferencias/" + referencias.id_referencia}>                                    
-                                    <ButtonPrimary>Visualizar</ButtonPrimary>
+                                        <ButtonPrimary>Visualizar</ButtonPrimary>
                                     </Link> {" "}                                  
                                     <Link to= {"/formEditarNumReferencias/" + referencias.id_referencia}>
-                                    <ButtonPrimary>Editar</ButtonPrimary>
+                                        <ButtonPrimary>Editar</ButtonPrimary>
                                     </Link> {" "}
-                                    <ButtonPrimary>Saída</ButtonPrimary>
+                                    <Link to= {"/formSaidaNumReferencias/" + referencias.id_referencia}>
+                                        <ButtonPrimary>Saída</ButtonPrimary>
+                                    </Link>
                                     {" "}
-                                    <ButtonPrimary>Apagar</ButtonPrimary>
+                                    <Link to= {"/formExcluirNumReferencias/" + referencias.id_referencia}>
+                                    <ButtonPrimary>Excluir</ButtonPrimary>
+                                    </Link>
                                 </LineTD>
                             </tr>  
                         ))}

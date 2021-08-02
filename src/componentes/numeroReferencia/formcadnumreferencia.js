@@ -118,39 +118,39 @@ export const FormCadNumRef = () => {
                     <TableForm>
                         <TH>
                             <Label>NÚMERO PROCESSO / SPDOC / SEM PAPEL</Label>
-                                <Input type="text" placeholder="Número Processo" name="num_processo_referencia" onChange={valorInput}></Input>
+                                <Input type="text" placeholder="Número Processo" name="num_processo_referencia" onChange={valorInput} required minLength='5'></Input>
                             <Label>UNIDADE ADMINISTRATIVA</Label>
-                                <Select name="des_ua" onChange={valorInput}>
+                                <Select name="des_ua" onChange={valorInput} required>
                                                 <option value="">Selecione</option>
                                                 {Object.values(nomenclaturaUA).map(unidadeAdministrativa =>(
                                                     <option key = {unidadeAdministrativa.CodTabUa}>{unidadeAdministrativa.UNIDADE_ADMINISTRATIVA}</option>
                                                 ))}                                           
                                             </Select>
                             <Label>COORDENADORIA</Label>
-                                <Select name="des_uo" onChange={valorInput}>
+                                <Select name="des_uo" onChange={valorInput} required>
                                                 <option value="">Selecione</option>
                                                 {Object.values(nomenclaturaUGO).map(unidadeOrcamentaria =>(
                                                     <option key = {unidadeOrcamentaria.CodTabUGO}>{unidadeOrcamentaria.UNIDADE_ORCAMENTARIA}</option>
                                                 ))}                       
                                  </Select>
                             <Label>INTERESSADO</Label>
-                                <Input type="text" placeholder="Interessado" name="interessado_referencia" onChange={valorInput}></Input>
+                                <Input type="text" placeholder="Interessado" name="interessado_referencia" onChange={valorInput} required></Input>
                             <Label>ASSUNTO</Label>
-                                <Select onChange={valorInput} name="assunto">
-                                    <option>Selecione</option>
+                                <Select onChange={valorInput} name="assunto" required>
+                                    <option value="">Selecione</option>
                                     {Object.values(assuntoReferencia).map(assunto => (
                                         <option key={assunto.id_assunto}> {assunto.assunto}</option>
                                     ))}
                                 </Select>
                             <Label>DATA ENTRADA</Label>
-                                <Input type="date" name="datEntrada_referencia" onChange={valorInput}></Input>
+                                <Input type="date" name="datEntrada_referencia" onChange={valorInput} required></Input>
                             <Label>EXECUTOR</Label>
-                                <Input type="text" placeholder="Executor" name="executor_referencia" onChange={valorInput}></Input>                        
+                                <Input type="text" placeholder="Executor" name="executor_referencia" onChange={valorInput} required></Input>                        
                         </TH>
                         <TH>                    
                             <Label>UNIDADE DE POSSE</Label>
-                                <Select onChange={valorInput} name="posse_referencia">
-                                    <option>Selecione</option>
+                                <Select onChange={valorInput} name="posse_referencia" required>
+                                    <option value="">Selecione</option>
                                         {Object.values(nomenclaturaSetor).map(setor => (
                                             <option key={setor.id_setor}>{setor.nome_setor}</option>
                                         ))}                                            
