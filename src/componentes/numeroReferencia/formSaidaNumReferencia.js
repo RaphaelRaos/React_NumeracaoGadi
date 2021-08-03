@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../header/header';
-import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, TH, AlertDanger, AlertSuccess, ConteudoReferencia, InputSaida } from './styles';
+import { Container, DivButton, ButtonCadastrar,  Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, AlertDanger, AlertSuccess, ConteudoReferencia, InputSaida } from './styles';
 import { Link } from 'react-router-dom';
 
 export const FormSaidaNumRef = (props) => {

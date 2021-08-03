@@ -41,10 +41,16 @@ import {Ocorrencias} from './componentes/ocorrencias/ocorrencias'
 import {FormCadOcorrencias} from './componentes/ocorrencias/formcadocorrencias'
 //OFÍCIOS
 import {Oficios} from './componentes/oficios/oficios'
-import {FormCadOficios} from './componentes/oficios/formcadoficios'
+import {FormCadOficios} from './componentes/oficios/formCadOficios'
+import {FormViewOficio} from './componentes/oficios/formViewOficios'
+import {FormEditarOficio} from './componentes/oficios/formEditarOficios'
+import {FormExcluirOficio} from './componentes/oficios/formExcluirOficios'
 //RELAÇÃO DE REMESSA
 import {RelRemessa} from './componentes/relacaoRemessa/relacaoRemessas'
-import {FormCadRelRemessa} from './componentes/relacaoRemessa/formcadrelremessa'
+import {FormCadRelRemessa} from './componentes/relacaoRemessa/formCadRelRemessa'
+import {FormEditarRelRemessa} from './componentes/relacaoRemessa/formEditarRelRemessa'
+import {FormViewRelRemessa} from './componentes/relacaoRemessa/formViewRelRemessa'
+import {FormExcluirRelRemessa} from './componentes/relacaoRemessa/formExcluirRelRemessa'
 //RELATÓRIOS
 import {Relatorios} from './componentes/relatorios/relatorios'
 import {FormCadRelatorios} from './componentes/relatorios/formcadrelatorios'
@@ -95,10 +101,16 @@ function App() {
           <Route path="/formOcorrencias" component={FormCadOcorrencias} />
           {/* OFÍCIOS */}
           <Route path="/Oficios" component={Oficios} />
-          <Route path="/formOficios" component={FormCadOficios} />
+          <Route path="/formCadOficios" component={FormCadOficios} />
+          <Route path="/formViewOficios/:id" component={FormViewOficio} />
+          <Route path="/formEditarOficios/:id" component={FormEditarOficio} />
+          <Route path="/formExcluirOficios/:id" component={FormExcluirOficio} />
           {/* RELAÇÃO DE REMESSA */}
           <Route path="/RelRemessa" component={RelRemessa} />
-          <Route path="/formRelRemessa" component={FormCadRelRemessa} />
+          <Route path="/FormCadRelRemessa" component={FormCadRelRemessa} />
+          <Route path="/formViewRelRemessa/:id" component={FormEditarRelRemessa} />
+          <Route path="/formEditarRelRemessa/:id" component={FormViewRelRemessa} />
+          <Route path="/formExclurRelRemessa/:id" component={FormExcluirRelRemessa} />
           {/* RELATÓRIOS */}
           <Route path="/Relatorios" component={Relatorios} />
           <Route path="/formRelatorios" component={FormCadRelatorios} />

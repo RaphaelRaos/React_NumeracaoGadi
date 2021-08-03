@@ -25,9 +25,6 @@ export const FormViewMemorando = (props) =>{
             <Header/>
             <Container>
                 <ConteudoTitulo>
-                    <Link to="/menu">
-                            <ButtonSuccess>Menu</ButtonSuccess>
-                    </Link>
                     <Titulo>VISUALIZAR INSTRUÇÕES</Titulo>
                     <BotaoAcao>                            
                         <Link to="/memorandos">
@@ -35,7 +32,7 @@ export const FormViewMemorando = (props) =>{
                         </Link>                        
                     </BotaoAcao>
                 </ConteudoTitulo>
-                <ConteudoMemorando> NÚMERO INSTRUÇÃO: {data.numero_memorando} </ConteudoMemorando>
+                <ConteudoMemorando> NÚMERO MEMORANDO: {data.numero_memorando} </ConteudoMemorando>
                 <ConteudoMemorando> INTERESSADO : {data.interessado_memorando} </ConteudoMemorando>
                 <ConteudoMemorando> ASSUNTO : {data.assunto_memorando} </ConteudoMemorando>
                 <ConteudoMemorando> DATA EMISSÃO : {data.datEmissao_memorando} </ConteudoMemorando>

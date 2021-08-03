@@ -28,7 +28,7 @@ export const Oficios = () => {
                     </Link>
                     <Titulo> OFÍCIOS </Titulo>
                     <BotaoAcao>                            
-                        <Link to ="/formOficios">
+                        <Link to ="/formCadOficios">
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>
@@ -38,7 +38,7 @@ export const Oficios = () => {
                         <tr>
                             <th>NUMERO OFICIO</th>
                             <th>INTERESSADO</th>
-                            <th>DATA </th>
+                            <th>ASSUNTO </th>
                             <th>SETOR</th>
                             <th>AÇÕES</th>                                                     
                         </tr>
@@ -48,12 +48,18 @@ export const Oficios = () => {
                             <tr key={oficios.id_oficio}>                        
                             <LineTD>{oficios.numero_oficio}</LineTD>
                             <LineTD>{oficios.interessado_oficio}</LineTD>
-                            <LineTD>{oficios.datEmissao_oficio}</LineTD>
+                            <LineTD>{oficios.assunto_oficio}</LineTD>
                             <LineTD>{oficios.setor_oficio}</LineTD>
                             <LineTD>
+                                <Link to={"formViewOficios/"+ oficios.id_oficio}>
                                 <ButtonPrimary>Visualizar</ButtonPrimary>
+                                </Link>{" "}
+                                <Link to={"formEditarOficios/"+ oficios.id_oficio}>
                                 <ButtonPrimary>Editar</ButtonPrimary>
-                                <ButtonPrimary>Apagar</ButtonPrimary>
+                                </Link>{" "}
+                                <Link to={"formExcluirOficios/"+ oficios.id_oficio}>
+                                <ButtonPrimary>Excluir</ButtonPrimary>
+                                </Link>
                             </LineTD>
                         </tr>
                         ))}

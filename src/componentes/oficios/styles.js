@@ -164,3 +164,46 @@ export const DivButton = styled.div`
     width: 85%;    
 
 `;
+
+export const TH = styled.th`
+    width: 50%;  
+`;
+
+export const AlertSuccess = styled.p`
+   background-color: #d1e7dd;
+   color: #0f5132;
+   margin: 20px 0;
+   border: 1px solid #badbcc;
+   border-radius: 4px;
+   padding: 7px;
+`;
+
+export const AlertDanger = styled.p`
+   background-color: #f8d7da;
+   color: #842029;
+   margin: 20px 0;
+   border: 1px solid #f5c2c7;
+   border-radius: 4px;
+   padding: 7px;
+
+`;
+
+export const ConteudoOficio = styled.p`    
+    font-size: 23px;
+    color: #3e3e3e;
+`;
+export const Tbody = styled.tbody`
+    width: 50%;  
+`;
+
+export const InputSaida = styled.input`
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: boder-box;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    resize:vertical;
+`;
