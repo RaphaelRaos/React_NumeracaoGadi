@@ -1,9 +1,25 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, {useState, useEffect } from 'react'
+import { AlertDanger, AlertSuccess} from '../oficios/styles'
+import {Link, useHistory} from 'react-router-dom';
 import { Header } from '../header/header';
 
-
 export const Login = () => {
+
+
+    const [login, setLogin] = useState({
+        nome_usuario: null,
+        senha_usuario: null,    
+    
+    });
+
+    
+    const valorInput = e => setLogin({...login,[e.target.name]: e.target.value});
+
+    const [status,setStatus] = useState({
+        type: '', 
+        mensagem: ''
+    })
+
     var body = document.querySelector("body");    
 
    const clickLogar=()=>{
@@ -13,6 +29,34 @@ export const Login = () => {
        return body.className = "sign-up-js"
    }
     
+    const loginUser = async e  => {
+
+        e.preventDefault();
+        await fetch("http://localhost/dashboard/sistemaNumeracao/login/logar_sistema.php", {
+            method: 'POST',
+            headers:{'Content-Type': 'application/json'},
+            body: JSON.stringify({login})
+        })        
+        .then((response) =>response.json())
+        .then((responseJson) =>{           
+            if(responseJson.erro){
+                setStatus({
+                    type: 'erro',
+                    mensagem:responseJson.mensagem                    
+                    
+                });
+            } else {
+                
+                alert("BEN VENIDO A NUEVO SISTEMA DE NUMERACION")
+            }
+        }).catch(() => {
+            setStatus({
+                type: 'erro',
+                mensagem:"OFÍCIO NÃO CADASTRADO - CONTATE O ADMINISTRADOR DO SISTEMA - (ERRO 1-F)"
+            });
+        });                     
+    }
+
     return (
     <div>    
        <Header/>
@@ -50,16 +94,18 @@ export const Login = () => {
                 <div className="second-column">
                     <h2 className="title title-second">Já sou Cadastrado!</h2>
                     <p className="description"> Realize o login com o seu usuário de Rede Cadastrado </p>
-                    <form className="form">
+                    {status.type === 'erro'? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
+                    {status.type === 'success'? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
+                    <form className="form" onSubmit={loginUser}>
                         <label className="label-input" for="">
-                            <input type="text" placeholder="Usuário de Rede" id="usuario_login" name="username"></input>
+                            <input type="text" placeholder="Usuário de Rede" id="usuario_login" name="nome_usuario" onChange={valorInput} ></input>
                         </label>
                         <label className="label-input" for="">
-                            <input type="password" placeholder="Senha" id="senha_login" name="password"></input>
+                            <input type="password" placeholder="Senha" id="senha_login" name="senha_usuario" onChange={valorInput}></input>
                         </label>
                         
                         <Link className="password" id="recuperarsenha">Esqueci a Senha</Link>
-                        <Link to="/Menu"><button className="btn btn-second" id="btn-second">Acessar</button></Link>
+                       <button className="btn btn-second" id="btn-second" type="submit">Acessar</button>
                     </form>
                 </div>
             </div>
