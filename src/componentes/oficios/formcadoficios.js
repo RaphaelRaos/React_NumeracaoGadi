@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react'
 import { Header } from '../header/header';
 import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess} from './styles';
 import { Link } from 'react-router-dom';
+require('dotenv').config(); 
+
+
 
 export const FormCadOficios = () => {
 
@@ -27,8 +30,8 @@ export const FormCadOficios = () => {
         mensagem: ''
     })
 
-    const setores = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+    const setores = async () =>{
+         fetch('http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php')
         .then((response) => response.json())
         .then((responseJson) => {
             setSetor(responseJson.registro_setor);

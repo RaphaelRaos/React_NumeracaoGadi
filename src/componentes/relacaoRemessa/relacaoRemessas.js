@@ -35,18 +35,20 @@ export const RelRemessa = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD></LineTD>
-                        <LineTD>
-                            <ButtonPrimary>Visualizar</ButtonPrimary>
-                            <ButtonPrimary>Editar</ButtonPrimary>
-                            <ButtonPrimary>Apagar</ButtonPrimary>
-                        </LineTD>
+                        <tr>
+                            <LineTD></LineTD>
+                            <LineTD></LineTD>
+                            <LineTD></LineTD>
+                            <LineTD></LineTD>
+                            <LineTD></LineTD>
+                            <LineTD></LineTD>
+                            <LineTD></LineTD>
+                            <LineTD>
+                                <ButtonPrimary>Visualizar</ButtonPrimary>
+                                <ButtonPrimary>Editar</ButtonPrimary>
+                                <ButtonPrimary>Apagar</ButtonPrimary>
+                            </LineTD>
+                        </tr>
                     </tbody>
                 </Table>  
             </Container>

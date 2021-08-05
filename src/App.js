@@ -85,7 +85,7 @@ function App() {
           <Route path="/formExcluirInstrucao/:id" component={FormExcluirInstrucao} />
           {/* MEMORANDOS*/}
           <Route path="/Memorandos" component={Memorandos} />
-          <Route path="/formMemorando" component={FormCadMemorando} />
+          <Route  path="/formMemorando" component={FormCadMemorando} />
           <Route path="/formViewMemorando/:id" component={FormViewMemorando} />
           <Route path="/formEditarMemorando/:id" component={FormEditarMemorando} />
           <Route path="/formExcluirMemorando/:id" component={FormExcluirMemorando} />
@@ -101,7 +101,7 @@ function App() {
           <Route path="/formOcorrencias" component={FormCadOcorrencias} />
           {/* OFÍCIOS */}
           <Route path="/Oficios" component={Oficios} />
-          <Route path="/formCadOficios" component={FormCadOficios} />
+          <Route exact isPrivate path="/formCadOficios" component={FormCadOficios} />
           <Route path="/formViewOficios/:id" component={FormViewOficio} />
           <Route path="/formEditarOficios/:id" component={FormEditarOficio} />
           <Route path="/formExcluirOficios/:id" component={FormExcluirOficio} />

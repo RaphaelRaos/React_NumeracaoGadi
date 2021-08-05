@@ -11,3 +11,5 @@ In the project directory, you can run:
 ### npm install react-router-dom
 
 ### npm install --save styled-components
+
+### npm install --save dotenv

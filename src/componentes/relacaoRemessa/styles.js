@@ -19,7 +19,7 @@ export const Container = styled.section`
 
 export const Table = styled.table `
 
-    width: 99%;
+    width: 100%;
     th{
         background-color: rgb(8, 63, 165);
         color: #fff;
@@ -48,7 +48,7 @@ export const ConteudoTitulo = styled.section`
 
 export const BotaoAcao = styled.section`
     margin: 25px 0px;
-    padding 0px 100px 0px 0px; 
+    padding: 0px 100px 0px 0px; 
         
 `;
 
@@ -67,7 +67,7 @@ export const ButtonSuccess = styled.button`
 `;
 
 export const LineTD = styled.td`
-    border 2px solid rgb(8, 63, 165);
+    border: 2px solid rgb(8, 63, 165);
     text-align: center;
     width: 9%;
 `;
@@ -87,21 +87,37 @@ export const ButtonPrimary = styled.button`
 
 export const TableForm = styled.table`
 
-    width: 99%;
-    height: 70%;
-    th{
-        height: 100%;
-        background-color: #fff;
-        color: rgb(8, 63, 165);
-        padding: 20px;
-        text-align: left;
-        margin: 3px;
-        
+    width: 99%;   
+    
+`;
+
+export const Coluna = styled.td`
+    max-width: 50%;
+    min-width: 40%;
+    @media screen and (max-width: 1132px){
+              
+        position:absolute;
+        top:150px;
+        left:1px;
+        max-width: 100%;
+        min-width: 50%
+    }   
+`;
+
+export const Coluna1 = styled.td`
+    max-width: 50%;
+    min-width: 40%;
+    @media screen and (max-width: 1132px){                
+        position:absolute;
+        top:550px;
+        left:1px;
+        max-width: 100%;
+        min-width: 50%
     }
 `;
 
 export const TextArea = styled.textarea`
-    width: 100%;
+    width: 96%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -113,15 +129,21 @@ export const TextArea = styled.textarea`
 `;
 
 export const Input = styled.input`
-    width: 100%;
+    width: 96%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: boder-box;
     margin-top: 6px;
     margin-bottom: 8px;
+    margin-left: 2px;
     font-size: 16px;
     resize:vertical;
+    @media screen and (max-width: 1132px){
+        max-width: 100%;
+        min-width: 50%
+        
+    }
 `;
 
 export const Label = styled.label`
@@ -130,10 +152,16 @@ export const Label = styled.label`
     margin-top: 6px;
     margin-bottom: 16px;
     font-size: 18px;
+    margin-left: 2px;
+    @media screen and (max-width: 1132px){
+        max-width: 100%;
+        min-width: 50%
+        
+    }
 `;
 
 export const Select = styled.select`
-    width: 100%;
+    width: 96%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -142,6 +170,10 @@ export const Select = styled.select`
     margin-bottom: 8px;
     font-size: 18px;
     resize:vertical;
+    @media screen and (max-width: 1132px){
+        max-width: 100%;
+        min-width: 50%        
+    }
 `;
 
 export const ButtonCadastrar = styled.button`
@@ -154,20 +186,33 @@ export const ButtonCadastrar = styled.button`
     font-size: 20px;
     :hover{
         background-color: rgb(8, 63, 165);;
-        color: #fff;
-    }
+        color: #fff;    }
+
+    
 `;
 export const DivButton = styled.div`
     
     text-align: center;
     left: 16em;
-    width: 85%;    
+    width: 85%;
+    @media screen and (max-width: 1132px){                
+        position:absolute;
+        top:1000px;
+        
+        left:1em;
+        
+    }  
 
 `;
 
-export const TH = styled.th`
+export const Tabela = styled.table`
+    width: 100%;
+    margin-bottom: 0; 
+`;
+export const TR = styled.th`
     width: 50%;  
 `;
+
 
 export const AlertSuccess = styled.p`
    background-color: #d1e7dd;
