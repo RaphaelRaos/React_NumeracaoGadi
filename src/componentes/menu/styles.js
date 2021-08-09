@@ -3,29 +3,18 @@ import styled from 'styled-components';
 
 export const Body = styled.div`
 background-image: radial-gradient(circle, rgba(255,0,0,0), rgb(48, 118, 250));
+align-items: center;
+
+
 `; 
-export const Container = styled.div`    
-    
+
+export const Container = styled.div`   
     
     height: 100vh;
-    align-items: center;
-    justify-content: center; 
-    position: relative;    
-
-`;
-
-export const DivMenu = styled.div`
-        
-    text-align: center;    
-    height: 130px;       
+    display: flex;
+    justify-content:center;
     
-    @media(max-width: 1200px) {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center; 
-        position: relative; 
-    }
+
 `;
 
 export const BotaoMenu = styled.button`
@@ -45,4 +34,25 @@ export const BotaoMenu = styled.button`
         font-size: 15px;        
     }
     
+`;
+
+export const Main = styled.main`
+    
+    
+`;
+
+export const Table = styled.table`
+
+`;
+
+export const TBODY = styled.tbody`
+
+`;
+
+export const TR = styled.tr`
+
+`;
+
+export const TD = styled.td`
+
 `;

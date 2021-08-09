@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header } from '../header/header';
 import {Link} from 'react-router-dom';
-import { Container, BotaoMenu, DivMenu, Body} from './styles';
+import { Container, BotaoMenu, Body, Main, Table, TBODY, TR, TD} from './styles';
 
 
 
@@ -9,27 +9,31 @@ export const Menu = () => {
 
     return (
         <Body>
-         <Header/>
-            <div>
+         <Header/>            
                 <br></br>
                 <Container>
-                    <DivMenu>
-                        <Link to="/comunicados"><BotaoMenu>COMUNICADOS</BotaoMenu></Link>
-                        <Link to ="/despachos"><BotaoMenu>DESPACHOS</BotaoMenu></Link>
-                        <Link to ="/instrucoes"><BotaoMenu>INSTRUÇÕES</BotaoMenu></Link>
-                        <Link to ="/Memorandos"><BotaoMenu>MEMORANDOS</BotaoMenu></Link>
-                    </DivMenu>
-                    <DivMenu>                        
-                        <Link to ="/NumReferencia"><BotaoMenu>NÚMERO DE REFERÊNCIA</BotaoMenu></Link>
-                        <Link to ="/Oficios"><BotaoMenu>OFÍCIOS</BotaoMenu></Link>
-                        <Link to ="/RelRemessa"><BotaoMenu>RELAÇÃO DE REMESSA</BotaoMenu></Link>
-                        <Link to ="/Relatorios"><BotaoMenu>RELATÓRIOS</BotaoMenu></Link>
-                    </DivMenu>
-                    <DivMenu>                      
-
-                    </DivMenu>   
-                </Container>
-            </div>
+                    <Main>
+                        <Table>                            
+                            <TBODY>
+                                <TR>
+                                    <TD><Link to="/comunicados"><BotaoMenu>COMUNICADOS</BotaoMenu></Link></TD>
+                                    <TD><Link to ="/despachos"><BotaoMenu>DESPACHOS</BotaoMenu></Link></TD>
+                                    <TD><Link to ="/instrucoes"><BotaoMenu>INSTRUÇÕES</BotaoMenu></Link></TD>  
+                                </TR>
+                                <TR>
+                                    <TD><Link to ="/Memorandos"><BotaoMenu>MEMORANDOS</BotaoMenu></Link></TD>
+                                    <TD><Link to ="/NumReferencia"><BotaoMenu>NÚMERO DE REFERÊNCIA</BotaoMenu></Link></TD>
+                                    <TD><Link to ="/Oficios"><BotaoMenu>OFÍCIOS</BotaoMenu></Link></TD>
+                                </TR>
+                                <TR>
+                                    <TD><Link to ="/RelRemessa"><BotaoMenu>RELAÇÃO DE REMESSA</BotaoMenu></Link></TD>
+                                    <TD><Link to ="/Relatorios"><BotaoMenu>RELATÓRIOS</BotaoMenu></Link></TD>
+                                    <TD><BotaoMenu></BotaoMenu></TD>
+                                </TR>                                
+                            </TBODY>
+                        </Table>
+                    </Main>                     
+                </Container>            
         </Body>
     );
 }

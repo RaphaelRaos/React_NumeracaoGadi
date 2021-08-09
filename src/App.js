@@ -101,15 +101,15 @@ function App() {
           <Route path="/formOcorrencias" component={FormCadOcorrencias} />
           {/* OFÍCIOS */}
           <Route path="/Oficios" component={Oficios} />
-          <Route exact isPrivate path="/formCadOficios" component={FormCadOficios} />
+          <Route path="/formCadOficios" component={FormCadOficios} />
           <Route path="/formViewOficios/:id" component={FormViewOficio} />
           <Route path="/formEditarOficios/:id" component={FormEditarOficio} />
           <Route path="/formExcluirOficios/:id" component={FormExcluirOficio} />
           {/* RELAÇÃO DE REMESSA */}
           <Route path="/RelRemessa" component={RelRemessa} />
           <Route path="/FormCadRelRemessa" component={FormCadRelRemessa} />
-          <Route path="/formViewRelRemessa/:id" component={FormEditarRelRemessa} />
-          <Route path="/formEditarRelRemessa/:id" component={FormViewRelRemessa} />
+          <Route path="/formViewRelRemessa/:id" component={FormViewRelRemessa} />
+          <Route path="/formEditarRelRemessa/:id" component={FormEditarRelRemessa} />
           <Route path="/formExclurRelRemessa/:id" component={FormExcluirRelRemessa} />
           {/* RELATÓRIOS */}
           <Route path="/Relatorios" component={Relatorios} />

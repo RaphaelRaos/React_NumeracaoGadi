@@ -105,7 +105,9 @@ export const Login = () => {
                         </label>
                         
                         <Link className="password" id="recuperarsenha">Esqueci a Senha</Link>
+                        <Link to={"/menu"}>
                        <button className="btn btn-second" id="btn-second" type="submit">Acessar</button>
+                       </Link>
                     </form>
                 </div>
             </div>

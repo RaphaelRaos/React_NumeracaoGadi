@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { Header } from '../header/header';
-import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, TH, AlertDanger, AlertSuccess } from './styles';
+import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess,Section1, Section2, TBODY } from './styles';
 import { Link } from 'react-router-dom';
 
 export const FormCadNumRef = () => {
@@ -115,8 +115,9 @@ export const FormCadNumRef = () => {
                 {status.type === 'erro'? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
                 {status.type === 'success'? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
                 <form onSubmit={cadReferencia}>
-                    <TableForm>
-                        <TH>
+                    <TableForm>                        
+                        <TBODY>
+                            <Section1>
                             <Label>NÚMERO PROCESSO / SPDOC / SEM PAPEL</Label>
                                 <Input type="text" placeholder="Número Processo" name="num_processo_referencia" onChange={valorInput} required minLength='5'></Input>
                             <Label>UNIDADE ADMINISTRATIVA</Label>
@@ -143,11 +144,12 @@ export const FormCadNumRef = () => {
                                     ))}
                                 </Select>
                             <Label>DATA ENTRADA</Label>
-                                <Input type="date" name="datEntrada_referencia" onChange={valorInput} required></Input>
+                                <Input type="date" name="datEntrada_referencia" onChange={valorInput} required></Input>                        
+                            </Section1>
+                            <Section2>
+                            
                             <Label>EXECUTOR</Label>
-                                <Input type="text" placeholder="Executor" name="executor_referencia" onChange={valorInput} required></Input>                        
-                        </TH>
-                        <TH>                    
+                                <Input type="text" placeholder="Executor" name="executor_referencia" onChange={valorInput} required></Input>  
                             <Label>UNIDADE DE POSSE</Label>
                                 <Select onChange={valorInput} name="posse_referencia" required>
                                     <option value="">Selecione</option>
@@ -158,14 +160,15 @@ export const FormCadNumRef = () => {
                             <Label>DATA DA VIGÊNCIA </Label>
                                 <Input type="date" name="vigencia_referencia" onChange={valorInput}></Input>
                             <Label>OBSERVAÇÃO</Label>
-                                <TextArea name = "observacao_referencia" cols = "50 rows" rows = "5" id="" onChange={valorInput}></TextArea>
-                        </TH>
+                                <TextArea name = "observacao_referencia" cols = "50 rows" rows = "8" id="" onChange={valorInput}></TextArea>
+                            </Section2>
+                        </TBODY>                        
                     </TableForm>
                     <DivButton>
                         <br></br>
                             <ButtonCadastrar type="submit">Cadastrar</ButtonCadastrar>
                         <br></br>
-                        <br></br>
+                        
                     </DivButton>
                 </form>
                 </Container>

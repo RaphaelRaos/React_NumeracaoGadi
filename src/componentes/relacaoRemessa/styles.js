@@ -233,7 +233,7 @@ export const AlertDanger = styled.p`
 
 `;
 
-export const ConteudoOficio = styled.p`    
+export const ConteudoRemessa = styled.p`    
     font-size: 23px;
     color: #3e3e3e;
 `;

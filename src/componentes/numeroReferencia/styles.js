@@ -67,7 +67,7 @@ export const ButtonSuccess = styled.button`
 `;
 
 export const LineTD = styled.td`
-    border 2px solid rgb(8, 63, 165);
+    border: 2px solid rgb(8, 63, 165);
     text-align: center;
     width: 9%;
 `;
@@ -88,20 +88,21 @@ export const ButtonPrimary = styled.button`
 export const TableForm = styled.table`
 
     width: 99%;
-    height: 70%;
-    th{
+    height: 80%;
+    
+    tbody{
         height: 100%;
         background-color: #fff;
         color: rgb(8, 63, 165);
         padding: 20px;
         text-align: left;
-        margin: 3px;
+        margin-top: 10px;
         
     }
 `;
 
 export const TextArea = styled.textarea`
-    width: 100%;
+    width: 99%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -113,7 +114,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Input = styled.input`
-    width: 100%;
+    width: 99%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -192,9 +193,6 @@ export const ConteudoReferencia = styled.p`
     font-size: 23px;
     color: #3e3e3e;
 `;
-export const Tbody = styled.tbody`
-    width: 50%;  
-`;
 
 export const InputSaida = styled.input`
     width: 70%;
@@ -206,4 +204,18 @@ export const InputSaida = styled.input`
     margin-bottom: 8px;
     font-size: 16px;
     resize:vertical;
+`;
+
+export const TBODY = styled.tbody`
+    margin-top: 10px;
+`;
+
+export const Section1 = styled.section`
+    float: left;
+    width: 48%;
+`;
+
+export const Section2 = styled.section`
+    float: right;
+    width: 50%;
 `;
