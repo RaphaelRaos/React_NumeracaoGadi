@@ -5,6 +5,8 @@ import './App.css';
 import {Login} from './componentes/login/login'
 import {Menu} from './componentes/menu/menu'
 import {Header} from './componentes/header/header'
+import {Pesquisa} from './componentes/pesquisa/pesquisa'
+
 //COMUNICADOS
 import {Comunicados} from './componentes/comunicados/comunicados'
 import {FormCadComunicado} from './componentes/comunicados/formcadastrocomunicados'
@@ -65,6 +67,7 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route path="/menu" component={Menu}/>
           <Route path="/header" component={Header}/>
+          <Route path="/pesquisa" component={Pesquisa} />
           {/* COMUNICADOS */}
           <Route path="/comunicados" component={Comunicados} />
           <Route path="/formComunicados" component={FormCadComunicado} />

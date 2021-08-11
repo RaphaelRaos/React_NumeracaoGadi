@@ -1,7 +1,8 @@
 import React, { useEffect, useState} from 'react';
-import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary } from './styles';
+import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, FormPesquisa, InputPesquisa } from './styles';
 import {Link} from 'react-router-dom';
 import { Header } from '../header/header';
+
 
 
 export const NumReferencia = () => {
@@ -9,16 +10,17 @@ export const NumReferencia = () => {
     const [data, setData] = useState([])
 
     const getReferencia = async() => {
-        fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/listar_referencia.php")
+        fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/newListar_referencia.php")
         .then(response => response.json())
-        .then((responseJSON) =>(
-            setData(responseJSON.registro_referencia)
+        .then((responJSON) => (
+            setData(responJSON.registro_referencia)
         ))
     }
-    useEffect(() =>{
+    useEffect(() => {
         getReferencia();
     },[])
-
+    
+    
     return (
         <div>
             <Header />
@@ -33,7 +35,13 @@ export const NumReferencia = () => {
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>
-                </ConteudoTitulo> 
+                </ConteudoTitulo>
+                <div>
+            <FormPesquisa>           
+                    <InputPesquisa type="text" name="pesquisar" ></InputPesquisa>            
+            </FormPesquisa>
+        </div>
+                        
                 <Table>
                     <thead>
                         <tr>

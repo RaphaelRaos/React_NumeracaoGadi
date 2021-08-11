@@ -5,20 +5,22 @@ import {Link} from 'react-router-dom';
 
 export const FormViewRelRemessa = (props) => {
 
-    const [id] = useState(props.match.params.id);
+    const [id_remessa] = useState(props.match.params.id);
 
+    
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        const getRemessa = async() =>  {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/relacao_remessa/visualizar_remessas.php?id="+id)
+        const getRemessa = async() => {
+            await fetch("http://localhost/dashboard/sistemaNumeracao/relacao_remessa/visualizar_remessas.php?id="+ id_remessa)
             .then((response) => response.json())
             .then((responseJson) => {
-                setData(responseJson.mensagem.registro_remessa);
+               setData (responseJson.mensagem);
+               
             })
         }
         getRemessa();
-    },[id]);
+    },[id_remessa]);
 
     return (
         <>

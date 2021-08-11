@@ -8,11 +8,11 @@ export const RelRemessa = () => {
 
     const [data, setData] = useState([])
 
-    const getRemessa = async () => {
+    const getRemessa = async() => {
         fetch("http://localhost/dashboard/sistemaNumeracao/relacao_remessa/listar_remessa.php")
         .then(response => response.json())
-        .then((responseJson) => (
-            setData(responseJson.registro_remessa)
+        .then((responJSON) => (
+            setData(responJSON.registro_remessa)
         ))
     }
     useEffect(() => {
@@ -46,21 +46,21 @@ export const RelRemessa = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.values(data).map(remessa => (
-                            <tr key={remessa.id_remessa}>
-                            <LineTD>{remessa.numero_remessa}</LineTD>
-                            <LineTD>{remessa.numProcesso_remessa}</LineTD>                            
-                            <LineTD>{remessa.des_ua}</LineTD>
-                            <LineTD>{remessa.interessado_remessa}</LineTD>
-                            <LineTD>{remessa.assunto_remessa}</LineTD>                            
+                        {Object.values(data).map(remessas => (
+                            <tr key={remessas.id_remessa}>
+                            <LineTD>{remessas.numero_remessa}</LineTD>
+                            <LineTD>{remessas.numProcesso_remessa}</LineTD>                            
+                            <LineTD>{remessas.des_ua}</LineTD>
+                            <LineTD>{remessas.interessado_remessa}</LineTD>
+                            <LineTD>{remessas.assunto_remessa}</LineTD>                            
                             <LineTD>
-                                <Link to={"FormViewRelRemessa/" + remessa.id_remessa}>
+                                <Link to={"FormViewRelRemessa/" + remessas.id_remessa}>
                                 <ButtonPrimary>Visualizar</ButtonPrimary>
                                 </Link> {" "}
-                                <Link to={"formEditarRelRemessa/" + remessa.id_remessa}>
+                                <Link to={"formEditarRelRemessa/" + remessas.id_remessa}>
                                 <ButtonPrimary>Editar</ButtonPrimary>
                                 </Link> {" "}
-                                <Link to={"formExclurRelRemessa/" + remessa.id_remessa} >                                
+                                <Link to={"formExclurRelRemessa/" + remessas.id_remessa} >                                
                                 <ButtonPrimary>Apagar</ButtonPrimary>
                                 </Link>
                             </LineTD>
