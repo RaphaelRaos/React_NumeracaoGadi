@@ -61,7 +61,7 @@ export const Comunicados = () => {
                                         <Link to = {"/FormEditarComunicados/" + comunicados.id_comunicado}>
                                             <ButtonPrimary>Editar</ButtonPrimary>
                                         </Link> {" "}
-                                        <Link>
+                                        <Link to = {"/FormExcluirComunicados/" + comunicados.id_comunicado}>
                                             <ButtonPrimary>Apagar</ButtonPrimary>
                                         </Link>
                                 </LineTD>                                

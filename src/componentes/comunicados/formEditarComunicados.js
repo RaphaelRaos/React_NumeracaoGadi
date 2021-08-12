@@ -6,12 +6,12 @@ import { Link } from 'react-router-dom';
 
 export const FormEditComunicados = (props) => {
 
-    const [id] = useState(props.match.params.id);
-    const [assunto, setAssunto] = useState('');
-    const [datEmissao, setData] = useState('');
-    const [executor, setExecutor] = useState('');
-    const [setor, setSetor] = useState('');
-    const [observacao, setObservacao] = useState('');
+    const [id_comunicado] = useState(props.match.params.id);
+    const [assunto_comunicado, setAssunto] = useState('');
+    const [datEmissao_comunicado, setData] = useState('');
+    const [executor_comunicado, setExecutor] = useState('');
+    const [area_comunicado, setSetor] = useState('');
+    const [observacao_comunicado, setObservacao] = useState('');
     
     
     const [status, setStatus] = useState ({
@@ -27,7 +27,7 @@ export const FormEditComunicados = (props) => {
            headers: {
             'Content-Type': 'application/json'
            },
-           body: JSON.stringify({id, assunto,datEmissao , executor , setor, observacao})
+           body: JSON.stringify({id_comunicado, assunto_comunicado,datEmissao_comunicado , executor_comunicado , area_comunicado, observacao_comunicado})
         }).then((response) => response.json())
         .then((responseJson ) => {
             if(responseJson.erro){
@@ -53,7 +53,7 @@ export const FormEditComunicados = (props) => {
 
     useEffect(() => {
         const getComunicados = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/visualizar_comunicados.php?id="+ id)
+            await fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/visualizar_comunicados.php?id="+ id_comunicado)
             .then((response) => response.json())
             .then((responseJson) => {
                 console.log(responseJson);
@@ -66,7 +66,7 @@ export const FormEditComunicados = (props) => {
             })
         }
         getComunicados();
-    },[id]);
+    },[id_comunicado]);
     return (
         <div>
             <Header />
@@ -87,18 +87,18 @@ export const FormEditComunicados = (props) => {
                         <tr>
                             <th>
                                 <Label>ASSUNTO: </Label>
-                                <Input type="text" name="assunto_comunicado" placeholder="Assunto" value={assunto} onChange={e => setAssunto(e.target.value)}></Input>
+                                <Input type="text" name="assunto_comunicado" placeholder="Assunto" value={assunto_comunicado} onChange={e => setAssunto(e.target.value)}></Input>
                                 <Label>DATA ELABORAÇÃO: </Label>
-                                <Input type="date" name="data_elaboracao" value={datEmissao} onChange={e => setData(e.target.value)}></Input>
+                                <Input type="date" name="data_elaboracao" value={datEmissao_comunicado} onChange={e => setData(e.target.value)}></Input>
                                 <Label>EXECUTOR: </Label>
-                                <Input type="text" name="executor_comunicado" placeholder="Executor Comunicado" value={executor} onChange={e => setExecutor(e.target.value)}></Input>
+                                <Input type="text" name="executor_comunicado" placeholder="Executor Comunicado" value={executor_comunicado} onChange={e => setExecutor(e.target.value)}></Input>
                                 <Label>AREA: </Label>
                                 <Select name="setor_comunicado" onChange={e => setSetor(e.target.value)}>
-                                    <option >{setor}</option>
+                                    <option >{area_comunicado}</option>
                                     <option>Opção 1</option>
                                 </Select>
                                 <Label>OBSERVAÇÃO</Label>
-                                <TextArea name="observacao_comunicado" cols="50 rows" rows="5" value={observacao} onChange={e => setObservacao(e.target.value)}></TextArea>
+                                <TextArea name="observacao_comunicado" cols="50 rows" rows="5" value={observacao_comunicado} onChange={e => setObservacao(e.target.value)}></TextArea>
                             </th>
                         </tr>
                     </TableForm>

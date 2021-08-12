@@ -12,6 +12,7 @@ import {Comunicados} from './componentes/comunicados/comunicados'
 import {FormCadComunicado} from './componentes/comunicados/formcadastrocomunicados'
 import {FormViewComunicados} from './componentes/comunicados/formViewComunicados'
 import {FormEditComunicados} from './componentes/comunicados/formEditarComunicados'
+import {FormExcluirComunicados} from './componentes/comunicados/formExcluirComunicado'
 //DESPACHOS
 import {Despachos} from './componentes/despachos/despachos'
 import {FormCadDespacho} from './componentes/despachos/formCadastroDespachos'
@@ -73,6 +74,7 @@ function App() {
           <Route path="/formComunicados" component={FormCadComunicado} />
           <Route path="/formViewComunicados/:id" component={FormViewComunicados} />
           <Route path="/formEditarComunicados/:id" component={FormEditComunicados} />
+          <Route path="/formExcluirComunicados/:id" component={FormExcluirComunicados} />
           {/* DESPACHOS */}
           <Route path="/despachos" component={Despachos} />
           <Route path="/formDespachos" component={FormCadDespacho} />
