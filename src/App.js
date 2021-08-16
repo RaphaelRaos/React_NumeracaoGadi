@@ -69,6 +69,7 @@ function App() {
           <Route path="/menu" component={Menu}/>
           <Route path="/header" component={Header}/>
           <Route path="/pesquisa" component={Pesquisa} />
+
           {/* COMUNICADOS */}
           <Route path="/comunicados" component={Comunicados} />
           <Route path="/formComunicados" component={FormCadComunicado} />

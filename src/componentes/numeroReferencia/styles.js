@@ -220,12 +220,6 @@ export const Section2 = styled.section`
     width: 50%;
 `;
 
-export const FormPesquisa = styled.form`
-    display: flex;
-    justify-content:center;
-`; 
-
-
 export const InputPesquisa = styled.input`
 
     width: 50%;
@@ -247,4 +241,10 @@ export const LabelPesquisa = styled.label`
     margin-bottom: 16px;
     font-size: 18px;
 `;
+
+export const SectionPesquisar = styled.section`
+
+    display: flex;
+    justify-content:center;
+`; 
 

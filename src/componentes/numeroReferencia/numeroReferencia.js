@@ -1,25 +1,43 @@
 import React, { useEffect, useState} from 'react';
-import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, FormPesquisa, InputPesquisa } from './styles';
+import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, InputPesquisa, SectionPesquisar } from './styles';
 import {Link} from 'react-router-dom';
+
 import { Header } from '../header/header';
 
 
 
-export const NumReferencia = () => {
+export const NumReferencia = () => {    
 
-    const [data, setData] = useState([])
+      
 
-    const getReferencia = async() => {
-        fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/newListar_referencia.php")
-        .then(response => response.json())
-        .then((responJSON) => (
-            setData(responJSON.registro_referencia)
-        ))
+    const pesquisaDinamica = (input) => {
+        
+       fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/newListar_referencia.php",{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({input})
+        }).then((response) => response.json())
+        .then((responseJson) => {            
+            setData(responseJson)       
+        })
+        
     }
-    useEffect(() => {
-        getReferencia();
+        
+    useEffect(() =>{
+        
+        const getMemorando = async() => {
+            fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/newListar_referencia.php")
+            .then(response => response.json())
+            .then((responseJSON) =>(
+                setData(responseJSON)
+            ))
+        }
+        getMemorando();
     },[])
-    
+
+    const [data, setData] = useState([])      
     
     return (
         <div>
@@ -36,12 +54,12 @@ export const NumReferencia = () => {
                         </Link>                        
                     </BotaoAcao>
                 </ConteudoTitulo>
-                <div>
-            <FormPesquisa>           
-                    <InputPesquisa type="text" name="pesquisar" ></InputPesquisa>            
-            </FormPesquisa>
-        </div>
-                        
+                <div>            
+                    <SectionPesquisar>
+                        <InputPesquisa type="text" name="pesquisa" placeholder="PESQUISAR" onChange={ e=> pesquisaDinamica(e.target.value)}></InputPesquisa> 
+                    </SectionPesquisar>         
+            
+        </div>                                    
                 <Table>
                     <thead>
                         <tr>
@@ -53,30 +71,25 @@ export const NumReferencia = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {Object.values(data).map(referencias => (
-                            <tr key={referencias.id_referencia}>                      
-                                <LineTD>{referencias.numero_referencia}</LineTD>
-                                <LineTD>{referencias.num_processo_referencia}</LineTD>
-                                <LineTD>{referencias.des_ua}</LineTD>
-                                <LineTD>{referencias.assunto}</LineTD>           
-                              
-                                <LineTD>
-                                    <Link to= {"/formViewNumReferencias/" + referencias.id_referencia}>                                    
-                                        <ButtonPrimary>Visualizar</ButtonPrimary>
-                                    </Link> {" "}                                  
-                                    <Link to= {"/formEditarNumReferencias/" + referencias.id_referencia}>
-                                        <ButtonPrimary>Editar</ButtonPrimary>
-                                    </Link> {" "}
-                                    <Link to= {"/formSaidaNumReferencias/" + referencias.id_referencia}>
-                                        <ButtonPrimary>Saída</ButtonPrimary>
-                                    </Link>
-                                    {" "}
-                                    <Link to= {"/formExcluirNumReferencias/" + referencias.id_referencia}>
-                                    <ButtonPrimary>Excluir</ButtonPrimary>
-                                    </Link>
-                                </LineTD>
-                            </tr>  
-                        ))}
+                    {Object.values(data).map(memorandos => (
+                            <tr key={memorandos.id_referencia}>
+                        <LineTD>{memorandos.numero_referencia}</LineTD>
+                        <LineTD>{memorandos.num_processo_referencia}</LineTD>
+                        <LineTD>{memorandos.des_ua}</LineTD>
+                        <LineTD>{memorandos.assunto}</LineTD>
+                        <LineTD>
+                            <Link to={"/formViewMemorando/" + memorandos.id_memorando}>
+                            <ButtonPrimary>Visualizar</ButtonPrimary> 
+                            </Link>{" "}
+                            <Link to ={"/formEditarMemorando/"+ memorandos.id_memorando}>
+                            <ButtonPrimary>Editar</ButtonPrimary> 
+                            </Link>{" "}
+                            <Link to ={"/formExcluirMemorando/"+ memorandos.id_memorando}>
+                            <ButtonPrimary>Apagar</ButtonPrimary> 
+                            </Link>{" "}
+                        </LineTD>
+                            </tr>
+                        ))} 
                     </tbody>
                 </Table>  
             </Container>
