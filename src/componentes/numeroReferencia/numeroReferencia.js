@@ -57,9 +57,8 @@ export const NumReferencia = () => {
                 <div>            
                     <SectionPesquisar>
                         <InputPesquisa type="text" name="pesquisa" placeholder="PESQUISAR" onChange={ e=> pesquisaDinamica(e.target.value)}></InputPesquisa> 
-                    </SectionPesquisar>         
-            
-        </div>                                    
+                    </SectionPesquisar>             
+                </div>                                    
                 <Table>
                     <thead>
                         <tr>
@@ -71,20 +70,20 @@ export const NumReferencia = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    {Object.values(data).map(memorandos => (
-                            <tr key={memorandos.id_referencia}>
-                        <LineTD>{memorandos.numero_referencia}</LineTD>
-                        <LineTD>{memorandos.num_processo_referencia}</LineTD>
-                        <LineTD>{memorandos.des_ua}</LineTD>
-                        <LineTD>{memorandos.assunto}</LineTD>
+                    {Object.values(data).map(referencia => (
+                            <tr key={referencia.id_referencia}>
+                        <LineTD>{referencia.numero_referencia}</LineTD>
+                        <LineTD>{referencia.num_processo_referencia}</LineTD>
+                        <LineTD>{referencia.des_ua}</LineTD>
+                        <LineTD>{referencia.assunto}</LineTD>
                         <LineTD>
-                            <Link to={"/formViewMemorando/" + memorandos.id_memorando}>
+                            <Link to={"/formViewMemorando/" + referencia.id_memorando}>
                             <ButtonPrimary>Visualizar</ButtonPrimary> 
                             </Link>{" "}
-                            <Link to ={"/formEditarMemorando/"+ memorandos.id_memorando}>
+                            <Link to ={"/formEditarMemorando/"+ referencia.id_memorando}>
                             <ButtonPrimary>Editar</ButtonPrimary> 
                             </Link>{" "}
-                            <Link to ={"/formExcluirMemorando/"+ memorandos.id_memorando}>
+                            <Link to ={"/formExcluirMemorando/"+ referencia.id_memorando}>
                             <ButtonPrimary>Apagar</ButtonPrimary> 
                             </Link>{" "}
                         </LineTD>
