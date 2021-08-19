@@ -10,9 +10,9 @@ export const NumReferencia = () => {
 
       
 
-    const pesquisaDinamica = (input) => {
+    const pesquisaNumeroReferencia = (input) => {
         
-       fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/newListar_referencia.php",{
+       fetch(process.env.REACT_APP_LISTAR_REFERENCIAS,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -28,7 +28,7 @@ export const NumReferencia = () => {
     useEffect(() =>{
         
         const getMemorando = async() => {
-            fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/newListar_referencia.php")
+            fetch(process.env.REACT_APP_LISTAR_REFERENCIAS)
             .then(response => response.json())
             .then((responseJSON) =>(
                 setData(responseJSON)
@@ -56,7 +56,7 @@ export const NumReferencia = () => {
                 </ConteudoTitulo>
                 <div>            
                     <SectionPesquisar>
-                        <InputPesquisa type="text" name="pesquisa" placeholder="PESQUISAR" onChange={ e=> pesquisaDinamica(e.target.value)}></InputPesquisa> 
+                        <InputPesquisa type="text" name="pesquisa" placeholder="PESQUISAR" onChange={ e=> pesquisaNumeroReferencia(e.target.value)}></InputPesquisa> 
                     </SectionPesquisar>             
                 </div>                                    
                 <Table>
@@ -77,13 +77,16 @@ export const NumReferencia = () => {
                         <LineTD>{referencia.des_ua}</LineTD>
                         <LineTD>{referencia.assunto}</LineTD>
                         <LineTD>
-                            <Link to={"/formViewMemorando/" + referencia.id_memorando}>
+                            <Link to={"/formViewNumReferencias/" + referencia.id_referencia}>
                             <ButtonPrimary>Visualizar</ButtonPrimary> 
                             </Link>{" "}
-                            <Link to ={"/formEditarMemorando/"+ referencia.id_memorando}>
+                            <Link to ={"/formEditarNumReferencias/"+ referencia.id_referencia}>
                             <ButtonPrimary>Editar</ButtonPrimary> 
                             </Link>{" "}
-                            <Link to ={"/formExcluirMemorando/"+ referencia.id_memorando}>
+                            <Link to ={"/formSaidaNumReferencias/"+ referencia.id_referencia}>
+                            <ButtonPrimary>Saída</ButtonPrimary> 
+                            </Link>{" "}
+                            <Link to ={"/formExcluirNumReferencias/"+ referencia.id_referencia}>
                             <ButtonPrimary>Apagar</ButtonPrimary> 
                             </Link>{" "}
                         </LineTD>

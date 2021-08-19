@@ -17,7 +17,7 @@ export const FormExcluirComunicados = (props) => {
     const excluirComunicado = async e =>{
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/excluir_comunicado.php", {
+        await fetch(process.env.REACT_APP_EXCLUIR_COMUNICADO, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ export const FormExcluirComunicados = (props) => {
 
     useEffect(() => {
         const getComunicados = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/visualizar_comunicados.php?id="+ id_comunicado)
+            await fetch(process.env.REACT_APP_VISUALIZAR_COMUNICADO + id_comunicado)
             .then((response) => response.json())
             .then((responseJson) => {
                setData (responseJson.comunicado);

@@ -20,7 +20,7 @@ export const FormSaidaNumRef = (props) => {
     const saidaNumReferencia = async e => {
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/saida_referencia.php", {
+        await fetch(process.env.REACT_APP_SAIDA_REFERENCIA, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({id_referencia, datSaida_numReferencia})
@@ -48,7 +48,7 @@ export const FormSaidaNumRef = (props) => {
 
     useEffect(() => {
         const getNumReferencia = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/visualizar_referencia.php?id=" + id_referencia)
+            await fetch(process.env.REACT_APP_VISUALIZAR_REFERENCIA + id_referencia)
                 .then((response) => response.json())
                 .then((responseJson) => {
                     setData(responseJson.numeroReferencia)

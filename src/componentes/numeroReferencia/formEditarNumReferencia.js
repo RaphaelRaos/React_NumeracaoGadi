@@ -34,7 +34,7 @@ export const FormEditarNumRef = (props) => {
     const editNumReferencia = async e =>{
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/editar_referencia.php",{
+        await fetch(process.env.REACT_APP_EDITAR_REFERENCIAS,{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ export const FormEditarNumRef = (props) => {
     }
 
     const assuntoTabela = async() => {
-        await fetch("http://localhost/dashboard/sistemaNumeracao/assuntos/visualizar_assunto.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_ASSUNTO)
         .then((response) => response.json())
         .then((responseJson) => {
             setAssunto(responseJson.registro_assunto);
@@ -71,7 +71,7 @@ export const FormEditarNumRef = (props) => {
     }
     
     const unidadeAdministrativa = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/unidades/visualizar_ua.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_UA)
         .then((response) => response.json())
         .then((responseJson) => {
             setDestinacao(responseJson.registro_UA);
@@ -79,7 +79,7 @@ export const FormEditarNumRef = (props) => {
     }
 
     const unidadeOrcamentaria = async() =>{
-    await fetch("http://localhost/dashboard/sistemaNumeracao/unidades/visualizar_uo.php")
+    await fetch(process.env.REACT_APP_VISUALIZAR_UO)
     .then((response) => response.json())
     .then((responseJson) => {
         setOrcamentaria(responseJson.registro_UO);
@@ -87,7 +87,7 @@ export const FormEditarNumRef = (props) => {
     }
 
     const setores = async() =>{
-    await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+    await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
     .then((response) => response.json())
     .then((responseJson) => {
         setSetor(responseJson.registro_setor);
@@ -96,7 +96,7 @@ export const FormEditarNumRef = (props) => {
     useEffect (() => {
 
         const getNumReferencia =async() =>{
-            await fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/visualizar_referencia.php?id=" + id_referencia)
+            await fetch(process.env.REACT_APP_VISUALIZAR_REFERENCIA + id_referencia)
             .then((response) => response.json())
             .then((responseJson) => {
                 setProcesso(responseJson.numeroReferencia.num_processo_referencia);

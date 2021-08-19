@@ -33,7 +33,7 @@ export const FormCadNumRef = () => {
     const valorInput = e => setReferencia({...referencia,[e.target.name]: e.target.value});
 
     const assunto = async() => {
-        await fetch("http://localhost/dashboard/sistemaNumeracao/assuntos/visualizar_assunto.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_ASSUNTO)
         .then((response) => response.json())
         .then((responseJson) => {
             setAssunto(responseJson.registro_assunto);
@@ -41,21 +41,21 @@ export const FormCadNumRef = () => {
     }
     
     const unidadeAdministrativa = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/unidades/visualizar_ua.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_UA)
         .then((response) => response.json())
         .then((responseJson) => {
             setDestinacao(responseJson.registro_UA);
         })
     }
     const unidadeOrcamentaria = async() =>{
-    await fetch("http://localhost/dashboard/sistemaNumeracao/unidades/visualizar_uo.php")
+    await fetch(process.env.REACT_APP_VISUALIZAR_UO)
     .then((response) => response.json())
     .then((responseJson) => {
         setOrcamentaria(responseJson.registro_UO);
     })
 }
     const setores = async() =>{
-    await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+    await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
     .then((response) => response.json())
     .then((responseJson) => {
         setSetor(responseJson.registro_setor);
@@ -72,7 +72,7 @@ export const FormCadNumRef = () => {
 
         e.preventDefault();
 
-       await fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/cadastrar_referencia.php",{
+       await fetch(process.env.REACT_APP_CADASTRAR_REFERENCIA,{
            method: "POST",
            headers:{'Content-Type': 'application/json'},
            body: JSON.stringify({referencia})
@@ -93,7 +93,7 @@ export const FormCadNumRef = () => {
         }).catch(() => {
             setStatus({
                 type: 'erro',
-                mensagem:"DESPACHO NÃO CADASTRADO - CONTATE O ADMINISTRADOR - (ERRO 1-F)"
+                mensagem:"REFERÊNCIA NÃO CADASTRADA - CONTATE O ADMINISTRADOR - (ERRO 1-F)"
             });
            });
        }
@@ -154,7 +154,7 @@ export const FormCadNumRef = () => {
                                 <Select onChange={valorInput} name="posse_referencia" required>
                                     <option value="">Selecione</option>
                                         {Object.values(nomenclaturaSetor).map(setor => (
-                                            <option key={setor.id_setor}>{setor.nome_setor}</option>
+                                            <option key={setor.id_area}>{setor.area}</option>
                                         ))}                                            
                                 </Select>                    
                             <Label>DATA DA VIGÊNCIA </Label>

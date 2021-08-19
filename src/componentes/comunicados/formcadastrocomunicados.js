@@ -30,7 +30,7 @@ export const FormCadComunicado = () => {
         e.preventDefault();
         //handleSubmit();
         
-        await fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/cadastrar_comunicados.php", {
+        await fetch(process.env.REACT_APP_CADASTRAR_COMUNICADO, {
         method:'POST',
         headers: {'Content-Type': 'application/json'
         },

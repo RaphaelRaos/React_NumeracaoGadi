@@ -11,7 +11,7 @@ export const FormViewComunicados = (props) => {
 
     useEffect(() => {
         const getComunicados = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/visualizar_comunicados.php?id="+ id)
+            await fetch(process.env.REACT_APP_VISUALIZAR_COMUNICADO+ id)
             .then((response) => response.json())
             .then((responseJson) => {
                setData (responseJson.comunicado);

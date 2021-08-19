@@ -17,7 +17,7 @@ export const FormExcluirNumRef = (props) => {
     const excluirNumReferencia = async e => {
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/excluir_referencia.php", {
+        await fetch(process.env.REACT_APP_EXCLUIR_REFERENCIA, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({id_referencia})
@@ -37,7 +37,7 @@ export const FormExcluirNumRef = (props) => {
             }).catch(() => {
               setStatus({
                 type: 'erro',
-                mensagem: "Despacho não Excluído, tente mais tarde!(Erro 1-F)!!"
+                mensagem: "Número de Referencia não Excluído, tente mais tarde!(Erro 1-F)!!"
               });
             });
     }
@@ -45,7 +45,7 @@ export const FormExcluirNumRef = (props) => {
 
     useEffect(() => {
         const getNumReferencia = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/visualizar_referencia.php?id=" + id_referencia)
+            await fetch(process.env.REACT_APP_VISUALIZAR_REFERENCIA + id_referencia)
                 .then((response) => response.json())
                 .then((responseJson) => {
                     setData(responseJson.numeroReferencia)

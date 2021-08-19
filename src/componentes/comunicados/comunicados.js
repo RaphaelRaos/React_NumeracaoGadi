@@ -9,7 +9,7 @@ export const Comunicados = () => {
     const [data, setData ] = useState([]);
 
     const getComunicados = async() => {
-        fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/lista_comunicados.php")
+        fetch(process.env.REACT_APP_LISTAR_COMUNICADO)
         .then((response) =>response.json())
         .then((responseJSON) => (
             setData(responseJSON.registros_comunicados)

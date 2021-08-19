@@ -11,7 +11,7 @@ export const FormViewNumRef = (props) => {
 
     useEffect(() => {
         const getNumReferencia = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/num_referencia/visualizar_referencia.php?id=" + id)
+            await fetch(process.env.REACT_APP_VISUALIZAR_REFERENCIA + id)
                 .then((response) => response.json())
                 .then((responseJson) => {
                     setData(responseJson.numeroReferencia)

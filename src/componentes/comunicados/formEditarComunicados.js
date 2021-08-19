@@ -22,7 +22,7 @@ export const FormEditComunicados = (props) => {
     const editComunicado = async e => {
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/editar_comunicados.php", {
+        await fetch(process.env.REACT_APP_EDITAR_COMUNICADO, {
            method: 'POST',
            headers: {
             'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ export const FormEditComunicados = (props) => {
 
     useEffect(() => {
         const getComunicados = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/comunicados/visualizar_comunicados.php?id="+ id_comunicado)
+            await fetch(process.env.REACT_APP_VISUALIZAR_COMUNICADO+ id_comunicado)
             .then((response) => response.json())
             .then((responseJson) => {
                 console.log(responseJson);
