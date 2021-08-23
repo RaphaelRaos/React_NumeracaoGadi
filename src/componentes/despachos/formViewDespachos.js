@@ -11,7 +11,7 @@ export const FormViewDespachos = (props) => {
 
     useEffect(() => {
         const getDespachos = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/visualizar_despachos.php?id="+ id)
+            await fetch(process.env.REACT_APP_VISUALIZAR_DESPACHOS + id)
             .then((response) => response.json())
             .then((responseJson) => {
                setData (responseJson.despacho);

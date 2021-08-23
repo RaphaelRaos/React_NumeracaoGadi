@@ -21,7 +21,7 @@ export const FormExcluirMemorando = (props) => {
     const exclMemorando = async e =>{
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/memorandos/excluir_memorando.php", {
+        await fetch(process.env.REACT_APP_EXCLUIR_MEMORANDO, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ export const FormExcluirMemorando = (props) => {
 
     useEffect(() => {
         const getMemorando = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/memorandos/visualizar_memorando.php?id="+ id_memorando)
+            await fetch(process.env.REACT_APP_VISUALIZAR_MEMORANDO + id_memorando)
             .then((response) => response.json())
             .then((responseJson) => {
                 setNumero(responseJson.memorando.numero_memorando)

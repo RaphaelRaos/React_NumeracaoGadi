@@ -22,7 +22,7 @@ export const FormExcluirInstrucao = (props) =>{
     const exclInstrucao = async e =>{
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/excluir_instrucoes.php", {
+        await fetch(process.env.REACT_APP_EXCLUIR_INSTRUCOES, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -51,7 +51,7 @@ export const FormExcluirInstrucao = (props) =>{
 
     useEffect(() => {
         const getInstrucoes = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/visualizar_instrucoes.php?id="+ id_instrucao)
+            await fetch(process.env.REACT_APP_VISUALIZAR_INSTRUCOES + id_instrucao)
             .then((response) => response.json())
             .then((responseJson) => {
                 setNumero(responseJson.instrucao.numero_instrucao)

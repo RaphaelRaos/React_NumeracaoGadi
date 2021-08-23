@@ -26,7 +26,7 @@ export const FormCadInstrucao = () => {
 
 
     const setores = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
         .then((response) => response.json())
         .then((responseJson) => {
             setSetor(responseJson.registro_setor);
@@ -40,7 +40,7 @@ export const FormCadInstrucao = () => {
     const cadInstrucao = async e => {
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/cadastrar_instrucoes.php", {
+        await fetch(process.env.REACT_APP_CADASTRAR_INSTRUCOES, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({instrucao})   
@@ -61,7 +61,7 @@ export const FormCadInstrucao = () => {
             }).catch(() => {
               setStatus({
                 type: 'erro',
-                mensagem: 'Instrução. Contate o Administrador do Sistema!!'
+                mensagem: 'Instrução não Cadastrada. Contate o Administrador do Sistema!!'
               });
             });
     }
@@ -84,15 +84,15 @@ export const FormCadInstrucao = () => {
                 <TableForm>
                     <th>
                         <Label>INTERESSADO</Label>
-                            <Input type="text" placeholder="Interessado Instrução" name="interessado_instrucao" onChange={valorInput}></Input>
+                            <Input type="text" placeholder="Interessado Instrução" name="interessado_instrucao" onChange={valorInput} required></Input>
                         <Label>ASSUNTO</Label>
-                            <Input type="text" placeholder="Assunto da Instrução" name="assunto_instrucao" onChange={valorInput}></Input>
+                            <Input type="text" placeholder="Assunto da Instrução" name="assunto_instrucao" onChange={valorInput} required></Input>
                         <Label>DATA EMISSÃO</Label>
-                            <Input type="date" name="datEmissao_instrucao" onChange={valorInput}></Input>
+                            <Input type="date" name="datEmissao_instrucao" onChange={valorInput} required></Input>
                         <Label>EXECUTOR</Label>
-                        <Input type="text" placeholder="Executor "name="executor_instrucao" onChange={valorInput}></Input>
+                        <Input type="text" placeholder="Executor "name="executor_instrucao" onChange={valorInput} required></Input>
                         <Label>SETOR</Label>
-                                        <Select onChange={valorInput} name="setor">
+                                        <Select onChange={valorInput} name="setor" required>
                                             <option>Selecione</option>
                                             {Object.values(nomenclaturaSetor).map(setor => (
                                                 <option key={setor.id_setor}>{setor.nome_setor}</option>

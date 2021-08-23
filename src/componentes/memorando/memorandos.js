@@ -8,7 +8,7 @@ export const Memorandos = () => {
     const [data, setData] = useState([])
 
     const getMemorando = async() => {
-        fetch("http://localhost/dashboard/sistemaNumeracao/memorandos/listar_memorandos.php")
+        fetch(process.env.REACT_APP_LISTAR_MEMORANDOS)
         .then(response => response.json())
         .then((responseJSON) =>(
             setData(responseJSON.registro_memorando)

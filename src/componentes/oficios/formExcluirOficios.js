@@ -17,7 +17,7 @@ export const FormExcluirOficio = (props) => {
     const excluirOficio = async e => {
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/oficios/excluir_oficio.php", {
+        await fetch(process.env.REACT_APP_EXCLUIR_OFICIOS, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json'},
             body: JSON.stringify({id_oficio})
@@ -44,7 +44,7 @@ export const FormExcluirOficio = (props) => {
 
     useEffect(() => {
         const getOficio = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/oficios/visualizar_oficio.php?id="+ id_oficio)
+            await fetch(process.env.REACT_APP_VISUALIZAR_OFICIOS + id_oficio)
             .then((response) => response.json())
             .then((responseJson) => {
                setData (responseJson.mensagem);

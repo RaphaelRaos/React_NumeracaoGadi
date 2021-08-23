@@ -11,7 +11,7 @@ export const FormViewInstrucao = (props) => {
 
     useEffect(() => {
         const getInstrucao = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/visualizar_instrucoes.php?id="+ id)
+            await fetch(process.env.REACT_APP_VISUALIZAR_INSTRUCOES + id)
             .then((response) => response.json())
             .then((responseJson) => {
                setData (responseJson.instrucao);

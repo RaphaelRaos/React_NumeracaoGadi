@@ -25,7 +25,7 @@ export const FormCadMemorando = () => {
 
 
     const setores = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
         .then((response) => response.json())
         .then((responseJson) => {
             setSetor(responseJson.registro_setor);
@@ -39,7 +39,7 @@ export const FormCadMemorando = () => {
     const cadMemorando = async e => {
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/memorandos/cadastrar_memorando.php", {
+        await fetch(process.env.REACT_APP_CADASTRAR_MEMORANDOS, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({memorando})   

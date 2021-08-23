@@ -11,7 +11,7 @@ export const FormViewMemorando = (props) =>{
 
     useEffect(() => {
         const getMemorando = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/memorandos/visualizar_memorando.php?id="+ id)
+            await fetch(process.env.REACT_APP_VISUALIZAR_MEMORANDO + id)
             .then((response) => response.json())
             .then((responseJson) => {
                setData (responseJson.memorando);

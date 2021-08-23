@@ -31,7 +31,7 @@ export const FormCadDespacho = () => {
     const cadDespacho = async e => {
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/cadastrar_despachos.php", {
+        await fetch(process.env.REACT_APP_CADASTRAR_DESPACHOS, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({despacho})   
@@ -57,21 +57,21 @@ export const FormCadDespacho = () => {
             });
     }
     const unidadeAdministrativa = async() =>{
-            await fetch("http://localhost/dashboard/sistemaNumeracao/unidades/visualizar_ua.php")
+            await fetch(process.env.REACT_APP_VISUALIZAR_UA)
             .then((response) => response.json())
             .then((responseJson) => {
                 setDestinacao(responseJson.registro_UA);
             })
         }
     const unidadeOrcamentaria = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/unidades/visualizar_uo.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_UO)
         .then((response) => response.json())
         .then((responseJson) => {
             setOrcamentaria(responseJson.registro_UO);
         })
     }
     const setores = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
         .then((response) => response.json())
         .then((responseJson) => {
             setSetor(responseJson.registro_setor);

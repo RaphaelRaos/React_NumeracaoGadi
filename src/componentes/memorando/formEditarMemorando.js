@@ -22,7 +22,7 @@ export const FormEditarMemorando = (props) => {
     const editMemorando = async e =>{
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/memorandos/editar_memorando.php", {
+        await fetch(process.env.REACT_APP_EDITAR_MEMORANDOS, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ export const FormEditarMemorando = (props) => {
     }
 
     const setores = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
         .then((response) => response.json())
         .then((responseJson) => {
             setSetorAlteracao(responseJson.registro_setor);
@@ -59,7 +59,7 @@ export const FormEditarMemorando = (props) => {
 
     useEffect(() => {
         const getMemorando = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/memorandos/visualizar_memorando.php?id="+ id_memorando)
+            await fetch(process.env.REACT_APP_VISUALIZAR_MEMORANDO + id_memorando)
             .then((response) => response.json())
             .then((responseJson) => {
                 setInteressado(responseJson.memorando.interessado_memorando)

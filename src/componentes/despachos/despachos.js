@@ -9,7 +9,7 @@ export const Despachos = () => {
     const [data, setData] = useState([])
     
     const getDespachos = async() => {
-        fetch("http://localhost/dashboard/sistemaNumeracao/despachos/lista_despachos.php")
+        fetch(process.env.REACT_APP_LISTAR_DESPACHOS)
         .then(response => response.json())
         .then((responJSON) => (
             setData(responJSON.registros_despachos)

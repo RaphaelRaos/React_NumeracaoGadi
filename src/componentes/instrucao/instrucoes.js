@@ -9,7 +9,7 @@ export const Instrucoes = () => {
     const [data, setData] = useState([])
 
     const getInstrucao = async() => {
-        fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/listar_instrucoes.php")
+        fetch(process.env.REACT_APP_LISTAR_INSTRUCOES)
         .then(response => response.json())
         .then((responseJSON) => (
             setData(responseJSON.registro_instrucao)

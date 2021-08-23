@@ -9,7 +9,7 @@ export const Oficios = () => {
     const [data, setData] = useState([])
 
     const getOficios = async() => {
-        fetch("http://localhost/dashboard/sistemaNumeracao/oficios/listar_oficio.php")
+        fetch(process.env.REACT_APP_LISTAR_OFICIOS)
         .then(response => response.json())
         .then((responseJSON) =>(
             setData(responseJSON.registro_oficio)

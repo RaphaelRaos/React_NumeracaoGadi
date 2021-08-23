@@ -24,7 +24,7 @@ export const FormEditarInstrucao = (props) => {
     const editInstrucao = async e =>{
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/editar_instrucoes.php", {
+        await fetch(process.env.REACT_APP_EDITAR_INSTRUCOES, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ export const FormEditarInstrucao = (props) => {
     }
 
     const setores = async() =>{
-    await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+    await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
     .then((response) => response.json())
     .then((responseJson) => {
         setSetorAlteracao(responseJson.registro_setor);
@@ -61,7 +61,7 @@ export const FormEditarInstrucao = (props) => {
 
     useEffect(() => {
         const getInstrucoes = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/instrucoes/visualizar_instrucoes.php?id="+ id_instrucao)
+            await fetch(process.env.REACT_APP_VISUALIZAR_INSTRUCOES + id_instrucao)
             .then((response) => response.json())
             .then((responseJson) => {
                 setInteressado(responseJson.instrucao.interessado_instrucao)

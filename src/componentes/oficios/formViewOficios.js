@@ -10,7 +10,7 @@ export const FormViewOficio = (props) => {
 
     useEffect(() => {
         const getOficio = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/oficios/visualizar_oficio.php?id="+ id)
+            await fetch(process.env.REACT_APP_VISUALIZAR_OFICIOS + id)
             .then((response) => response.json())
             .then((responseJson) => {
                setData (responseJson.mensagem);

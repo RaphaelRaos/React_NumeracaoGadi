@@ -9,7 +9,7 @@ export const RelRemessa = () => {
     const [data, setData] = useState([])
 
     const getRemessa = async() => {
-        fetch("http://localhost/dashboard/sistemaNumeracao/relacao_remessa/listar_remessa.php")
+        fetch(process.env.REACT_APP_LISTAR_REMESSAS)
         .then(response => response.json())
         .then((responJSON) => (
             setData(responJSON.registro_remessa)

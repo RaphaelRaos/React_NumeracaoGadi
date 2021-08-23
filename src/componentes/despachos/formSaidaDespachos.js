@@ -26,7 +26,7 @@ export const FormSaidaDespachos = (props) =>{
     const saidaDespacho = async e => {
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/saida_despachos.php", {
+        await fetch(process.env.REACT_APP_SAIDA_DESPACHOS, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({id_despacho, datSaida_despacho})   
@@ -53,7 +53,7 @@ export const FormSaidaDespachos = (props) =>{
 
     useEffect(() => {
         const getDespachos = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/visualizar_despachos.php?id="+ id_despacho)
+            await fetch(process.env.REACT_APP_VISUALIZAR_DESPACHOS + id_despacho)
             .then((response) => response.json())
             .then((responseJson) => {
                 setProcesso(responseJson.despacho.numero_sisrad_processo)

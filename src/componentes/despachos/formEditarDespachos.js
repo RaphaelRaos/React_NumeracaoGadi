@@ -29,7 +29,7 @@ export const FormEditarDespachos = (props) => {
     const editDespacho = async e =>{
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/editar_despacho.php", {
+        await fetch(process.env.REACT_APP_EDITAR_DESPACHOS, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -56,21 +56,21 @@ export const FormEditarDespachos = (props) => {
             });       
     }
     const unidadeAdministrativa = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/unidades/visualizar_ua.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_UA)
         .then((response) => response.json())
         .then((responseJson) => {
             setDestinacao(responseJson.registro_UA);
         })
     }
 const unidadeOrcamentaria = async() =>{
-    await fetch("http://localhost/dashboard/sistemaNumeracao/unidades/visualizar_uo.php")
+    await fetch(process.env.REACT_APP_VISUALIZAR_UO)
     .then((response) => response.json())
     .then((responseJson) => {
         setOrcamentaria(responseJson.registro_UO);
     })
 }
 const setores = async() =>{
-    await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+    await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
     .then((response) => response.json())
     .then((responseJson) => {
         setSetorAlteracao(responseJson.registro_setor);
@@ -79,7 +79,7 @@ const setores = async() =>{
 
     useEffect(() => {
         const getDespachos = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/despachos/visualizar_despachos.php?id="+ id_despacho)
+            await fetch(process.env.REACT_APP_VISUALIZAR_DESPACHOS+ id_despacho)
             .then((response) => response.json())
             .then((responseJson) => {
                 setProcesso(responseJson.despacho.numero_sisrad_processo)

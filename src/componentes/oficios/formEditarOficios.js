@@ -22,7 +22,7 @@ export const FormEditarOficio = (props) => {
     const editOficio = async e => {
         e.preventDefault();
 
-        await fetch("http://localhost/dashboard/sistemaNumeracao/oficios/editar_oficio.php", {
+        await fetch(process.env.REACT_APP_EDITAR_OFICIOS, {
            method: 'POST',
            headers: {'Content-Type': 'application/json'},
            body: JSON.stringify({id_oficio,interessado_oficio,assunto_oficio,executor_oficio,setor_oficio,observacao_oficio}) 
@@ -49,7 +49,7 @@ export const FormEditarOficio = (props) => {
     }
 
     const setores = async() =>{
-        await fetch("http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php")
+        await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
         .then((response) => response.json())
         .then((responseJson) => {
             setSetorAlteracao(responseJson.registro_setor);
@@ -58,7 +58,7 @@ export const FormEditarOficio = (props) => {
 
     useEffect(() => {
         const getOficio = async() => {
-            await fetch("http://localhost/dashboard/sistemaNumeracao/oficios/visualizar_oficio.php?id="+ id_oficio)
+            await fetch(process.env.REACT_APP_VISUALIZAR_OFICIOS + id_oficio)
             .then((response) => response.json())
             .then((responseJson) => {
                 setInteressado(responseJson.mensagem.interessado_oficio)

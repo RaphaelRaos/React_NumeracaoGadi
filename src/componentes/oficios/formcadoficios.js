@@ -31,7 +31,7 @@ export const FormCadOficios = () => {
     })
 
     const setores = async () =>{
-         fetch('http://localhost/dashboard/sistemaNumeracao/setores/visualizar_setor.php')
+         fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
         .then((response) => response.json())
         .then((responseJson) => {
             setSetor(responseJson.registro_setor);
@@ -45,7 +45,7 @@ export const FormCadOficios = () => {
     const cadOficio = async e =>{
 
         e.preventDefault();
-        await fetch("http://localhost/dashboard/sistemaNumeracao/oficios/cadastrar_oficio.php", {
+        await fetch(process.env.REACT_APP_CADASTRAR_OFICIOS, {
             method: 'POST',
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({oficio})
