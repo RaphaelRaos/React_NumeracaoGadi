@@ -87,7 +87,7 @@ export const ButtonPrimary = styled.button`
 
 export const TableForm = styled.table`
 
-    width: 99%;
+    width: 100%;
     height: 80%;
     
     tbody{
@@ -102,7 +102,7 @@ export const TableForm = styled.table`
 `;
 
 export const TextArea = styled.textarea`
-    width: 99%;
+    width: 95%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -114,7 +114,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Input = styled.input`
-    width: 99%;
+    width: 95%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -126,7 +126,7 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
-    width: 100%;
+    width: 50%;
     padding: 12px;
     margin-top: 6px;
     margin-bottom: 16px;
@@ -134,7 +134,7 @@ export const Label = styled.label`
 `;
 
 export const Select = styled.select`
-    width: 100%;
+    width: 98%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -211,13 +211,14 @@ export const TBODY = styled.tbody`
 `;
 
 export const Section1 = styled.section`
-    float: left;
-    width: 48%;
+    border: 1px solid  #000;
+    width:50%;
+    
 `;
 
-export const Section2 = styled.section`
-    float: right;
-    width: 50%;
+export const Section2 = styled.section`    
+    width:50%;
+    border: 1px solid  #000;
 `;
 
 export const InputPesquisa = styled.input`
@@ -247,4 +248,9 @@ export const SectionPesquisar = styled.section`
     display: flex;
     justify-content:center;
 `; 
+
+export const TdCadastro = styled.td`
+    width:50%    
+    
+`
 

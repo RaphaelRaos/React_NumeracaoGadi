@@ -71,7 +71,7 @@ export const FormExcluirMemorando = (props) => {
         <Header/>
             <Container>
                <ConteudoTitulo>
-                    <Titulo>EXCLUIR DESPACHOS</Titulo>
+                    <Titulo>EXCLUIR MEMORANDOS</Titulo>
                     <BotaoAcao>
                         <Link to="/memorandos">
                             <ButtonSuccess>Index</ButtonSuccess>

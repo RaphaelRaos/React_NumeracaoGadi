@@ -24,7 +24,7 @@ export const FormViewOficio = (props) => {
            <Header />
            <Container>
                 <ConteudoTitulo>                   
-                    <Titulo>VISUALIZAR INSTRUÇÕES</Titulo>
+                    <Titulo>VISUALIZAR OFÍCIOS</Titulo>
                     <BotaoAcao>                            
                         <Link to="/oficios">
                             <ButtonSuccess>Index</ButtonSuccess>

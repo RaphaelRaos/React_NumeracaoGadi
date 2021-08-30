@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary } from './styles';
+import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, InputPesquisa, SectionPesquisar } from './styles';
 import {Link} from 'react-router-dom';
 import { Header } from '../header/header';
 
@@ -7,15 +7,29 @@ import { Header } from '../header/header';
 export const Despachos = () => {
 
     const [data, setData] = useState([])
+
+    const pesquisaDespachos = (input) => {
+        
+        fetch(process.env.REACT_APP_LISTAR_DESPACHOS,{
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify({input})
+         }).then((response) => response.json())
+         .then((responseJson) => {            
+             setData(responseJson)       
+         })         
+     }    
     
-    const getDespachos = async() => {
-        fetch(process.env.REACT_APP_LISTAR_DESPACHOS)
-        .then(response => response.json())
-        .then((responJSON) => (
-            setData(responJSON.registros_despachos)
-        ))
-    }
     useEffect(() => {
+        const getDespachos = async() => {
+            fetch(process.env.REACT_APP_LISTAR_DESPACHOS)
+            .then(response => response.json())
+            .then((responJSON) => (
+                setData(responJSON)
+            ))
+        }
         getDespachos();
     },[])
 
@@ -33,7 +47,12 @@ export const Despachos = () => {
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>
-                </ConteudoTitulo> 
+                </ConteudoTitulo>
+                <div>            
+                    <SectionPesquisar>
+                        <InputPesquisa type="text" name="pesquisa" placeholder="PESQUISAR" onChange={ e=> pesquisaDespachos(e.target.value)}></InputPesquisa> 
+                    </SectionPesquisar>             
+                </div>  
                 <Table>
                     <thead>
                         <tr>

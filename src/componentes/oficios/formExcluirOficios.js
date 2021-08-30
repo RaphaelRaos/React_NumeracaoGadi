@@ -59,7 +59,7 @@ export const FormExcluirOficio = (props) => {
            <Header/>
             <Container>
                <ConteudoTitulo>
-                    <Titulo>EXCLUIR DESPACHOS</Titulo>
+                    <Titulo>EXCLUIR OFÍCIOS</Titulo>
                     <BotaoAcao>
                         <Link to="/oficios">
                             <ButtonSuccess>Index</ButtonSuccess>

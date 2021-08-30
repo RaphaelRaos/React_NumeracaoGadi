@@ -132,7 +132,7 @@ export const FormCadDespacho = () => {
                                         <Select onChange={valorInput} name="setor">
                                             <option>Selecione</option>
                                             {Object.values(nomenclaturaSetor).map(setor => (
-                                                <option key={setor.id_setor}>{setor.nome_setor}</option>
+                                                <option key={setor.id_area}>{setor.area}</option>
                                             ))}                                            
                                         </Select>
                                     <Label>OBSERVAÇAO</Label>

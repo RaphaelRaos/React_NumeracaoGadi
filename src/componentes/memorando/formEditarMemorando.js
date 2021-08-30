@@ -79,7 +79,7 @@ export const FormEditarMemorando = (props) => {
             <Header/>
             <Container>
                <ConteudoTitulo>
-                    <Titulo>EDITAR DESPACHOS</Titulo>
+                    <Titulo>EDITAR MEMORANDO</Titulo>
                     <BotaoAcao>
                         <Link to="/memorandos">
                             <ButtonSuccess>Index</ButtonSuccess>
@@ -104,7 +104,7 @@ export const FormEditarMemorando = (props) => {
                                         <Select name="setor_memorando" onChange={e => setSetor(e.target.value)}>
                                             <option value={setor_memorando}>{setor_memorando}</option>
                                             {Object.values(nomenclaturaSetor).map(setor => (
-                                                <option key={setor.id_setor}>{setor.nome_setor}</option>
+                                                <option key={setor.id_area}>{setor.area}</option>
                                         ))}
                                         </Select>
                                     <Label>OBSERVAÇAO</Label>

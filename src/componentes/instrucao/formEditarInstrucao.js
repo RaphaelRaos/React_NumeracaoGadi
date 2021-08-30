@@ -107,7 +107,7 @@ export const FormEditarInstrucao = (props) => {
                                         <Select name="setor" onChange={e => setSetor(e.target.value)}>
                                             <option value={setor}>{setor}</option>
                                         {Object.values(nomenclaturaSetor).map(setor => (
-                                                <option key={setor.id_setor}>{setor.nome_setor}</option>
+                                                <option key={setor.id_area}>{setor.area}</option>
                                         ))}
                                         </Select>
                                     <Label>OBSERVAÇAO</Label>

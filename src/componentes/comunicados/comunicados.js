@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, } from './styles';
+import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, SectionPesquisar, InputPesquisa} from './styles';
 import {Link} from 'react-router-dom';
 import { Header } from '../header/header';
 
@@ -8,16 +8,32 @@ export const Comunicados = () => {
 
     const [data, setData ] = useState([]);
 
-    const getComunicados = async() => {
-        fetch(process.env.REACT_APP_LISTAR_COMUNICADO)
-        .then((response) =>response.json())
-        .then((responseJSON) => (
-            setData(responseJSON.registros_comunicados)
-        ));
-    }
+    const pesquisaComunicado = (input) => {
+        
+        fetch(process.env.REACT_APP_LISTAR_COMUNICADO,{
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify({input})
+         }).then((response) => response.json())
+         .then((responseJson) => {            
+             setData(responseJson)                
+         })         
+     }   
+    
     useEffect(() => {
+
+        const getComunicados = async() => {
+            fetch(process.env.REACT_APP_LISTAR_COMUNICADO)
+            .then((response) =>response.json())
+            .then((responseJSON) => (
+                setData(responseJSON)
+            ));
+        }
         getComunicados();
     },[])
+
     return (
         <div>
             <Header/>
@@ -32,7 +48,12 @@ export const Comunicados = () => {
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>
-                </ConteudoTitulo> 
+                </ConteudoTitulo>
+                <div>            
+                    <SectionPesquisar>
+                        <InputPesquisa type="text" name="pesquisa" placeholder="PESQUISAR" onChange={ e=> pesquisaComunicado(e.target.value)}></InputPesquisa> 
+                    </SectionPesquisar>             
+                </div> 
                 <Table>
                     <thead>
                         <tr>

@@ -72,6 +72,7 @@ export const FormExcluirComunicados = (props) => {
                 {status.type === 'erro'? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
                 {status.type === 'success'? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
                 <form onSubmit={excluirComunicado}>
+                    <table>
                     <tbody>
                         <tr>
                             <td>
@@ -84,6 +85,8 @@ export const FormExcluirComunicados = (props) => {
                             </td>
                         </tr>
                     </tbody>
+                    </table>
+                    
                     <DivButton>
                         <br></br>
                         <ButtonCadastrar type="submit">Excluir</ButtonCadastrar>

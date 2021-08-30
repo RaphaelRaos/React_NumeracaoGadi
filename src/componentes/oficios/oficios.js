@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from 'react';
-import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary } from './styles';
+import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, InputPesquisa, SectionPesquisar } from './styles';
 import {Link} from 'react-router-dom';
 import { Header } from '../header/header';
 
@@ -8,11 +8,26 @@ export const Oficios = () => {
 
     const [data, setData] = useState([])
 
+    const pesquisaOficio = (input) => {
+        
+        fetch(process.env.REACT_APP_LISTAR_OFICIOS,{
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify({input})
+         }).then((response) => response.json())
+         .then((responseJson) => {            
+             setData(responseJson)       
+         })
+         
+     }
+
     const getOficios = async() => {
         fetch(process.env.REACT_APP_LISTAR_OFICIOS)
         .then(response => response.json())
         .then((responseJSON) =>(
-            setData(responseJSON.registro_oficio)
+            setData(responseJSON)
         ))
     }
     useEffect(() =>{
@@ -32,7 +47,12 @@ export const Oficios = () => {
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>
-                </ConteudoTitulo> 
+                </ConteudoTitulo>
+                <div>            
+                    <SectionPesquisar>
+                        <InputPesquisa type="text" name="pesquisa" placeholder="PESQUISAR" onChange={ e=> pesquisaOficio(e.target.value)}></InputPesquisa> 
+                    </SectionPesquisar>             
+                </div>
                 <Table>
                     <thead>
                         <tr>

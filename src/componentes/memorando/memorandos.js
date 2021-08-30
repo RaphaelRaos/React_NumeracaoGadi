@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary } from './styles';
+import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, InputPesquisa, SectionPesquisar} from './styles';
 import {Link} from 'react-router-dom';
 import { Header } from '../header/header';
 
@@ -7,11 +7,25 @@ export const Memorandos = () => {
 
     const [data, setData] = useState([])
 
+    const pesquisaMemorando = (input) => {
+        
+        fetch(process.env.REACT_APP_LISTAR_MEMORANDOS,{
+             method: 'POST',
+             headers: {
+                 'Content-Type': 'application/json'
+             },
+             body: JSON.stringify({input})
+         }).then((response) => response.json())
+         .then((responseJson) => {            
+             setData(responseJson)       
+         })         
+     }
+
     const getMemorando = async() => {
         fetch(process.env.REACT_APP_LISTAR_MEMORANDOS)
         .then(response => response.json())
         .then((responseJSON) =>(
-            setData(responseJSON.registro_memorando)
+            setData(responseJSON)
         ))
     }
     useEffect(() =>{
@@ -32,7 +46,12 @@ export const Memorandos = () => {
                             <ButtonSuccess>Cadastrar</ButtonSuccess>
                         </Link>                        
                     </BotaoAcao>
-                </ConteudoTitulo> 
+                </ConteudoTitulo>
+                <div>            
+                    <SectionPesquisar>
+                        <InputPesquisa type="text" name="pesquisa" placeholder="PESQUISAR" onChange={ e=> pesquisaMemorando(e.target.value)}></InputPesquisa> 
+                    </SectionPesquisar>             
+                </div>
                 <Table>
                     <thead>
                         <tr>

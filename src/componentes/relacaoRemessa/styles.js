@@ -17,7 +17,7 @@ export const Container = styled.section`
     overflow:auto;
 `;
 
-export const Table = styled.table `
+export const Table = styled.table`
 
     width: 100%;
     th{
@@ -117,7 +117,7 @@ export const Coluna1 = styled.td`
 `;
 
 export const TextArea = styled.textarea`
-    width: 96%;
+    width: 95%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -129,7 +129,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Input = styled.input`
-    width: 96%;
+    width: 95%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -251,4 +251,41 @@ export const InputSaida = styled.input`
     margin-bottom: 8px;
     font-size: 16px;
     resize:vertical;
+`;
+
+export const InputPesquisa = styled.input`
+
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: boder-box;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    resize:vertical;
+
+`;
+
+export const LabelPesquisa = styled.label`
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    font-size: 18px;
+`;
+
+export const SectionPesquisar = styled.section`
+
+    display: flex;
+    justify-content:center;
+`;
+
+export const Tr = styled.tr`
+width: 100%auto;
+background-color: #fff;
+`;
+
+export const Td = styled.td`
+    width: 25%;
 `;

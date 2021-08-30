@@ -17,7 +17,7 @@ export const Container = styled.section`
     overflow:auto;
 `;
 
-export const Table = styled.table `
+export const Table = styled.table`
 
     width: 99%;
     th{
@@ -101,7 +101,7 @@ export const TableForm = styled.table`
 `;
 
 export const TextArea = styled.textarea`
-    width: 100%;
+    width: 98%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -113,7 +113,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Input = styled.input`
-    width: 100%;
+    width:98%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -133,7 +133,7 @@ export const Label = styled.label`
 `;
 
 export const Select = styled.select`
-    width: 100%;
+    width: 98%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -185,4 +185,40 @@ export const AlertDanger = styled.p`
 export const ContComunicado = styled.p`    
     font-size: 23px;
     color: #3e3e3e;
+`;
+
+export const LabelPesquisa = styled.label`
+    width: 100%;
+    padding: 12px;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    font-size: 18px;
+`;
+
+export const SectionPesquisar = styled.section`
+
+    display: flex;
+    justify-content:center;
+`;
+export const InputPesquisa = styled.input`
+
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: boder-box;
+    margin-top: 6px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    resize:vertical;
+
+`;
+export const Tr = styled.tr`
+    background-color: #ffffff;
+    width: 90%#ffffff;
+`;
+
+export const LineCadastro = styled.td`
+    
+    width: 95%;
 `;

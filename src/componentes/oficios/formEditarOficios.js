@@ -78,7 +78,7 @@ export const FormEditarOficio = (props) => {
             <Header />            
             <Container>
                <ConteudoTitulo>
-                    <Titulo>EDITAR DESPACHOS</Titulo>
+                    <Titulo>EDITAR OFÍCIOS</Titulo>
                     <BotaoAcao>
                         <Link to="/oficios">
                             <ButtonSuccess>Index</ButtonSuccess>
@@ -103,7 +103,7 @@ export const FormEditarOficio = (props) => {
                                         <Select name="setor_oficio" onChange={e => setSetor(e.target.value)}>
                                             <option value={setor_oficio}>{setor_oficio}</option>
                                             {Object.values(nomenclaturaSetor).map(setor => (
-                                                <option key={setor.id_setor}>{setor.nome_setor}</option>
+                                                <option key={setor.id_area}>{setor.area}</option>
                                         ))}
                                         </Select>
                                     <Label>OBSERVAÇAO</Label>

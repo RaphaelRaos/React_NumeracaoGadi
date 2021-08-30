@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../header/header';
 import { Link } from 'react-router-dom';
-import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess} from './styles';
+import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess, Td, Tr} from './styles';
 
 
 export const FormEditarRelRemessa = (props) => {
@@ -120,8 +120,8 @@ export const FormEditarRelRemessa = (props) => {
                 <form onSubmit={editRemessa} >
                     <TableForm>
                         <tbody>
-                            <tr> 
-                                <td>
+                            <Tr> 
+                                <Td>
                                     <Label>NUMERO SISRAD / PROCESSO </Label>
                                         <Input type="" placeholder="Numero Processo / Sisrad" name="numProcesso_remessa" value={numProcesso_remessa} onChange={e => setProcesso(e.target.value)}></Input>
                                     <Label>UNIDADE ADMINISTRATIVA</Label>                                
@@ -141,8 +141,8 @@ export const FormEditarRelRemessa = (props) => {
                                             <Label>INTERESSADO </Label>
                                         <Input type="text" placeholder="Interessado" name="interessado_remessa" value={interessado_remessa} onChange={e => setInteressado(e.target.value)}></Input>
                                         
-                                </td> 
-                                <td>
+                                </Td> 
+                                <Td>
                                     <Label>ASSUNTO</Label>
                                     <Input type="text" placeholder="Assunto Remessa" name="assunto_remessa" value={assunto_remessa} onChange={e => setAssunto(e.target.value)}></Input>                                       
                                     <Label>EXECUTOR</Label>
@@ -151,12 +151,12 @@ export const FormEditarRelRemessa = (props) => {
                                     <Select  name="area_remessa" onChange={e => setArea(e.target.value)}>
                                         <option value={area_remessa}>{area_remessa}</option>
                                             {Object.values(nomenclaturaSetor).map(setor => (
-                                                <option key={setor.id_setor}>{setor.nome_setor}</option>
+                                                <option key={setor.id_area}>{setor.area}</option>
                                             ))}                                            
                                     </Select>
                                     <TextArea name = "observacao_remessa" cols = "50 rows" rows = "5" id="" value={observacao_remessa} onChange={e => setObservacao(e.target.value)}></TextArea>
-                                </td>
-                            </tr>
+                                </Td>
+                            </Tr>
                         </tbody>               
                     </TableForm>
                     <DivButton>
