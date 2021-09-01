@@ -9,7 +9,7 @@ import { Pesquisa } from './componentes/pesquisa/pesquisa'
 
 //COMUNICADOS
 import { Comunicados } from './componentes/comunicados/comunicados'
-import { FormCadComunicado } from './componentes/comunicados/formcadastrocomunicados'
+import { FormCadComunicado } from './componentes/comunicados/formCadastroComunicados'
 import { FormViewComunicados } from './componentes/comunicados/formViewComunicados'
 import { FormEditComunicados } from './componentes/comunicados/formEditarComunicados'
 import { FormExcluirComunicados } from './componentes/comunicados/formExcluirComunicado'
@@ -65,7 +65,7 @@ const PrivateRoute = ({component: Component, ...rest}) => (
     isAuthenticated() ? (
       <Component { ...props} />
     ) : (
-      <Redirect to = {{pathname:'/', state: {from: props.location}}} />
+      <Redirect to = {{pathname:"/", state: {from: props.location}}} />
     )
   )}/>
 )
