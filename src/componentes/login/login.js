@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 import { AlertDanger, AlertSuccess} from '../oficios/styles'
 import {Link} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { Header } from '../header/header';
 
 export const Login = () => {
 
+    let history = useHistory();
 
     const [login, setLogin] = useState({
         nome_usuario: null,
@@ -28,11 +30,12 @@ export const Login = () => {
    const clickCadastrar=()=>{
        return body.className = "sign-up-js"
    }
-    
+
+       
     const loginUser = async e  => {
 
         e.preventDefault();
-        await fetch("http://localhost/dashboard/sistemaNumeracao/login/logar_sistema.php", {
+        await fetch(process.env.REACT_APP_LOGIN, {
             method: 'POST',
             headers:{'Content-Type': 'application/json'},
             body: JSON.stringify({login})
@@ -46,14 +49,9 @@ export const Login = () => {
                     
                 });
             } else {
-                
-                alert("BEN VENIDO A NUEVO SISTEMA DE NUMERACION")
+                alert ("BEM VINDO AO SISTEMA DE NUMERAÇÃO")
+                history.push("/menu");
             }
-        }).catch(() => {
-            setStatus({
-                type: 'erro',
-                mensagem:"OFÍCIO NÃO CADASTRADO - CONTATE O ADMINISTRADOR DO SISTEMA - (ERRO 1-F)"
-            });
         });                     
     }
 
@@ -105,9 +103,9 @@ export const Login = () => {
                         </label>
                         
                         <Link className="password" id="recuperarsenha">Esqueci a Senha</Link>
-                        <Link to={"/menu"}>
-                       <button className="btn btn-second" id="btn-second" type="submit">Acessar</button>
-                       </Link>
+                        
+                       <button className="btn btn-second" id="btn-second" type="submit" >Acessar</button>
+                       
                     </form>
                 </div>
             </div>
