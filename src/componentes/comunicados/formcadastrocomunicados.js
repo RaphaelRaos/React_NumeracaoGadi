@@ -3,7 +3,10 @@ import { Header } from '../header/header';
 import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess, Tr, LineCadastro } from './styles';
 import { Link } from 'react-router-dom';
 
+
 export const FormCadComunicado = () => {
+
+  
 
   const [comunicado, setComunicado] = useState({
     assunto_comunicado: "",
@@ -44,6 +47,13 @@ export const FormCadComunicado = () => {
             type: 'success',
             mensagem: responseJson.mensagem
           });
+          setComunicado({
+            assunto_comunicado: "",
+            data_elaboracao: "",
+            executor_comunicado: "",
+            setor_comunicado: "",
+            observacao_comunicado: ""
+          });          
         }
       }).catch(() => {
         setStatus({
@@ -52,7 +62,7 @@ export const FormCadComunicado = () => {
         });
       });
   }
-  
+
   const setores = async () => {
     await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
       .then((response) => response.json())
@@ -85,20 +95,20 @@ export const FormCadComunicado = () => {
               <Tr>
                 <LineCadastro>
                   <Label>ASSUNTO: </Label>
-                  <Input type="text" name="assunto_comunicado" placeholder="Assunto" onChange={valorInput} required></Input>
+                  <Input type="text" name="assunto_comunicado" placeholder="Assunto" onChange={valorInput} value={comunicado.assunto_comunicado} required></Input>
                   <Label>DATA ELABORAÇÃO: </Label>
-                  <Input type="date" name="data_elaboracao" onChange={valorInput} required></Input>
+                  <Input type="date" name="data_elaboracao" onChange={valorInput} value={comunicado.data_elaboracao} required></Input>
                   <Label>EXECUTOR: </Label>
-                  <Input type="text" name="executor_comunicado" placeholder="Executor Comunicado" onChange={valorInput} required></Input>
+                  <Input type="text" name="executor_comunicado" placeholder="Executor Comunicado" onChange={valorInput} value={comunicado.executor_comunicado} required></Input>
                   <Label>AREA: </Label>
-                  <Select onChange={valorInput} name="posse_referencia" required>
-                    <option value="">Selecione</option>
+                  <Select onChange={valorInput} name="setor_comunicado" value={comunicado.setor_comunicado}required>
+                    <option>Selecione</option>
                     {Object.values(nomenclaturaSetor).map(setor => (
                       <option key={setor.id_area}>{setor.area}</option>
                     ))}
                   </Select>
                   <Label>OBSERVAÇÃO</Label>
-                  <TextArea name="observacao_comunicado" cols="50 rows" rows="5" onChange={valorInput}></TextArea>
+                  <TextArea name="observacao_comunicado" cols="50 rows" rows="5" onChange={valorInput} value={comunicado.observacao_comunicado}></TextArea>
                 </LineCadastro>
               </Tr>
             </tbody>

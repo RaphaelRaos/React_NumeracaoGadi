@@ -9,8 +9,8 @@ export const Login = () => {
     let history = useHistory();
 
     const [login, setLogin] = useState({
-        nome_usuario: null,
-        senha_usuario: null,    
+        nome_usuario: "",
+        senha_usuario: "",    
     
     });
 

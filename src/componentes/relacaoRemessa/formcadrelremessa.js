@@ -7,15 +7,15 @@ export const FormCadRelRemessa = () => {
 
     const [remessa, setRemessa] = useState({
 
-        numProcesso_remessa: null,
-        des_ua: null,
-        des_uo: null,
-        interessado_remessa: null,
-        assunto_remessa: null,
-        datEmissao_remessa: null,
-        executor_remessa: null,
-        area_remessa: null,
-        observacao_remessa: null
+        numProcesso_remessa: "",
+        des_ua: "",
+        des_uo: "",
+        interessado_remessa: "",
+        assunto_remessa: "",
+        datEmissao_remessa: "",
+        executor_remessa: "",
+        area_remessa: "",
+        observacao_remessa: ""
     })
 
     const [nomenclaturaUA, setDestinacao] = useState([]);
@@ -49,6 +49,17 @@ export const FormCadRelRemessa = () => {
                         type: 'success',
                         mensagem: responseJson.mensagem
                     });
+                    setRemessa({
+                        numProcesso_remessa: "",
+                        des_ua: "",
+                        des_uo: "",
+                        interessado_remessa: "",
+                        assunto_remessa: "",
+                        datEmissao_remessa: "",
+                        executor_remessa: "",
+                        area_remessa: "",
+                        observacao_remessa: ""
+                    })
                 }
             }).catch(() => {
                 setStatus({
@@ -107,39 +118,39 @@ export const FormCadRelRemessa = () => {
                             <Tr>
                                 <Td>
                                     <Label>NUMERO SISRAD / PROCESSO </Label>
-                                    <Input type="" placeholder="Numero Processo / Sisrad" name="numProcesso_remessa" onChange={valorInput} required></Input>
+                                    <Input type="" placeholder="Numero Processo / Sisrad" name="numProcesso_remessa" onChange={valorInput} value={remessa.numProcesso_remessa} required></Input>
                                     <Label>UNIDADE ADMINISTRATIVA</Label>
-                                    <Select name="des_ua" onChange={valorInput} required>
+                                    <Select name="des_ua" onChange={valorInput} value={remessa.des_ua} required>
                                         <option value="">Selecione</option>
                                         {Object.values(nomenclaturaUA).map(unidadeAdministrativa => (
                                             <option key={unidadeAdministrativa.CodTabUa}>{unidadeAdministrativa.UNIDADE_ADMINISTRATIVA}</option>
                                         ))}
                                     </Select>
                                     <Label>UNIDADE ORÇAMENTÁRIA</Label>
-                                    <Select name="des_uo" onChange={valorInput} required>
+                                    <Select name="des_uo" onChange={valorInput} value={remessa.des_uo} required>
                                         <option value="">Selecione</option>
                                         {Object.values(nomenclaturaUGO).map(unidadeOrcamentaria => (
                                             <option key={unidadeOrcamentaria.CodTabUGO}>{unidadeOrcamentaria.UNIDADE_ORCAMENTARIA}</option>
                                         ))}
                                     </Select>
                                     <Label>INTERESSADO </Label>
-                                    <Input type="text" placeholder="Interessado" name="interessado_remessa" onChange={valorInput} required></Input>
+                                    <Input type="text" placeholder="Interessado" name="interessado_remessa" onChange={valorInput} value={remessa.interessado_remessa} required></Input>
                                     <Label>ASSUNTO</Label>
-                                    <Input type="text" placeholder="Assunto Remessa" name="assunto_remessa" onChange={valorInput} required></Input>
+                                    <Input type="text" placeholder="Assunto Remessa" name="assunto_remessa" onChange={valorInput} value={remessa.assunto_remessa} required></Input>
                                 </Td>
                                 <Td>
                                     <Label>DATA DE EMISSÃO</Label>
-                                    <Input type="date" name="datEmissao_remessa" onChange={valorInput} required></Input>
+                                    <Input type="date" name="datEmissao_remessa" onChange={valorInput} value={remessa.datEmissao_remessa} required></Input>
                                     <Label>EXECUTOR</Label>
-                                    <Input type="text" placeholder="Executor" name="executor_remessa" onChange={valorInput} required></Input>
+                                    <Input type="text" placeholder="Executor" name="executor_remessa" onChange={valorInput} value={remessa.executor_remessa} required></Input>
                                     <Label>SETOR</Label>
-                                    <Select onChange={valorInput} name="area_remessa" required>
+                                    <Select onChange={valorInput} name="area_remessa" value={remessa.area_remessa} required>
                                         <option>Selecione</option>
                                         {Object.values(nomenclaturaSetor).map(setor => (
                                             <option key={setor.id_area}>{setor.area}</option>
                                         ))}
                                     </Select>
-                                    <TextArea name="observacao_remessa" cols="50 rows" rows="5" id="" onChange={valorInput}></TextArea>
+                                    <TextArea name="observacao_remessa" cols="50 rows" rows="5" id="" onChange={valorInput} value={remessa.observacao_remessa}></TextArea>
                                 </Td>
                             </Tr>
                         </tbody>

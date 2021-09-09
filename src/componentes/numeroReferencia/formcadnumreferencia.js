@@ -7,16 +7,16 @@ export const FormCadNumRef = () => {
 
 
     const [referencia, setReferencia] = useState({
-        num_processo_referencia: null,
-        des_ua: null,
-        des_uo: null,
-        interessado_referencia: null,
-        assunto: null,
-        datEntrada_referencia: null,
-        executor_referencia: null,
-        posse_referencia: null,
-        vigencia_referencia: null,
-        observacao_referencia: null,
+        num_processo_referencia: "",
+        des_ua: "",
+        des_uo: "",
+        interessado_referencia: "",
+        assunto: "",
+        datEntrada_referencia: "",
+        executor_referencia: "",
+        posse_referencia: "",
+        vigencia_referencia: "",
+        observacao_referencia: "",
     });
 
 
@@ -89,6 +89,18 @@ export const FormCadNumRef = () => {
                         type: 'success',
                         mensagem: responseJson.mensagem
                     });
+                    setReferencia({
+                        num_processo_referencia: "",
+                        des_ua: "",
+                        des_uo: "",
+                        interessado_referencia: "",
+                        assunto: "",
+                        datEntrada_referencia: "",
+                        executor_referencia: "",
+                        posse_referencia: "",
+                        vigencia_referencia: "",
+                        observacao_referencia: "",
+                    });
                 }
             }).catch(() => {
                 setStatus({
@@ -120,50 +132,47 @@ export const FormCadNumRef = () => {
                             <tr>
                                 <TdCadastro>
                                     <Label>NÚMERO PROCESSO / SPDOC / SEM PAPEL</Label>
-                                    <Input type="text" placeholder="Número Processo" name="num_processo_referencia" onChange={valorInput} required minLength='5'></Input>
+                                    <Input type="text" placeholder="Número Processo" name="num_processo_referencia" onChange={valorInput}  value={referencia.num_processo_referencia} required ></Input>
                                     <Label>UNIDADE ADMINISTRATIVA</Label>
-                                    <Select name="des_ua" onChange={valorInput} required>
+                                    <Select name="des_ua" onChange={valorInput} value={referencia.des_ua} required>
                                         <option value="">Selecione</option>
                                         {Object.values(nomenclaturaUA).map(unidadeAdministrativa => (
                                             <option key={unidadeAdministrativa.CodTabUa}>{unidadeAdministrativa.UNIDADE_ADMINISTRATIVA}</option>
                                         ))}
                                     </Select>
                                     <Label>COORDENADORIA</Label>
-                                    <Select name="des_uo" onChange={valorInput} required>
+                                    <Select name="des_uo" onChange={valorInput} value={referencia.des_uo} required>
                                         <option value="">Selecione</option>
                                         {Object.values(nomenclaturaUGO).map(unidadeOrcamentaria => (
                                             <option key={unidadeOrcamentaria.CodTabUGO}>{unidadeOrcamentaria.UNIDADE_ORCAMENTARIA}</option>
                                         ))}
                                     </Select>
                                     <Label>INTERESSADO</Label>
-                                    <Input type="text" placeholder="Interessado" name="interessado_referencia" onChange={valorInput} required></Input>
+                                    <Input type="text" placeholder="Interessado" name="interessado_referencia" onChange={valorInput}  value ={referencia.interessado_referencia} required></Input>
                                     <Label>ASSUNTO</Label>
-                                    <Select onChange={valorInput} name="assunto" required>
+                                    <Select onChange={valorInput} name="assunto"  value={referencia.assunto} required>
                                         <option value="">Selecione</option>
                                         {Object.values(assuntoReferencia).map(assunto => (
                                             <option key={assunto.id_assunto}> {assunto.assunto}</option>
                                         ))}
                                     </Select>
                                     <Label>DATA ENTRADA</Label>
-                                    <Input type="date" name="datEntrada_referencia" onChange={valorInput} required></Input>
-
-
+                                    <Input type="date" name="datEntrada_referencia" onChange={valorInput} value={referencia.datEntrada_referencia} required></Input>
                                 </TdCadastro>
                                 <TdCadastro>
                                     <Label>EXECUTOR</Label>
-                                    <Input type="text" placeholder="Executor" name="executor_referencia" onChange={valorInput} required></Input>
+                                    <Input type="text" placeholder="Executor" name="executor_referencia" onChange={valorInput} value={referencia.executor_referencia} required></Input>
                                     <Label>UNIDADE DE POSSE</Label>
-                                    <Select onChange={valorInput} name="posse_referencia" required>
+                                    <Select onChange={valorInput} name="posse_referencia" value={referencia.posse_referencia} required>
                                         <option value="">Selecione</option>
                                         {Object.values(nomenclaturaSetor).map(setor => (
                                             <option key={setor.id_area}>{setor.area}</option>
                                         ))}
                                     </Select>
                                     <Label>DATA DA VIGÊNCIA </Label>
-                                    <Input type="date" name="vigencia_referencia" onChange={valorInput}></Input>
+                                    <Input type="date" name="vigencia_referencia" onChange={valorInput} value ={referencia.vigencia_referencia}></Input>
                                     <Label>OBSERVAÇÃO</Label>
-                                    <TextArea name="observacao_referencia" cols="50 rows" rows="8" id="" onChange={valorInput}></TextArea>
-
+                                    <TextArea name="observacao_referencia" cols="50 rows" rows="8" id="" onChange={valorInput} value={referencia.observacao_referencia}></TextArea>
                                 </TdCadastro>
                             </tr>
                         </TBODY>

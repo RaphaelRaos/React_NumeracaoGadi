@@ -57,6 +57,14 @@ export const FormCadInstrucao = () => {
                         type: 'success',
                         mensagem: responseJson.mensagem
                     });
+                    setInstrucao({
+                        interessado_instrucao: "",
+                        assunto_instrucao: "",
+                        datEmissao_instrucao: "",
+                        executor_instrucao: "",
+                        setor: "",
+                        observacao_instrucao: ""
+                    });
                 }
             }).catch(() => {
                 setStatus({
@@ -86,22 +94,22 @@ export const FormCadInstrucao = () => {
                             <tr>
                                 <td>
                                     <Label>INTERESSADO</Label>
-                                    <Input type="text" placeholder="Interessado Instrução" name="interessado_instrucao" onChange={valorInput} required></Input>
+                                    <Input type="text" placeholder="Interessado Instrução" name="interessado_instrucao" onChange={valorInput} value={instrucao.interessado_instrucao} required></Input>
                                     <Label>ASSUNTO</Label>
-                                    <Input type="text" placeholder="Assunto da Instrução" name="assunto_instrucao" onChange={valorInput} required></Input>
+                                    <Input type="text" placeholder="Assunto da Instrução" name="assunto_instrucao" onChange={valorInput} value={instrucao.assunto_instrucao}required></Input>
                                     <Label>DATA EMISSÃO</Label>
-                                    <Input type="date" name="datEmissao_instrucao" onChange={valorInput} required></Input>
+                                    <Input type="date" name="datEmissao_instrucao" onChange={valorInput} value={instrucao.datEmissao_instrucao} required></Input>
                                     <Label>EXECUTOR</Label>
-                                    <Input type="text" placeholder="Executor " name="executor_instrucao" onChange={valorInput} required></Input>
+                                    <Input type="text" placeholder="Executor " name="executor_instrucao" onChange={valorInput} value={instrucao.executor_instrucao} required></Input>
                                     <Label>SETOR</Label>
-                                    <Select onChange={valorInput} name="setor" required>
+                                    <Select onChange={valorInput} name="setor" value={instrucao.setor} required>
                                         <option>Selecione</option>
                                         {Object.values(nomenclaturaSetor).map(setor => (
                                             <option key={setor.id_area}>{setor.area}</option>
                                         ))}
                                     </Select>
                                     <Label>OBSERVAÇÃO</Label>
-                                    <TextArea name="observacao_despacho" cols="50 rows" rows="5" id="" onChange={valorInput}></TextArea>
+                                    <TextArea name="observacao_despacho" cols="50 rows" rows="5" id="" onChange={valorInput} value={instrucao.observacao_instrucao}></TextArea>
                                 </td>
                             </tr>
                         </tbody>

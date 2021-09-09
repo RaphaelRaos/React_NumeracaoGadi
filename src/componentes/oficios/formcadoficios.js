@@ -12,12 +12,12 @@ export const FormCadOficios = () => {
 
     const [oficio, setOficio] = useState({
 
-        interessado_oficio: null,
-        assunto_oficio: null,
-        datEmissao_oficio: null,
-        executor_oficio: null,
-        setor_oficio: null,
-        observacao_oficio: (''),
+        interessado_oficio: "",
+        assunto_oficio: "",
+        datEmissao_oficio: "",
+        executor_oficio: "",
+        setor_oficio: "",
+        observacao_oficio: ""
 
     });
 
@@ -63,6 +63,14 @@ export const FormCadOficios = () => {
                         type: 'success',
                         mensagem: responseJson.mensagem
                     });
+                    setOficio({
+                        interessado_oficio: "",
+                        assunto_oficio: "",
+                        datEmissao_oficio: "",
+                        executor_oficio: "",
+                        setor_oficio: "",
+                        observacao_oficio: ""
+                    })
                 }
             }).catch(() => {
                 setStatus({
@@ -92,22 +100,22 @@ export const FormCadOficios = () => {
                             <tr>
                                 <td>
                                     <Label>INTERESSADO</Label>
-                                    <Input type="text" placeholder="Interessado" name="interessado_oficio" onChange={valorInput} required ></Input>
+                                    <Input type="text" placeholder="Interessado" name="interessado_oficio" onChange={valorInput} value={oficio.interessado_oficio} required ></Input>
                                     <Label>ASSUNTO</Label>
-                                    <Input type="text" placeholder="Assunto" name="assunto_oficio" onChange={valorInput} required></Input>
+                                    <Input type="text" placeholder="Assunto" name="assunto_oficio" onChange={valorInput} value={oficio.assunto_oficio} required></Input>
                                     <Label>DATA EMISSÃO</Label>
-                                    <Input type="date" name="datEmissao_oficio" onChange={valorInput} required></Input>
+                                    <Input type="date" name="datEmissao_oficio" onChange={valorInput} value={oficio.datEmissao_oficio} required></Input>
                                     <Label>EXECUTOR</Label>
-                                    <Input type="text" placeholder="Executor" name="executor_oficio" onChange={valorInput} required ></Input>
+                                    <Input type="text" placeholder="Executor" name="executor_oficio" onChange={valorInput} value={oficio.executor_oficio} required ></Input>
                                     <Label>ÁREA</Label>
-                                    <Select name="setor_oficio" onChange={valorInput} required>
+                                    <Select name="setor_oficio" onChange={valorInput} value={oficio.setor_oficio} required>
                                         <option value="">Selecione</option>
                                         {Object.values(setor_oficio).map(setor => (
                                             <option key={setor.id_area}>{setor.area}</option>
                                         ))}
                                     </Select>
                                     <Label>OBSERVAÇÃO</Label>
-                                    <TextArea name="observacao_oficio" cols="50 rows" rows="5" id="" onChange={valorInput} ></TextArea>
+                                    <TextArea name="observacao_oficio" cols="50 rows" rows="5" id="" onChange={valorInput} valor={oficio.observacao_oficio}></TextArea>
                                 </td>
                             </tr>
                         </tbody>
