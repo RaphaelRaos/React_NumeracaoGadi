@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 import './App.css';
 
@@ -58,11 +58,22 @@ import { FormExcluirRelRemessa } from './componentes/relacaoRemessa/formExcluirR
 import { Relatorios } from './componentes/relatorios/relatorios'
 import { FormCadRelatorios } from './componentes/relatorios/formcadrelatorios'
 import { isAuthenticated } from './componentes/auth';
+import { acesso1 } from './componentes/auth';
 
 
 const PrivateRoute = ({component: Component, ...rest}) => (
   <Route {...rest} render={props => (
     isAuthenticated() ? (
+      <Component { ...props} />
+    ) : (
+      <Redirect to = {{pathname:"/", state: {from: props.location}}} />
+    )
+  )}/>
+)
+
+const AcessoGadi = ({component: Component, ...rest}) =>(
+  <Route {...rest} render={props => (
+    acesso1()? (
       <Component { ...props} />
     ) : (
       <Redirect to = {{pathname:"/", state: {from: props.location}}} />
@@ -83,11 +94,11 @@ function App() {
             <PrivateRoute path="/pesquisa" component={Pesquisa} />
 
             {/* COMUNICADOS */}
-            <PrivateRoute path="/comunicados" component={Comunicados} />
+            <AcessoGadi  path="/comunicados" component={Comunicados} />
             <PrivateRoute path="/formComunicados" component={FormCadComunicado} />
-            <PrivateRoute path="/formViewComunicados/:id" component={FormViewComunicados} />
-            <PrivateRoute path="/formEditarComunicados/:id" component={FormEditComunicados} />
-            <PrivateRoute path="/formExcluirComunicados/:id" component={FormExcluirComunicados} />
+            <AcessoGadi path="/formViewComunicados/:id" component={FormViewComunicados} />
+            <AcessoGadi path="/formEditarComunicados/:id" component={FormEditComunicados} />
+            <AcessoGadi path="/formExcluirComunicados/:id" component={FormExcluirComunicados} />
             {/* DESPACHOS */}
             <PrivateRoute path="/despachos" component={Despachos} />
             <PrivateRoute path="/formDespachos" component={FormCadDespacho} />
