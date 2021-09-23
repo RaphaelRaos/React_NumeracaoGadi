@@ -11,7 +11,15 @@
 .App-header {
   background-color: #fdfdfd;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(8, 63, 165);
+}
+.App-headerLogin {
+  background-color: #fdfdfd;
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   color: rgb(8, 63, 165);

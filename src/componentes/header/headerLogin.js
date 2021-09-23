@@ -1,15 +1,14 @@
 import React from 'react'
-import { MenuVert } from '../menuSetores/menuVert'
 
-export const Header = () => {
+export const HeaderLogin = () => {
 
     return (        
         <div>
             <div className="App">
-                <div className="App-header"> 
-                    <MenuVert />                                
+                <div className="App-headerLogin"> 
+                                                  
                     <h3>SISTEMA DE NUMERAÇÃO</h3>                    
-                    <div></div>
+                    
                 </div>      
             </div>
         </div>
