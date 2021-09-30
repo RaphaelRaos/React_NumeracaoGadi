@@ -58,11 +58,9 @@ export const Comunicados = () => {
                     <thead>
                         <tr>
                             <th>NUMERO COMUNICADO</th>
-                            <th>ASSUNTO</th>
-                            <th>DATA ELABORAÇÃO</th>
-                            <th>EXECUTOR</th>
+                            <th>ASSUNTO</th>       
                             <th>ÁREA</th>
-                            <th>OBSERVAÇÃO</th>
+                            <th>REF. BANCO</th>
                             <th>AÇÕES</th>                            
                         </tr>
                     </thead>
@@ -70,11 +68,9 @@ export const Comunicados = () => {
                         {Object.values(data).map(comunicados =>(
                             <tr key={comunicados.id_comunicado}>
                                 <LineTD>{comunicados.numero_comunicado}</LineTD>
-                                <LineTD>{comunicados.assunto_comunicado}</LineTD>
-                                <LineTD>{comunicados.datEmissao_comunicado}</LineTD>
-                                <LineTD>{comunicados.executor_comunicado}</LineTD>
+                                <LineTD>{comunicados.assunto_comunicado}</LineTD>                                
                                 <LineTD>{comunicados.area_comunicado}</LineTD>
-                                <LineTD>{comunicados.observacao_comunicado}</LineTD>                           
+                                <LineTD>{comunicados.referencia_banquinho}</LineTD>                         
                                 <LineTD>
                                         <Link to = {"/formViewComunicados/" + comunicados.id_comunicado}>
                                             <ButtonPrimary>Visualizar</ButtonPrimary>

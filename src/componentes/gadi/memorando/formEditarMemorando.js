@@ -10,8 +10,10 @@ export const FormEditarMemorando = (props) => {
     const [interessado_memorando,setInteressado] = useState('');
     const [assunto_memorando,setAssunto] = useState('');
     const [executor_memorando,setExecutor] = useState('');
+    const [setorElaboracao_memorando,setCodigoSetor ] = useState('');
     const [setor_memorando,setSetor] = useState('');
     const [observacao_memorando,setObservacao] = useState('');
+    const [referencia_banquinho, setReferencia] = useState('');
     const [nomenclaturaSetor, setSetorAlteracao] = useState([]);
 
     const [status, setStatus] = useState({
@@ -27,7 +29,7 @@ export const FormEditarMemorando = (props) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({id_memorando,interessado_memorando, assunto_memorando, executor_memorando, setor_memorando, observacao_memorando})
+            body: JSON.stringify({id_memorando,interessado_memorando, assunto_memorando, executor_memorando, setorElaboracao_memorando, observacao_memorando, referencia_banquinho})
         }).then((response) => response.json())
             .then((responseJson) => {
                 if(responseJson.erro){
@@ -65,7 +67,9 @@ export const FormEditarMemorando = (props) => {
                 setInteressado(responseJson.memorando.interessado_memorando)
                 setAssunto(responseJson.memorando.assunto_memorando)
                 setExecutor(responseJson.memorando.executor_memorando)
-                setSetor(responseJson.memorando.setor_memorando)
+                setCodigoSetor(responseJson.memorando.codSetor_memorando)
+                setSetor(responseJson.memorando.setor)
+                setReferencia(responseJson.memorando.referencia_banquinho)
                 setObservacao(responseJson.memorando.observacao_memorando)
             })
         }
@@ -102,9 +106,9 @@ export const FormEditarMemorando = (props) => {
                                         <Input type="text" placeholder="Interessado" name ="executor_memorando" value={executor_memorando} onChange={e => setExecutor(e.target.value)}></Input>
                                     <Label>SETOR</Label>
                                         <Select name="setor_memorando" onChange={e => setSetor(e.target.value)}>
-                                            <option value={setor_memorando}>{setor_memorando}</option>
+                                            <option value={setorElaboracao_memorando}>{setor_memorando}</option>
                                             {Object.values(nomenclaturaSetor).map(setor => (
-                                                <option key={setor.id_area}>{setor.area}</option>
+                                            <option key={setor.id_setor} value={setor.id_setor}> {setor.nome_setor}</option>
                                         ))}
                                         </Select>
                                     <Label>OBSERVAÇAO</Label>

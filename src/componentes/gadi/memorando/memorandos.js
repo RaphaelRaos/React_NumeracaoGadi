@@ -57,7 +57,9 @@ export const Memorandos = () => {
                         <tr>
                             <th>NUMERO DO MEMORANDO</th>
                             <th>INTERESSADO</th>
-                            <th>ASSUNTO</th>                            
+                            <th>ASSUNTO</th> 
+                            <th>SETOR</th> 
+                            <th>Nº BANQUINHO</th>                            
                             <th>AÇÕES</th>                                            
                         </tr>
                     </thead>
@@ -67,6 +69,8 @@ export const Memorandos = () => {
                         <LineTD>{memorandos.numero_memorando}</LineTD>
                         <LineTD>{memorandos.interessado_memorando}</LineTD>
                         <LineTD>{memorandos.assunto_memorando}</LineTD>
+                        <LineTD>{memorandos.setor}</LineTD>
+                        <LineTD>{memorandos.referencia_banquinho}</LineTD>
                         <LineTD>
                             <Link to={"/formViewMemorando/" + memorandos.id_memorando}>
                             <ButtonPrimary>Visualizar</ButtonPrimary> 

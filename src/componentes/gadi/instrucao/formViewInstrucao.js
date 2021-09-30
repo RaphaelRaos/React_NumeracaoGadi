@@ -40,6 +40,7 @@ export const FormViewInstrucao = (props) => {
                 <ConteudoInstrucao> DATA EMISSÃO : {data.datEmissao_instrucao} </ConteudoInstrucao>
                 <ConteudoInstrucao> EXECUTOR : {data.executor_instrucao} </ConteudoInstrucao>
                 <ConteudoInstrucao> SETOR : {data.setor} </ConteudoInstrucao>
+                <ConteudoInstrucao> NÚMERO BANQUINHO : {data.referencia_banquinho} </ConteudoInstrucao>
                 <ConteudoInstrucao> OBSERVAÇÃO : {data.observacao_instrucao} </ConteudoInstrucao>
             </Container>
         </div> 

@@ -1,7 +1,6 @@
 import React, { useEffect, useState} from 'react';
 import { Container, Table, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, LineTD, ButtonPrimary, InputPesquisa, SectionPesquisar } from './styles';
 import {Link} from 'react-router-dom';
-
 import { Header } from '../../header/header';
 
 
@@ -65,7 +64,8 @@ export const NumReferencia = () => {
                             <th>NUMERO DE REFERÊNCIA</th>
                             <th>PROCESSO / SISRAD</th>
                             <th>UA</th>
-                            <th>ASSUNTO</th>                       
+                            <th>ASSUNTO</th>
+                            <th>Nº BANQUINHO</th>                       
                             <th>AÇÕES</th>                            
                         </tr>
                     </thead>
@@ -74,8 +74,9 @@ export const NumReferencia = () => {
                             <tr key={referencia.id_referencia}>
                         <LineTD>{referencia.numero_referencia}</LineTD>
                         <LineTD>{referencia.num_processo_referencia}</LineTD>
-                        <LineTD>{referencia.des_ua}</LineTD>
-                        <LineTD>{referencia.assunto}</LineTD>
+                        <LineTD>{referencia.desua}</LineTD>
+                        <LineTD>{referencia.assuntoReferencia}</LineTD>
+                        <LineTD>{referencia.referencia_banquinho}</LineTD>
                         <LineTD>
                             <Link to={"/formViewNumReferencias/" + referencia.id_referencia}>
                             <ButtonPrimary>Visualizar</ButtonPrimary> 

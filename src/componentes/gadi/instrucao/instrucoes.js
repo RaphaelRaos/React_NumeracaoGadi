@@ -60,6 +60,7 @@ export const Instrucoes = () => {
                             <th>NUMERO DA INSTRUÇÃO</th>
                             <th>INTERESSADO</th>
                             <th>ASSUNTO</th>
+                            <th>BANQUINHO</th>
                             <th>AÇÕES</th>
                         </tr>
                     </thead>
@@ -69,6 +70,7 @@ export const Instrucoes = () => {
                                 <LineTD>{instrucoes.numero_instrucao}</LineTD>
                                 <LineTD>{instrucoes.interessado_instrucao}</LineTD>
                                 <LineTD>{instrucoes.assunto_instrucao}</LineTD>
+                                <LineTD>{instrucoes.referencia_banquinho}</LineTD>
                                 <LineTD>
                                     <Link to={"/formViewInstrucao/" + instrucoes.id_instrucao}>
                                         <ButtonPrimary>Visualizar</ButtonPrimary>

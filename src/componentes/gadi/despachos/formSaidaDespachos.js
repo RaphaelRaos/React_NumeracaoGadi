@@ -57,12 +57,12 @@ export const FormSaidaDespachos = (props) =>{
             .then((response) => response.json())
             .then((responseJson) => {
                 setProcesso(responseJson.despacho.numero_sisrad_processo)
-                setUA(responseJson.despacho.des_ua)
-                setUO(responseJson.despacho.des_ugo)
+                setUA(responseJson.despacho.desua)
+                setUO(responseJson.despacho.desuo)
                 setInteressado(responseJson.despacho.interessado_despacho)
                 setAssunto(responseJson.despacho.assunto_despacho)
                 setExecutor(responseJson.despacho.executor_despacho)
-                setSetor(responseJson.despacho.setor)
+                setSetor(responseJson.despacho.area_despacho)
                 setObservacao(responseJson.despacho.observacao_despacho)
             })
         }

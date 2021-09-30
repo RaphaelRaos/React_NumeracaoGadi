@@ -33,27 +33,26 @@ export const FormViewNumRef = (props) => {
                     </BotaoAcao>
                     </ConteudoTitulo>
                         
-                           <div> 
-                                              
+                           <div>                                               
                                     <ConteudoReferencia>NÚMERO DE REFERÊNCIA: {data.numero_referencia}</ConteudoReferencia>   
                                     <ConteudoReferencia>NÚMERO DO PROCESSO: {data.num_processo_referencia}</ConteudoReferencia> 
-                                    <ConteudoReferencia>UNIDADE ADMINISTRATIVA: {data.des_ua}</ConteudoReferencia> 
-                                    <ConteudoReferencia>UNIDADE ORÇAMENTARIA: {data.des_uo}</ConteudoReferencia> 
+                                    <ConteudoReferencia>UNIDADE ADMINISTRATIVA: {data.desua}</ConteudoReferencia> 
+                                    <ConteudoReferencia>UNIDADE ORÇAMENTARIA: {data.desuo}</ConteudoReferencia> 
                                     <ConteudoReferencia>INTERESSADO: {data.interessado_referencia}</ConteudoReferencia> 
-                                    <ConteudoReferencia>ASSUNTO: {data.assunto}</ConteudoReferencia> 
-                                    <ConteudoReferencia>DATA ENTRADA: {data.datEntrada_referencia}</ConteudoReferencia>
+                                    <ConteudoReferencia>ASSUNTO: {data.assuntoReferencia}</ConteudoReferencia> 
+                                    <ConteudoReferencia>DATA ENTRADA: {data.datEmissao_referencia}</ConteudoReferencia>
                              
                             </div>
                             <div> 
                                                  
                                     <ConteudoReferencia>EXECUTOR: {data.executor_referencia}</ConteudoReferencia> 
-                                    <ConteudoReferencia>UNIDADE DE POSSE: {data.posse_referencia}</ConteudoReferencia> 
-                                    <ConteudoReferencia>SITUAÇÃO: {data.situacao}</ConteudoReferencia> 
-                                    <ConteudoReferencia>ANDAMENTO DO PROCESSO: {data.andamento_referencia} </ConteudoReferencia> 
-                                    <ConteudoReferencia>OCORRÊNCIA: {data.ocorrencia_referencia}</ConteudoReferencia> 
+                                    <ConteudoReferencia>UNIDADE DE POSSE: {data.area_numReferencia}</ConteudoReferencia> 
+                                    <ConteudoReferencia>ANDAMENTO DO PROCESSO: {data.statusProcesso} </ConteudoReferencia> 
                                     <ConteudoReferencia>VIGÊNCIA: {data.vigencia_referencia}</ConteudoReferencia> 
-                                    <ConteudoReferencia>STATUS: {data.status_referencia}</ConteudoReferencia> 
+                                    <ConteudoReferencia>Nº BANQUINHO: {data.referencia_banquinho}</ConteudoReferencia>
                                     <ConteudoReferencia>OBSERVAÇÃO: {data.observacao_referencia}</ConteudoReferencia>
+                                    
+                                                           
                                                            
                             </div>   
                         

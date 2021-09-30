@@ -6,14 +6,17 @@ import { Link } from 'react-router-dom';
 
 export const FormCadComunicado = () => {
 
-  
+
 
   const [comunicado, setComunicado] = useState({
+    interessado_comunicado: "",
     assunto_comunicado: "",
-    data_elaboracao: "",
+    datEmissao_comunicado: "",
     executor_comunicado: "",
-    setor_comunicado: "",
-    observacao_comunicado: ""
+    observacao_comunicado: "",
+    referencia_banquinho: "",
+    setorElaboracao_comunicado: ""
+
   });
 
   const [status, setStatus] = useState({
@@ -34,6 +37,7 @@ export const FormCadComunicado = () => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ comunicado })
+
     })
       .then((response) => response.json())
       .then((responseJson) => {
@@ -48,12 +52,14 @@ export const FormCadComunicado = () => {
             mensagem: responseJson.mensagem
           });
           setComunicado({
+            interessado_comunicado: "",
             assunto_comunicado: "",
-            data_elaboracao: "",
+            datEmissao_comunicado: "",
             executor_comunicado: "",
-            setor_comunicado: "",
-            observacao_comunicado: ""
-          });          
+            observacao_comunicado: "",
+            referencia_banquinho: "",
+            setorElaboracao_comunicado: ""
+          });
         }
       }).catch(() => {
         setStatus({
@@ -94,19 +100,23 @@ export const FormCadComunicado = () => {
             <tbody>
               <Tr>
                 <LineCadastro>
+                  <Label>Interessado: </Label>
+                  <Input type="text" name="interessado_comunicado" placeholder="Assunto" onChange={valorInput} value={comunicado.interessado_comunicado} required></Input>
                   <Label>ASSUNTO: </Label>
                   <Input type="text" name="assunto_comunicado" placeholder="Assunto" onChange={valorInput} value={comunicado.assunto_comunicado} required></Input>
                   <Label>DATA ELABORAÇÃO: </Label>
-                  <Input type="date" name="data_elaboracao" onChange={valorInput} value={comunicado.data_elaboracao} required></Input>
+                  <Input type="date" name="datEmissao_comunicado" onChange={valorInput} value={comunicado.datEmissao_comunicado} required></Input>
                   <Label>EXECUTOR: </Label>
                   <Input type="text" name="executor_comunicado" placeholder="Executor Comunicado" onChange={valorInput} value={comunicado.executor_comunicado} required></Input>
                   <Label>AREA: </Label>
-                  <Select onChange={valorInput} name="setor_comunicado" value={comunicado.setor_comunicado}required>
+                  <Select onChange={valorInput} name="setorElaboracao_comunicado" value={comunicado.setorElaboracao_comunicado} required>
                     <option>Selecione</option>
                     {Object.values(nomenclaturaSetor).map(setor => (
-                      <option key={setor.id_area}>{setor.area}</option>
+                      <option key={setor.id_setor} value={setor.id_setor}> {setor.nome_setor}</option>
                     ))}
                   </Select>
+                  <Label>PLANILHA NUMERAÇÃO: </Label>
+                  <Input type="number" name="referencia_banquinho" placeholder="Referência Banquinho" onChange={valorInput} value={comunicado.referencia_banquinho}></Input>
                   <Label>OBSERVAÇÃO</Label>
                   <TextArea name="observacao_comunicado" cols="50 rows" rows="5" onChange={valorInput} value={comunicado.observacao_comunicado}></TextArea>
                 </LineCadastro>

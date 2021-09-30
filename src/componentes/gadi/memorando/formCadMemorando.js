@@ -10,8 +10,9 @@ export const FormCadMemorando = () => {
         assunto_memorando: "",
         datEmissao_memorando: "",
         executor_memorando: "",
-        setor_memorando: "",
-        observacao_memorando: ""
+        setorElaboracao_memorando: "",
+        observacao_memorando: "",
+        referencia_banquinho: ""
     })
 
     const [status, setStatus] = useState({
@@ -61,8 +62,9 @@ export const FormCadMemorando = () => {
                         assunto_memorando: "",
                         datEmissao_memorando: "",
                         executor_memorando: "",
-                        setor_memorando: "",
-                        observacao_memorando: ""
+                        setorElaboracao_memorando: "",
+                        observacao_memorando: "",
+                        referencia_banquinho: ""
                     });
                 }
             }).catch(() => {
@@ -99,14 +101,16 @@ export const FormCadMemorando = () => {
                                     <Label>DATA EMISSÃO</Label>
                                     <Input type="date" onChange={valorInput} name="datEmissao_memorando" value={memorando.datEmissao_memorando} required></Input>
                                     <Label>EXECUTOR</Label>
-                                    <Input type="text" placeholder="Executor" name="executor_memorando" onChange={valorInput} value={memorando.executor_memorando}></Input>
+                                    <Input type="text" placeholder="Executor" name="executor_memorando" onChange={valorInput} value={memorando.executor_memorando} required></Input>
                                     <Label>SETOR</Label>
-                                    <Select onChange={valorInput} name="setor_memorando" value={memorando.setor_memorando} required>
+                                    <Select onChange={valorInput} name="setorElaboracao_memorando" value={memorando.setorElaboracao_memorando} required>
                                         <option>Selecione</option>
                                         {Object.values(nomenclaturaSetor).map(setor => (
-                                            <option key={setor.id_area}>{setor.area}</option>
+                                            <option key={setor.id_setor} value={setor.id_setor}> {setor.nome_setor}</option>
                                         ))}
                                     </Select>
+                                    <Label>REFERÊNCIA BANQUINHO</Label>
+                                    <Input type="number" placeholder="Número de Referência Banquinho" name="referencia_banquinho" onChange={valorInput} value={memorando.referencia_banquinho} required></Input>
                                     <Label>OBSERVAÇÃO</Label>
                                     <TextArea name="observacao_memorando" cols="50 rows" rows="5" id="" onChange={valorInput} value={memorando.observacao_memorando}></TextArea>
                                 </td>

@@ -3,19 +3,18 @@ import { Header } from '../../header/header';
 import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess, TdCadastro } from './styles';
 import { Link } from 'react-router-dom';
 
-
+//PAREI AQUI - NECESSÁRIO RECOMEÇAR DO ZERO 30.09.2021
 
 export const FormEditarNumRef = (props) => {
 
     const [id_referencia] = useState(props.match.params.id);
     const [nomenclaturaUA, setDestinacao] = useState([]);
-    const [nomenclaturaUGO, setOrcamentaria] = useState([]);
+    const [AndamentoProcesso, setAndamentoStatus] = useState([]);
     const [nomenclaturaSetor, setSetor] = useState([]);
     const [assuntoReferencia, setAssunto] = useState([]);
     /* */
     const [num_processo_referencia, setProcesso] = useState('');
     const [des_ua, setUA] = useState('');
-    const [des_uo, setUO] = useState('');
     const [interessado_referencia, setInteressado] = useState('');
     const [assunto, setAssuntoReferencia] = useState('');
     const [executor_referencia, setExecutor] = useState('');
@@ -39,7 +38,7 @@ export const FormEditarNumRef = (props) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ id_referencia, num_processo_referencia, des_ua, des_uo, interessado_referencia, assunto, executor_referencia, posse_referencia, situacao, andamento_referencia, ocorrencia_referencia, vigencia_referencia, status_referencia, observacao_referencia })
+            body: JSON.stringify({ id_referencia, num_processo_referencia, des_ua, interessado_referencia, assunto, executor_referencia, posse_referencia, situacao, andamento_referencia, ocorrencia_referencia, vigencia_referencia, status_referencia, observacao_referencia })
         }).then((response) => response.json())
             .then((responseJson) => {
                 console.log(responseJson);
@@ -74,15 +73,7 @@ export const FormEditarNumRef = (props) => {
         await fetch(process.env.REACT_APP_VISUALIZAR_UA)
             .then((response) => response.json())
             .then((responseJson) => {
-                setDestinacao(responseJson.registro_UA);
-            })
-    }
-
-    const unidadeOrcamentaria = async () => {
-        await fetch(process.env.REACT_APP_VISUALIZAR_UO)
-            .then((response) => response.json())
-            .then((responseJson) => {
-                setOrcamentaria(responseJson.registro_UO);
+                setDestinacao(responseJson.registro_unidades);
             })
     }
 
@@ -93,6 +84,13 @@ export const FormEditarNumRef = (props) => {
                 setSetor(responseJson.registro_setor);
             })
     }
+    const statusAndamentoProcesso = async () => {
+        await fetch(process.env.REACT_APP_VISUALIZAR_STATUS_PROCESSO)
+            .then((response) => response.json())
+            .then((responseJson) => {
+                setAndamentoStatus(responseJson.lista_status);
+            })
+    }
     useEffect(() => {
 
         const getNumReferencia = async () => {
@@ -101,7 +99,7 @@ export const FormEditarNumRef = (props) => {
                 .then((responseJson) => {
                     setProcesso(responseJson.numeroReferencia.num_processo_referencia);
                     setUA(responseJson.numeroReferencia.des_ua);
-                    setUO(responseJson.numeroReferencia.des_uo);
+                    
                     setInteressado(responseJson.numeroReferencia.interessado_referencia);
                     setAssuntoReferencia(responseJson.numeroReferencia.assunto)
                     setExecutor(responseJson.numeroReferencia.executor_referencia)
@@ -116,9 +114,9 @@ export const FormEditarNumRef = (props) => {
         }
         getNumReferencia();
         unidadeAdministrativa();
-        unidadeOrcamentaria();
         setores();
         assuntoTabela();
+        statusAndamentoProcesso();
     }, [id_referencia]);
 
     return (
@@ -149,13 +147,7 @@ export const FormEditarNumRef = (props) => {
                                             <option key={unidadeAdministrativa.CodTabUa}>{unidadeAdministrativa.UNIDADE_ADMINISTRATIVA}</option>
                                         ))}
                                     </Select>
-                                    <Label>COORDENADORIA</Label>
-                                    <Select name="des_uo" onChange={e => setUO(e.target.value)}>
-                                        <option value={des_uo}>{des_uo}</option>
-                                        {Object.values(nomenclaturaUGO).map(unidadeOrcamentaria => (
-                                            <option key={unidadeOrcamentaria.CodTabUGO}>{unidadeOrcamentaria.UNIDADE_ORCAMENTARIA}</option>
-                                        ))}
-                                    </Select>
+                                    
                                     <Label>INTERESSADO</Label>
                                     <Input type="text" placeholder="Interessado" name="interessado_referencia" value={interessado_referencia} onChange={e => setInteressado(e.target.value)}></Input>
                                     <Label>ASSUNTO</Label>

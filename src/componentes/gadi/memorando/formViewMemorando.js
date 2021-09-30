@@ -37,7 +37,7 @@ export const FormViewMemorando = (props) =>{
                 <ConteudoMemorando> ASSUNTO : {data.assunto_memorando} </ConteudoMemorando>
                 <ConteudoMemorando> DATA EMISSÃO : {data.datEmissao_memorando} </ConteudoMemorando>
                 <ConteudoMemorando> EXECUTOR : {data.executor_memorando} </ConteudoMemorando>
-                <ConteudoMemorando> SETOR : {data.setor_memorando} </ConteudoMemorando>
+                <ConteudoMemorando> SETOR : {data.setor} </ConteudoMemorando>
                 <ConteudoMemorando> OBSERVAÇÃO : {data.observacao_memorando} </ConteudoMemorando>
             </Container>
         </div>

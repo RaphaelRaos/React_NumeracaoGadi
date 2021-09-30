@@ -6,19 +6,18 @@ import { Link } from 'react-router-dom';
 export const FormCadDespacho = () => {
 
     const [despacho, setDespacho] = useState({
-        numero_sisrad_processo: "",
-        des_ua: "",
-        des_ugo: "",
+        numero_sisrad_processo: "",        
         interessado_despacho: "",
-        datEntrada_despacho: "",
         assunto_despacho: "",
+        datEmissao_despacho: "",
         executor_despacho: "",
-        setor: "",
-        observacao_despacho: ""
+        referencia_banquinho: "",
+        setorElaboracao_despacho: "",
+        observacao_despacho: "",
+        codtabua:""
     });
 
     const [nomenclaturaUA, setDestinacao] = useState([]);
-    const [nomenclaturaUGO, setOrcamentaria] = useState([]);
     const [nomenclaturaSetor, setSetor] = useState([]);
 
     const [status, setStatus] = useState({
@@ -50,14 +49,14 @@ export const FormCadDespacho = () => {
                     });
                     setDespacho({
                         numero_sisrad_processo: "",
-                        des_ua: "",
-                        des_ugo: "",
+                        codtabua: "",
                         interessado_despacho: "",
-                        datEntrada_despacho: "",
+                        datEmissao_despacho: "",
                         assunto_despacho: "",
                         executor_despacho: "",
-                        setor: "",
-                        observacao_despacho: ""
+                        setorElaboracao_despacho: "",
+                        observacao_despacho: "",
+                        referencia_banquinho: ""
                     });
                 }
             }).catch(() => {
@@ -68,17 +67,10 @@ export const FormCadDespacho = () => {
             });
     }
     const unidadeAdministrativa = async () => {
-        await fetch(process.env.REACT_APP_VISUALIZAR_UA)
+        await fetch(process.env.REACT_APP_VISUALIZAR_UNIDADES)
             .then((response) => response.json())
             .then((responseJson) => {
-                setDestinacao(responseJson.registro_UA);
-            })
-    }
-    const unidadeOrcamentaria = async () => {
-        await fetch(process.env.REACT_APP_VISUALIZAR_UO)
-            .then((response) => response.json())
-            .then((responseJson) => {
-                setOrcamentaria(responseJson.registro_UO);
+                setDestinacao(responseJson.registro_unidades);
             })
     }
     const setores = async () => {
@@ -90,7 +82,6 @@ export const FormCadDespacho = () => {
     }
     useEffect(() => {
         unidadeAdministrativa();
-        unidadeOrcamentaria();
         setores();
     }, [])
 
@@ -114,38 +105,33 @@ export const FormCadDespacho = () => {
                             <tr>
                                 <th>
                                     <Label>NUMERO SISRAD/PROCESSOR</Label>
-                                    <Input type="text" placeholder="Numero Sisrad / Processo" name="numero_sisrad_processo" onChange={valorInput}  value={despacho.numero_sisrad_processo}></Input>
+                                    <Input type="text" placeholder="Numero Sisrad / Processo" name="numero_sisrad_processo" onChange={valorInput} value={despacho.numero_sisrad_processo} required></Input>
                                     <Label>UNIDADE ADMINISTRATIVA</Label>
-                                    <Select name="des_ua" onChange={valorInput} value={despacho.des_ua}>
+                                    <Select name="codtabua" onChange={valorInput} value={despacho.codtabua} required>
                                         <option value="">Selecione</option>
                                         {Object.values(nomenclaturaUA).map(unidadeAdministrativa => (
-                                            <option key={unidadeAdministrativa.CodTabUa}>{unidadeAdministrativa.UNIDADE_ADMINISTRATIVA}</option>
-                                        ))}
-                                    </Select>
-                                    <Label>UNIDADE ORÇAMENTÁRIA</Label>
-                                    <Select name="des_ugo" onChange={valorInput} value={despacho.des_ugo}>
-                                        <option value="">Selecione</option>
-                                        {Object.values(nomenclaturaUGO).map(unidadeOrcamentaria => (
-                                            <option key={unidadeOrcamentaria.CodTabUGO}>{unidadeOrcamentaria.UNIDADE_ORCAMENTARIA}</option>
+                                            <option key={unidadeAdministrativa.CodTabUa} value={unidadeAdministrativa.CodTabUa}>{unidadeAdministrativa.DESCRICAO_UA}</option>
                                         ))}
                                     </Select>
                                     <Label>INTERESSADO</Label>
-                                    <Input type="text" placeholder="Interessado" name="interessado_despacho" onChange={valorInput} value={despacho.interessado_despacho}></Input>
+                                    <Input type="text" placeholder="Interessado" name="interessado_despacho" onChange={valorInput} value={despacho.interessado_despacho}required></Input>
                                     <Label>ASSUNTO</Label>
-                                    <Input type="text" placeholder="Assunto Despacho" name="assunto_despacho" onChange={valorInput} value={despacho.assunto_despacho}></Input>
+                                    <Input type="text" placeholder="Assunto Despacho" name="assunto_despacho" onChange={valorInput} value={despacho.assunto_despacho} required></Input>
 
                                     <Label>DATA ENTRADA</Label>
-                                    <Input type="date" placeholder="" name="datEntrada_despacho" onChange={valorInput} value={despacho.datEntrada_despacho}></Input>
+                                    <Input type="date" placeholder="" name="datEmissao_despacho" onChange={valorInput} value={despacho.datEmissao_despacho} required></Input>
 
                                     <Label>EXECUTOR</Label>
-                                    <Input type="text" placeholder="Interessado" name="executor_despacho" onChange={valorInput} value={despacho.executor_despacho}></Input>
+                                    <Input type="text" placeholder="Interessado" name="executor_despacho" onChange={valorInput} value={despacho.executor_despacho}required></Input>
                                     <Label>SETOR</Label>
-                                    <Select onChange={valorInput} name="setor" value={despacho.setor}>
+                                    <Select onChange={valorInput} name="setorElaboracao_despacho" value={despacho.setorElaboracao_despacho} required>
                                         <option>Selecione</option>
                                         {Object.values(nomenclaturaSetor).map(setor => (
-                                            <option key={setor.id_area}>{setor.area}</option>
+                                            <option key={setor.id_setor} value={setor.id_setor}> {setor.nome_setor}</option>
                                         ))}
                                     </Select>
+                                    <Label>REFERENCIA BANQUINHO</Label>
+                                    <Input type="number" placeholder="Referência Planilha Excel" name="referencia_banquinho" onChange={valorInput} value={despacho.referencia_banquinho}></Input>
                                     <Label>OBSERVAÇAO</Label>
                                     <TextArea name="observacao_despacho" cols="50 rows" rows="5" id="" onChange={valorInput} value={despacho.observacao_despacho}></TextArea>
                                 </th>
