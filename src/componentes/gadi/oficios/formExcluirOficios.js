@@ -79,7 +79,8 @@ export const FormExcluirOficio = (props) => {
                                 <ConteudoOficio> ASSUNTO : {data.assunto_oficio} </ConteudoOficio>
                                 <ConteudoOficio> DATA EMISSÃO : {data.datEmissao_oficio} </ConteudoOficio>
                                 <ConteudoOficio> EXECUTOR : {data.executor_oficio} </ConteudoOficio>
-                                <ConteudoOficio> SETOR : {data.setor_oficio} </ConteudoOficio>
+                                <ConteudoOficio> SETOR : {data.area_oficio} </ConteudoOficio>
+                                <ConteudoOficio> Nº REFERÊNCIA : {data.referencia_banquinho} </ConteudoOficio>
                                 <ConteudoOficio> OBSERVAÇÃO : {data.observacao_oficio} </ConteudoOficio>                              
                                 </th>
                             </tr>                               

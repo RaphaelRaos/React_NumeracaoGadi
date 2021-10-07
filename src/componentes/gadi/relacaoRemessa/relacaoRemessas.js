@@ -62,6 +62,7 @@ export const RelRemessa = () => {
                             <th>UA</th>
                             <th>INTERESSADO</th>
                             <th>ASSUNTO</th>
+                            <th>Nº REFERÊNCIA</th>
                             <th>AÇÕES</th>
                         </tr>
                     </thead>
@@ -70,9 +71,10 @@ export const RelRemessa = () => {
                             <tr key={remessas.id_remessa}>
                                 <LineTD>{remessas.numero_remessa}</LineTD>
                                 <LineTD>{remessas.numProcesso_remessa}</LineTD>
-                                <LineTD>{remessas.des_ua}</LineTD>
+                                <LineTD>{remessas.desua}</LineTD>
                                 <LineTD>{remessas.interessado_remessa}</LineTD>
                                 <LineTD>{remessas.assunto_remessa}</LineTD>
+                                <LineTD>{remessas.referencia_banquinho}</LineTD>
                                 <LineTD>
                                     <Link to={"FormViewRelRemessa/" + remessas.id_remessa}>
                                         <ButtonPrimary>Visualizar</ButtonPrimary>

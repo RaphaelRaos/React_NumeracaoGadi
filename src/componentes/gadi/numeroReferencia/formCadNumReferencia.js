@@ -21,7 +21,7 @@ export const FormCadNumRef = () => {
     });
 
 
-    const [nomenclaturaUA, setDestinacao] = useState([]);
+    const [nomenclaturaUA, setUnidades] = useState([]);
     const [andamentoProcesso, setAndamento] = useState([]);
     const [nomenclaturaSetor, setSetor] = useState([]);
     const [assuntoReferencia, setAssunto] = useState([]);
@@ -45,7 +45,7 @@ export const FormCadNumRef = () => {
         await fetch(process.env.REACT_APP_VISUALIZAR_UNIDADES)
             .then((response) => response.json())
             .then((responseJson) => {
-                setDestinacao(responseJson.registro_unidades);
+                setUnidades(responseJson.registro_unidades);
             })
     }
     const setores = async () => {

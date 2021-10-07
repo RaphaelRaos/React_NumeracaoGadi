@@ -8,28 +8,33 @@ import { Link } from 'react-router-dom';
 export const FormEditarNumRef = (props) => {
 
     const [id_referencia] = useState(props.match.params.id);
-    const [nomenclaturaUA, setDestinacao] = useState([]);
+    const [nomenclaturaUA, setUnidades] = useState([]);
     const [AndamentoProcesso, setAndamentoStatus] = useState([]);
     const [nomenclaturaSetor, setSetor] = useState([]);
-    const [assuntoReferencia, setAssunto] = useState([]);
+    const [assuntoReferencia, setAssuntoReferencia] = useState([]);
     /* */
     const [num_processo_referencia, setProcesso] = useState('');
-    const [des_ua, setUA] = useState('');
     const [interessado_referencia, setInteressado] = useState('');
-    const [assunto, setAssuntoReferencia] = useState('');
+    const [id_assunto, setAssunto] = useState('');
+    const [descAssunto, setDescAssunto] = useState('');
     const [executor_referencia, setExecutor] = useState('');
-    const [posse_referencia, setPosse] = useState('');
-    const [situacao, setSituacao] = useState('');
-    const [andamento_referencia, setAndamento] = useState('');
-    const [ocorrencia_referencia, setOcorrencia] = useState('');
+    const [setorElaboracao_referencia, setCodArea] = useState('');
+    const [area_referencia, setAreaReferencia] = useState('');
+    const [andamento, setCodStatus] = useState('');
+    const [status_referencia, setStatusReferencia] = useState('');
     const [vigencia_referencia, setVigencia] = useState('');
-    const [status_referencia, setStatus] = useState('');
     const [observacao_referencia, setObservacao] = useState('');
+    const [referencia_banquinho, setBanquinho] = useState('');
+    const [codtabua, setCodUA] = useState('');
+    const [destinacaoUA, setDesUA] = useState('');
+    const [motivoDevolucao_referencia, setMotivoDevolucao] = useState('');
 
     const [status, setStatusMensagem] = useState({
         type: '',
         mensagem: ''
     })
+
+    
     const editNumReferencia = async e => {
         e.preventDefault();
 
@@ -38,7 +43,7 @@ export const FormEditarNumRef = (props) => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ id_referencia, num_processo_referencia, des_ua, interessado_referencia, assunto, executor_referencia, posse_referencia, situacao, andamento_referencia, ocorrencia_referencia, vigencia_referencia, status_referencia, observacao_referencia })
+            body: JSON.stringify({ id_referencia, num_processo_referencia,codtabua, interessado_referencia, id_assunto, executor_referencia, setorElaboracao_referencia, andamento, vigencia_referencia, status_referencia, observacao_referencia, referencia_banquinho, motivoDevolucao_referencia})
         }).then((response) => response.json())
             .then((responseJson) => {
                 console.log(responseJson);
@@ -65,18 +70,16 @@ export const FormEditarNumRef = (props) => {
         await fetch(process.env.REACT_APP_VISUALIZAR_ASSUNTO)
             .then((response) => response.json())
             .then((responseJson) => {
-                setAssunto(responseJson.registro_assunto);
+                setAssuntoReferencia(responseJson.registro_assunto);
             })
     }
-
-    const unidadeAdministrativa = async () => {
-        await fetch(process.env.REACT_APP_VISUALIZAR_UA)
+    const visualizarUnidades = async () => {
+        await fetch(process.env.REACT_APP_VISUALIZAR_UNIDADES)
             .then((response) => response.json())
             .then((responseJson) => {
-                setDestinacao(responseJson.registro_unidades);
+                setUnidades(responseJson.registro_unidades);
             })
     }
-
     const setores = async () => {
         await fetch(process.env.REACT_APP_VISUALIZAR_SETOR)
             .then((response) => response.json())
@@ -92,28 +95,30 @@ export const FormEditarNumRef = (props) => {
             })
     }
     useEffect(() => {
-
         const getNumReferencia = async () => {
             await fetch(process.env.REACT_APP_VISUALIZAR_REFERENCIA + id_referencia)
                 .then((response) => response.json())
                 .then((responseJson) => {
-                    setProcesso(responseJson.numeroReferencia.num_processo_referencia);
-                    setUA(responseJson.numeroReferencia.des_ua);
-                    
-                    setInteressado(responseJson.numeroReferencia.interessado_referencia);
-                    setAssuntoReferencia(responseJson.numeroReferencia.assunto)
+                    setProcesso(responseJson.numeroReferencia.num_processo_referencia)
+                    setInteressado(responseJson.numeroReferencia.interessado_referencia)
+                    setAssunto(responseJson.numeroReferencia.id_assunto)
+                    setDescAssunto(responseJson.numeroReferencia.assuntoReferencia)
                     setExecutor(responseJson.numeroReferencia.executor_referencia)
-                    setPosse(responseJson.numeroReferencia.posse_referencia)
-                    setSituacao(responseJson.numeroReferencia.situacao)
-                    setAndamento(responseJson.numeroReferencia.andamento_referencia)
-                    setOcorrencia(responseJson.numeroReferencia.ocorrencia_referencia)
+                    setCodArea(responseJson.numeroReferencia.codArea_referencia)
+                    setAreaReferencia(responseJson.numeroReferencia.area_numReferencia)
+                    setCodStatus(responseJson.numeroReferencia.idStatusProcesso)
+                    setStatusReferencia(responseJson.numeroReferencia.statusProcesso)
                     setVigencia(responseJson.numeroReferencia.vigencia_referencia)
-                    setStatus(responseJson.numeroReferencia.status_referencia)
                     setObservacao(responseJson.numeroReferencia.observacao_referencia)
+                    setBanquinho(responseJson.numeroReferencia.referencia_banquinho)
+                    setCodUA(responseJson.numeroReferencia.CodTabUa)
+                    setDesUA(responseJson.numeroReferencia.desua)
+                    setMotivoDevolucao(responseJson.numeroReferencia.motivoDevolucao_referencia)
+                    
                 })
         }
         getNumReferencia();
-        unidadeAdministrativa();
+        visualizarUnidades();
         setores();
         assuntoTabela();
         statusAndamentoProcesso();
@@ -141,50 +146,45 @@ export const FormEditarNumRef = (props) => {
                                     <Label>NÚMERO PROCESSO / SPDOC / SEM PAPEL</Label>
                                     <Input type="text" placeholder="Número Processo" name="num_processo_referencia" value={num_processo_referencia} onChange={e => setProcesso(e.target.value)}></Input>
                                     <Label>UNIDADE ADMINISTRATIVA</Label>
-                                    <Select name="des_ua" onChange={e => setUA(e.target.value)}>
-                                        <option value={des_ua}>{des_ua}</option>
-                                        {Object.values(nomenclaturaUA).map(unidadeAdministrativa => (
-                                            <option key={unidadeAdministrativa.CodTabUa}>{unidadeAdministrativa.UNIDADE_ADMINISTRATIVA}</option>
+                                    <Select name="codtabua" onChange={e => setCodUA(e.target.value)}>
+                                        <option value={codtabua}>{destinacaoUA}</option>
+                                        {Object.values(nomenclaturaUA).map(unidade => (
+                                            <option key={unidade.CodTabUa} value={unidade.CodTabUa}>{unidade.DESCRICAO_UA}</option>
                                         ))}
-                                    </Select>
-                                    
+                                    </Select>                                    
                                     <Label>INTERESSADO</Label>
                                     <Input type="text" placeholder="Interessado" name="interessado_referencia" value={interessado_referencia} onChange={e => setInteressado(e.target.value)}></Input>
                                     <Label>ASSUNTO</Label>
-                                    <Select name="assunto" onChange={e => setAssuntoReferencia(e.target.value)}>
-                                        <option value={assunto}>{assunto}</option>
+                                    <Select name="assunto" onChange={e => setAssunto(e.target.value)}>
+                                        <option value={id_assunto}>{descAssunto}</option>
                                         {Object.values(assuntoReferencia).map(assunto => (
-                                            <option key={assunto.id_assunto}> {assunto.assunto}</option>
+                                            <option key={assunto.id_assunto} value={assunto.id_assunto}> {assunto.assunto}</option>
                                         ))}
                                     </Select>
                                     <Label>EXECUTOR</Label>
                                     <Input type="text" placeholder="Executor" name="executor_referencia" value={executor_referencia} onChange={e => setExecutor(e.target.value)}></Input>
                                     <Label>UNIDADE DE POSSE</Label>
-                                    <Select name="posse_referencia" onChange={e => setPosse(e.target.value)}>
-                                        <option value={posse_referencia}>{posse_referencia}</option>
+                                    <Select name="posse_referencia" onChange={e => setCodArea(e.target.value)}>
+                                        <option value={setorElaboracao_referencia}>{area_referencia}</option>
                                         {Object.values(nomenclaturaSetor).map(setor => (
-                                            <option key={setor.id_area}>{setor.area}</option>
+                                            <option key={setor.id_setor} value={setor.id_setor}>{setor.nome_setor}</option>
                                         ))}
                                     </Select>
                                 </TdCadastro>
                                 <TdCadastro>
-                                    <Label>SITUAÇÃO</Label>
-                                    <Input type="text" placeholder="Situação" name="situação_referencia" value={situacao} onChange={e => setSituacao(e.target.value)}></Input>
                                     <Label>ANDAMENTO DO PROCESSO</Label>
-                                    <Select name="assunto" onChange={e => setAndamento(e.target.value)}>
-                                        <option value={andamento_referencia}>{andamento_referencia}</option>
-                                        <option value="AGUARDANDO TRAMITAÇÃO">AGUARDANDO TRAMITAÇÃO</option>
-                                        <option value="PARA REVISÃO">PARA REVISÃO</option>
-                                        <option value="FINALIZADO">FINALIZADO</option>
+                                    <Select name="posse_referencia" onChange={e => setCodStatus(e.target.value)}>
+                                        <option value={andamento}>{status_referencia}</option>
+                                        {Object.values(AndamentoProcesso).map(andamento => (
+                                            <option key={andamento.id_andamento} value={andamento.id_andamento}>{andamento.status_andamento}</option>
+                                        ))}
                                     </Select>
-                                    <Label>OCORRENCIAS</Label>
-                                    <TextArea name="ocorrencias_referencia" cols="50 rows" rows="3" id="" value={ocorrencia_referencia} onChange={e => setOcorrencia(e.target.value)}></TextArea>
                                     <Label>DATA DA VIGÊNCIA </Label>
                                     <Input type="date" name="vigencia_referencia" value={vigencia_referencia} onChange={e => setVigencia(e.target.value)}></Input>
-                                    <Label>STATUS</Label>
-                                    <Select name="assunto" onChange={e => setAndamento(e.target.value)}>
-                                        <option value={status_referencia}>{status_referencia}</option>
-                                    </Select>
+                                    <Label>Nº BANQUINHO</Label>
+                                    <Input type="number" placeholder="Referência Banquinho" name="referencia_banquinho" value={referencia_banquinho} onChange={e => setBanquinho(e.target.value)}></Input>
+                                    <Label>MOTIVO DEVOLUÇÃO</Label>
+                                    <Input type="text" placeholder="Motivo Devolução - Caso Houver" name="motivoDevolucao_referencia" value={motivoDevolucao_referencia} onChange={e => setMotivoDevolucao(e.target.value)}></Input>
                                     <Label>OBSERVAÇÃO</Label>
                                     <TextArea name="observacao_referencia" cols="20 rows" rows="5" id="" value={observacao_referencia} onChange={e => setObservacao(e.target.value)}></TextArea>
 
