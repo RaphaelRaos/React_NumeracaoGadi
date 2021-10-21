@@ -12,14 +12,15 @@ export const SideBarData = [
         icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
     },
+    
     {
-        title: 'Gadi',
-        path: '/menu',
+        title: 'G.Coordenador',
+        path: '/MenuGabCrh',
         icon: <IoIcons.IoMdPeople/>,
         cName: 'nav-text'
     },
     {
-        title: 'G.Coordenador',
+        title: 'Gadi',
         path: '/menu',
         icon: <IoIcons.IoMdPeople/>,
         cName: 'nav-text'

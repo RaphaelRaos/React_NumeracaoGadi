@@ -9,55 +9,67 @@ import { Header } from './componentes/header/header'
 
 //GADI
 import { Menu } from './componentes/gadi/menu/menu'
-//COMUNICADOS
+//GADI//COMUNICADOS
 import { Comunicados } from './componentes/gadi/comunicados/comunicados'
 import { FormCadComunicado } from './componentes/gadi/comunicados/formCadastroComunicados'
 import { FormViewComunicados } from './componentes/gadi/comunicados/formViewComunicados'
 import { FormEditComunicados } from './componentes/gadi/comunicados/formEditarComunicados'
 import { FormExcluirComunicados } from './componentes/gadi/comunicados/formExcluirComunicado'
-//DESPACHOS
+//GADI//DESPACHOS
 import { Despachos } from './componentes/gadi/despachos/despachos'
 import { FormCadDespacho } from './componentes/gadi/despachos/formCadastroDespachos'
 import { FormViewDespachos } from './componentes/gadi/despachos/formViewDespachos'
 import { FormEditarDespachos } from './componentes/gadi/despachos/formEditarDespachos'
 import { FormSaidaDespachos } from './componentes/gadi/despachos/formSaidaDespachos'
 import { FormExcluirDespachos } from './componentes/gadi/despachos/formExcluirDespacho'
-//INSTRUÇÕES
+//GADI//INSTRUÇÕES
 import { Instrucoes } from './componentes/gadi/instrucao/instrucoes'
 import { FormCadInstrucao } from './componentes/gadi/instrucao/formCadInstrucao'
 import { FormViewInstrucao } from './componentes/gadi/instrucao/formViewInstrucao'
 import { FormEditarInstrucao } from './componentes/gadi/instrucao/formEditarInstrucao'
 import { FormExcluirInstrucao } from './componentes/gadi/instrucao/formExcluirInstrucao'
-//MEMORANDOS
+//GADI//MEMORANDOS
 import { Memorandos } from './componentes/gadi/memorando/memorandos'
 import { FormCadMemorando } from './componentes/gadi/memorando/formCadMemorando'
 import { FormViewMemorando } from './componentes/gadi/memorando/formViewMemorando'
 import { FormEditarMemorando } from './componentes/gadi/memorando/formEditarMemorando'
 import { FormExcluirMemorando } from './componentes/gadi/memorando/formExcluirMemorando'
-//NÚMERO DE REFERÊNCIA
+//GADI//NÚMERO DE REFERÊNCIA
 import { NumReferencia } from './componentes/gadi/numeroReferencia/numeroReferencia'
 import { FormCadNumRef } from './componentes/gadi/numeroReferencia/formCadNumReferencia'
 import { FormViewNumRef } from './componentes/gadi/numeroReferencia/formViewNumReferencia'
 import { FormEditarNumRef } from './componentes/gadi/numeroReferencia/formEditarNumReferencia'
 import { FormSaidaNumRef } from './componentes/gadi/numeroReferencia/formSaidaNumReferencia'
 import { FormExcluirNumRef } from './componentes/gadi/numeroReferencia/formExcluirNumReferencia'
-//OFÍCIOS
+//GADI//OFÍCIOS
 import { Oficios } from './componentes/gadi/oficios/oficios'
 import { FormCadOficios } from './componentes/gadi/oficios/formCadOficios'
 import { FormViewOficio } from './componentes/gadi/oficios/formViewOficios'
 import { FormEditarOficio } from './componentes/gadi/oficios/formEditarOficios'
 import { FormExcluirOficio } from './componentes/gadi/oficios/formExcluirOficios'
-//RELAÇÃO DE REMESSA
+//GADI//RELAÇÃO DE REMESSA
 import { RelRemessa } from './componentes/gadi/relacaoRemessa/relacaoRemessas'
 import { FormCadRelRemessa } from './componentes/gadi/relacaoRemessa/formCadRelRemessa'
 import { FormEditarRelRemessa } from './componentes/gadi/relacaoRemessa/formEditarRelRemessa'
 import { FormViewRelRemessa } from './componentes/gadi/relacaoRemessa/formViewRelRemessa'
 import { FormExcluirRelRemessa } from './componentes/gadi/relacaoRemessa/formExcluirRelRemessa'
-//RELATÓRIOS
+//GADI//RELATÓRIOS
 import { Relatorios } from './componentes/gadi/relatorios/relatorios'
 import { FormCadRelatorios } from './componentes/gadi/relatorios/formcadrelatorios'
 import { isAuthenticated } from './componentes/auth';
 import { acesso1 } from './componentes/auth';
+
+//GABCRH
+import { MenuGabCrh } from './componentes/gabcrh/menu/menuGabCrh';
+//GABCRH//COMUNICADOS
+import {ComunicadosGabCrh} from './componentes/gabcrh/comunicados/comunicadosGabCrh';
+import {FormCadComunicadosGabCrh} from './componentes/gabcrh/comunicados/formCadastroComunicadoGabCrh';
+import {FormEditComunicadosGabCrh} from './componentes/gabcrh/comunicados/formEditarComunicadoGabCrh';
+import {FormExcluirComunicadosGabCrh} from './componentes/gabcrh/comunicados/formExcluirComunicadoGabCrh';
+import {FormViewComunicadosGabCrh} from './componentes/gabcrh/comunicados/formViewComunicadoGabCrh';
+
+
+
 
 
 const PrivateRoute = ({component: Component, ...rest}) => (
@@ -70,15 +82,7 @@ const PrivateRoute = ({component: Component, ...rest}) => (
   )}/>
 )
 
-const AcessoGadi = ({component: Component, ...rest}) =>(
-  <Route {...rest} render={props => (
-    acesso1()? (
-      <Component { ...props} />
-    ) : (
-      <Redirect to = {{pathname:"/", state: {from: props.location}}} />
-    )
-  )}/>
-)
+
 
 function App() {
 
@@ -87,18 +91,18 @@ function App() {
       <BrowserRouter>
         <Router>
           <Switch>
-            <Route exact path="/" component={Login} />
-            <PrivateRoute path="/menu" component={Menu} />
+            <Route exact path="/" component={Login} />            
             <PrivateRoute path="/menuvert" component={MenuVert} />
             <PrivateRoute path="/header" component={Header} />
             
-            
+            {/* GADI*/}
+            <PrivateRoute path="/menu" component={Menu} />
             {/* COMUNICADOS */}
-            <AcessoGadi  path="/comunicados" component={Comunicados} />
+            <PrivateRoute path="/comunicados" component={Comunicados} />
             <PrivateRoute path="/formComunicados" component={FormCadComunicado} />
-            <AcessoGadi path="/formViewComunicados/:id" component={FormViewComunicados} />
-            <AcessoGadi path="/formEditarComunicados/:id" component={FormEditComunicados} />
-            <AcessoGadi path="/formExcluirComunicados/:id" component={FormExcluirComunicados} />
+            <PrivateRoute path="/formViewComunicados/:id" component={FormViewComunicados} />
+            <PrivateRoute path="/formEditarComunicados/:id" component={FormEditComunicados} />
+            <PrivateRoute path="/formExcluirComunicados/:id" component={FormExcluirComunicados} />
             {/* DESPACHOS */}
             <PrivateRoute path="/despachos" component={Despachos} />
             <PrivateRoute path="/formDespachos" component={FormCadDespacho} />
@@ -140,6 +144,17 @@ function App() {
             {/* RELATÓRIOS */}
             <PrivateRoute path="/Relatorios" component={Relatorios} />
             <PrivateRoute path="/formRelatorios" component={FormCadRelatorios} />
+            {/*/ FIM GADI*/}            
+            
+            {/*GAB SECRETARIO*/}
+            <PrivateRoute path="/MenuGabCrh" component={MenuGabCrh} />
+             {/*COMUNICADOS*/}
+             <PrivateRoute path="/ComunicadosGabCrh" component={ComunicadosGabCrh} />
+             <PrivateRoute path="/formCadComunicadosGabCrh" component={FormCadComunicadosGabCrh} /> 
+             <PrivateRoute path="/formEditComunicadosGabCrh" component={FormEditComunicadosGabCrh} /> 
+             <PrivateRoute path="/formExcluirComunicadosGabCrh" component={FormExcluirComunicadosGabCrh} /> 
+             <PrivateRoute path="/formViewComunicadosGabCrh" component={FormViewComunicadosGabCrh} /> 
+            {/*FIM GAB SECRETARIO*/}
           </Switch>
         </Router>
       </BrowserRouter>
