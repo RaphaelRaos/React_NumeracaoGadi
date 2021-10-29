@@ -57,7 +57,7 @@ import { FormExcluirRelRemessa } from './componentes/gadi/relacaoRemessa/formExc
 import { Relatorios } from './componentes/gadi/relatorios/relatorios'
 import { FormCadRelatorios } from './componentes/gadi/relatorios/formcadrelatorios'
 import { isAuthenticated } from './componentes/auth';
-import { acesso1 } from './componentes/auth';
+
 
 //GABCRH
 import { MenuGabCrh } from './componentes/gabcrh/menu/menuGabCrh';
@@ -67,6 +67,12 @@ import {FormCadComunicadosGabCrh} from './componentes/gabcrh/comunicados/formCad
 import {FormEditComunicadosGabCrh} from './componentes/gabcrh/comunicados/formEditarComunicadoGabCrh';
 import {FormExcluirComunicadosGabCrh} from './componentes/gabcrh/comunicados/formExcluirComunicadoGabCrh';
 import {FormViewComunicadosGabCrh} from './componentes/gabcrh/comunicados/formViewComunicadoGabCrh';
+//GABCRH//DESPACHOS
+import {DespachosGabCrh} from './componentes/gabcrh/despachos/despachosGabCrh';
+import {FormCadDespachosGabCrh} from './componentes/gabcrh/despachos/formCadastroDespachosGabCrh';
+import {FormEditDespachosGabCrh} from './componentes/gabcrh/despachos/formEditarDespachosGabCrh';
+import {FormExcluirDespachosGabCrh} from './componentes/gabcrh/despachos/formExcluirDespachosGabCrh';
+import {FormViewDespachosGabCrh} from './componentes/gabcrh/despachos/formViewDespachosGabCrh';
 
 
 
@@ -150,10 +156,17 @@ function App() {
             <PrivateRoute path="/MenuGabCrh" component={MenuGabCrh} />
              {/*COMUNICADOS*/}
              <PrivateRoute path="/ComunicadosGabCrh" component={ComunicadosGabCrh} />
-             <PrivateRoute path="/formCadComunicadosGabCrh" component={FormCadComunicadosGabCrh} /> 
-             <PrivateRoute path="/formEditComunicadosGabCrh" component={FormEditComunicadosGabCrh} /> 
-             <PrivateRoute path="/formExcluirComunicadosGabCrh" component={FormExcluirComunicadosGabCrh} /> 
-             <PrivateRoute path="/formViewComunicadosGabCrh" component={FormViewComunicadosGabCrh} /> 
+             <PrivateRoute path="/formCadComunicadosGabCrh/" component={FormCadComunicadosGabCrh} /> 
+             <PrivateRoute path="/formEditComunicadosGabCrh/:id" component={FormEditComunicadosGabCrh} /> 
+             <PrivateRoute path="/formExcluirComunicadosGabCrh/:id" component={FormExcluirComunicadosGabCrh} /> 
+             <PrivateRoute path="/formViewComunicadosGabCrh/:id" component={FormViewComunicadosGabCrh} />
+             {/*DESPACHOS*/}
+             <PrivateRoute path="/DespachosGabCrh" component={DespachosGabCrh} />
+             <PrivateRoute path="/formCadDespachosGabCrh/" component={FormCadDespachosGabCrh} /> 
+             <PrivateRoute path="/formEditDespachosGabCrh/:id" component={FormEditDespachosGabCrh} /> 
+             <PrivateRoute path="/formExcluirDespachosGabCrh/:id" component={FormExcluirDespachosGabCrh} /> 
+             <PrivateRoute path="/formViewDespachosGabCrh/:id" component={FormViewDespachosGabCrh} /> 
+            
             {/*FIM GAB SECRETARIO*/}
           </Switch>
         </Router>

@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 
 export const FormCadComunicado = () => {
 
-
-
   const [comunicado, setComunicado] = useState({
     interessado_comunicado: "",
     assunto_comunicado: "",

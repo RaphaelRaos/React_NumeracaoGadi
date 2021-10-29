@@ -39,7 +39,7 @@ export const ComunicadosGabCrh = () =>{
             <Header/>
             <Container>
                 <ConteudoTitulo>
-                    <Link to="/menu">
+                    <Link to="/MenuGabCrh">
                             <ButtonSuccess>Menu</ButtonSuccess>
                     </Link>
                     <Titulo>COMUNICADOS</Titulo>
@@ -64,19 +64,19 @@ export const ComunicadosGabCrh = () =>{
                         </tr>
                     </thead>
                     <tbody> 
-                        {Object.values(data).map(comunicados =>(
-                            <tr key={comunicados.id_comunicado}>
-                                <LineTD>{comunicados.numero_comunicado}</LineTD>
-                                <LineTD>{comunicados.assuntoComunicado}</LineTD>                                
-                                <LineTD>{comunicados.setorComunicado}</LineTD>                                                     
+                        {Object.values(data).map(comunicado =>(
+                            <tr key={comunicado.id_comunicado}>
+                                <LineTD>{comunicado.numero_comunicado}</LineTD>
+                                <LineTD>{comunicado.assuntoComunicado}</LineTD>                                
+                                <LineTD>{comunicado.setorComunicado}</LineTD>                                                     
                                 <LineTD>
-                                        <Link to = {"/formViewComunicadosGabCrh/" + comunicados.id_comunicado}>
+                                        <Link to = {"/formViewComunicadosGabCrh/" + comunicado.id_comunicado}>
                                             <ButtonPrimary>Visualizar</ButtonPrimary>
                                         </Link> {" "}
-                                        <Link to = {"/formEditComunicadosGabCrh/" + comunicados.id_comunicado}>
+                                        <Link to = {"/formEditComunicadosGabCrh/" + comunicado.id_comunicado}>
                                             <ButtonPrimary>Editar</ButtonPrimary>
                                         </Link> {" "}
-                                        <Link to = {"/formExcluirComunicadosGabCrh/" + comunicados.id_comunicado}>
+                                        <Link to = {"/formExcluirComunicadosGabCrh/" + comunicado.id_comunicado}>
                                             <ButtonPrimary>Apagar</ButtonPrimary>
                                         </Link>
                                 </LineTD>                                

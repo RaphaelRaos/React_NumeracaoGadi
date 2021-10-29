@@ -17,7 +17,7 @@ export const MenuGabCrh = () => {
                         </Link>
                     </DivBotao>
                     <DivBotao>
-                        <Link to="/menu">
+                        <Link to="/DespachosGabCrh">
                             <ButtonMenu>DESPACHOS</ButtonMenu>
                         </Link>
                     </DivBotao>
