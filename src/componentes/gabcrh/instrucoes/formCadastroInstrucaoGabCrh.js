@@ -1,33 +1,34 @@
-import React, {useState, useEffect} from "react";
+import React, { useEffect, useState } from "react"
 import { Header } from '../../header/header';
-import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess } from '../../styles/memocirculares/styles';
+import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess } from '../../styles/instrucoes/styles';
 import { Link } from 'react-router-dom';
 
-export const FormCadMemoCircularGabCrh = () => {
+export const FormCadInstrucaoGabCrh = () => {
 
-    const [memorandoCircular, setMemoCircular] = useState({
-        datElaboracao_memorandoCircular: "",
-        assunto_memorandoCircular: "",
-        executor_memorandoCircular: "",
-        setorElaboracao_memorandoCircular: "",
-        observacao_memorandoCircular: "",
+    const [instrucao, setInstrucao] = useState({
+        datElaboracao_instrucao: "",
+        assunto_instrucao: "",
+        executor_instrucao: "",
+        setorElaboracao_instrucao: "",
+        observacao_instrucao: "",
     });
+
     const [nomenclaturaDepartamento, setDepartamento] = useState([]);
-    
+
     const [status, setStatus] = useState({
         type: '',
         mensagem: ''
     })
 
-    const valorInput = e => setMemoCircular({ ...memorandoCircular, [e.target.name]: e.target.value });
+    const valorInput = e => setInstrucao({ ...instrucao, [e.target.name]: e.target.value });
 
-    const cadMemorando = async e => {
+    const cadInstrucao = async e => {
         e.preventDefault();
 
-        await fetch(process.env.REACT_APP_GABCRH_CADASTRAR_MEMOCIRCULARES, {
+        await fetch(process.env.REACT_APP_GABCRH_CADASTRAR_INSTRUCOES, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ memorandoCircular })
+            body: JSON.stringify({ instrucao })
         })
             .then((response) => response.json())
             .then((responseJson) => {
@@ -39,20 +40,20 @@ export const FormCadMemoCircularGabCrh = () => {
                 } else {
                     setStatus({
                         type: 'success',
-                        mensagem: responseJson.numero_memorandoCircular,
+                        mensagem: responseJson.numero_instrucao,
                     });
-                    setMemoCircular({
-                        datElaboracao_memorandoCircular: "",
-                        assunto_memorandoCircular: "",
-                        executor_memorandoCircular: "",
-                        setorElaboracao_memorandoCircular: "",
-                        observacao_memorandoCircular: "",
+                    setInstrucao({
+                        datElaboracao_instrucao: "",
+                        assunto_instrucao: "",
+                        executor_instrucao: "",
+                        setorElaboracao_instrucao: "",
+                        observacao_instrucao: "",
                     });
                 }
             }).catch(() => {
                 setStatus({
                     type: 'erro',
-                    mensagem: 'Memorando Circular não Cadastrado. Contate o Administrador do Sistema!!'
+                    mensagem: 'Instrução não Cadastrada. Contate o Administrador do Sistema!!'
                 });
             });
     }
@@ -66,7 +67,7 @@ export const FormCadMemoCircularGabCrh = () => {
     }
 
     useEffect(() => {
-        setores();        
+        setores();
     }, [])
 
     return (
@@ -75,37 +76,37 @@ export const FormCadMemoCircularGabCrh = () => {
             <Header />
             <Container>
                 <ConteudoTitulo>
-                    <Titulo>CADASTRO DE MEMORANDO CIRCULAR</Titulo>
+                    <Titulo>CADASTRO DE INSTRUÇÃO</Titulo>
                     <BotaoAcao>
-                        <Link to="/MemorandoCircularGabCrh">
+                        <Link to="/InstrucoesGabCrh">
                             <ButtonSuccess>Index</ButtonSuccess>
                         </Link>
                     </BotaoAcao>
                 </ConteudoTitulo>
 
                 {status.type === 'erro' ? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
-                {status.type === 'success' ? <AlertSuccess>NÚMERO DO MEMORANDO CIRCULAR: {status.mensagem}</AlertSuccess> : ""}
-                <form onSubmit={cadMemorando}>
+                {status.type === 'success' ? <AlertSuccess>NÚMERO DA INSTRUCAO: {status.mensagem}</AlertSuccess> : ""}
+                <form onSubmit={cadInstrucao}>
 
                     <TableForm>
                         <tbody>
                             <tr>
                                 <th>
                                     <Label>DATA ENTRADA</Label>
-                                    <Input type="date" name="datElaboracao_memorandoCircular" onChange={valorInput} value={memorandoCircular.datElaboracao_memorandoCircular} required></Input>
+                                    <Input type="date" name="datElaboracao_instrucao" onChange={valorInput} value={instrucao.datElaboracao_instrucao} required></Input>
                                     <Label>ASSUNTO: </Label>
-                                    <Input type="text" placeholder="Assunto Memorando Circular" name="assunto_memorandoCircular" onChange={valorInput} value={memorandoCircular.assunto_memorandoCircular} required></Input>                                  
+                                    <Input type="text" placeholder="Assunto Instrução" name="assunto_instrucao" onChange={valorInput} value={instrucao.assunto_instrucao} required></Input>
                                     <Label>EXECUTOR</Label>
-                                    <Input type="text" placeholder="Executor Memorando Circular" name="executor_memorandoCircular" onChange={valorInput} value={memorandoCircular.executor_memorandoCircular} required></Input>
+                                    <Input type="text" placeholder="Executor Instrução" name="executor_instrucao" onChange={valorInput} value={instrucao.executor_instrucao} required></Input>
                                     <Label>SETOR</Label>
-                                    <Select onChange={valorInput} name="setorElaboracao_memorandoCircular" value={memorandoCircular.setorElaboracao_memorandoCircular} required>
+                                    <Select onChange={valorInput} name="setorElaboracao_instrucao" value={instrucao.setorElaboracao_instrucao} required>
                                         <option>Selecione</option>
                                         {Object.values(nomenclaturaDepartamento).map(setor => (
                                             <option key={setor.id_deparatamento} value={setor.id_deparatamento}> {setor.nome_departamento}</option>
                                         ))}
                                     </Select>
                                     <Label>OBSERVAÇAO</Label>
-                                    <TextArea name="observacao_memorandoCircular" cols="50 rows" rows="5" id="" onChange={valorInput} value={memorandoCircular.observacao_memorandoCircular}></TextArea>
+                                    <TextArea name="observacao_instrucao" cols="50 rows" rows="5" id="" onChange={valorInput} value={instrucao.observacao_instrucao}></TextArea>
                                 </th>
                             </tr>
                         </tbody>
@@ -119,5 +120,4 @@ export const FormCadMemoCircularGabCrh = () => {
         </div>
     )
 
-    
 }

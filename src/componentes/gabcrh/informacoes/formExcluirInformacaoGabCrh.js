@@ -1,11 +1,11 @@
-import React, {useState, useEffect} from 'react'
-import { Container, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, ConteudoOficio, DivButton, ButtonCadastrar, AlertDanger, AlertSuccess } from '../../styles/oficios/styles';
+import React,{useState, useEffect} from "react"
+import { Container, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, ContInformacao, DivButton, ButtonCadastrar, AlertDanger, AlertSuccess } from '../../styles/informacoes/styles';
 import { Link } from "react-router-dom";
 import { Header } from '../../header/header';
 
-export const FormExcluirOficiosGabCrh = (props) => {
+export const FormExcluirInformacaoGabCrh = (props) =>{
 
-    const [id_oficio] = useState(props.match.params.id);
+    const [id_informacao] = useState(props.match.params.id);
 
     const [data, setData] = useState([]);
 
@@ -14,15 +14,15 @@ export const FormExcluirOficiosGabCrh = (props) => {
         mensagem: ''
     })
 
-    const excluirOficio = async e => {
+    const excluirInformacao = async e => {
         e.preventDefault();
 
-        await fetch(process.env.REACT_APP_GABCRH_EXCLUIR_OFICIOS, {
+        await fetch(process.env.REACT_APP_GABCRH_EXCLUIR_INFORMACAO, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ id_oficio })
+            body: JSON.stringify({ id_informacao })
         }).then((response) => response.json())
             .then((responseJson) => {
                 if (responseJson.erro) {
@@ -39,48 +39,48 @@ export const FormExcluirOficiosGabCrh = (props) => {
             }).catch(() => {
                 setStatus({
                     type: 'error',
-                    mensagem: "Memorando não Excluído, tente mais tarde!"
+                    mensagem: "Comunicado não Excluído, tente mais tarde!"
                 });
             });
     }
 
     useEffect(() => {
-        const getOficioGabCrh = async () => {
-            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_OFICIOS + id_oficio)
+        const getInformacaoGabCrh = async () => {
+            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_INFORMACAO + id_informacao)
                 .then((response) => response.json())
                 .then((responseJson) => {
-                    setData(responseJson.oficio)
+                    setData(responseJson.informacao)
                 })
             }
 
-        getOficioGabCrh();
-    }, [id_oficio]);
+        getInformacaoGabCrh();
+    }, [id_informacao]);
 
     return (
         <div>
             <Header />
             <Container>
                 <ConteudoTitulo>
-                    <Titulo>EXCLUIR OFICIOS </Titulo>
+                    <Titulo>EXCLUIR INFORMAÇÃO </Titulo>
                     <BotaoAcao>
-                        <Link to="/OficiosGabCrh">
+                        <Link to="/InformacoesGabCrh">
                             <ButtonSuccess>Index</ButtonSuccess>
                         </Link>
                     </BotaoAcao>
                 </ConteudoTitulo>
                 {status.type === 'erro' ? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
                 {status.type === 'success' ? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
-                <form onSubmit={excluirOficio}>
+                <form onSubmit={excluirInformacao}>
                     <table>
                         <tbody>
                             <tr>
                                 <td>
-                                    <ConteudoOficio>NÚMERO OFICIOS: {data.numero_oficio}</ConteudoOficio>
-                                    <ConteudoOficio>ASSUNTO OFICIOS: {data.assuntooficio}</ConteudoOficio>
-                                    <ConteudoOficio>DATA EMISSÃO OFICIOS: {data.datElaboracao_oficio}</ConteudoOficio>
-                                    <ConteudoOficio>EXECUTOR: {data.executor_oficio}</ConteudoOficio>
-                                    <ConteudoOficio>SETOR CADASTRANTE: {data.setorOficio}</ConteudoOficio>
-                                    <ConteudoOficio>OBSERVAÇÃO: {data.observacao_oficio}</ConteudoOficio>
+                                    <ContInformacao>NÚMERO INFORMACAO: {data.numero_informacao}</ContInformacao>
+                                    <ContInformacao>ASSUNTO INFORMACAO: {data.assuntoInformacao}</ContInformacao>
+                                    <ContInformacao>DATA EMISSÃO INFORMACAO: {data.datElaboracao_informacao}</ContInformacao>
+                                    <ContInformacao>EXECUTOR: {data.executor_informacao}</ContInformacao>
+                                    <ContInformacao>SETOR CADASTRANTE: {data.setorInformacao}</ContInformacao>
+                                    <ContInformacao>OBSERVAÇÃO: {data.observacao_informacao}</ContInformacao>
                                 </td>
                             </tr>
                         </tbody>

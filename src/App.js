@@ -73,6 +73,48 @@ import {FormCadDespachosGabCrh} from './componentes/gabcrh/despachos/formCadastr
 import {FormEditDespachosGabCrh} from './componentes/gabcrh/despachos/formEditarDespachosGabCrh';
 import {FormExcluirDespachosGabCrh} from './componentes/gabcrh/despachos/formExcluirDespachosGabCrh';
 import {FormViewDespachosGabCrh} from './componentes/gabcrh/despachos/formViewDespachosGabCrh';
+//GABCRH//INFORMACOES
+import {InformacoesGabCrh} from './componentes/gabcrh/informacoes/informacoesGabCrh';
+import {FormCadInformacaoGabCrh} from './componentes/gabcrh/informacoes/formCadastroInformacaoGabCrh';
+import {FormEditInformacaoGabCrh} from './componentes/gabcrh/informacoes/formEditarInformacaoGabCrh';
+import {FormExcluirInformacaoGabCrh} from './componentes/gabcrh/informacoes/formExcluirInformacaoGabCrh';
+import {FormViewInformacaoGabCrh} from './componentes/gabcrh/informacoes/formViewInformacaoGabCrh';
+//GABCRH//INSTRUCOES
+import {InstrucoesGabCrh} from './componentes/gabcrh/instrucoes/instrucoesGabCrh';
+import {FormCadInstrucaoGabCrh} from './componentes/gabcrh/instrucoes/formCadastroInstrucaoGabCrh';
+import {FormEditInstrucaoGabCrh} from './componentes/gabcrh/instrucoes/formEditarInstrucaoGabCrh';
+import {FormExcluirInstrucaoGabCrh} from './componentes/gabcrh/instrucoes/formExcluirInstrucaoGabCrh';
+import {FormViewInstrucaoGabCrh} from './componentes/gabcrh/instrucoes/formViewInstrucaoGabCrh';
+//GABCRH//MEMORANDOS
+import {MemorandosGabCrh} from './componentes/gabcrh/memorandos/memorandosGabCrh';
+import {FormCadMemorandoGabCrh} from './componentes/gabcrh/memorandos/formCadastroMemorandoGabCrh';
+import {FormEditMemorandoGabCrh} from './componentes/gabcrh/memorandos/formEditarMemorandoGabCrh';
+import {FormExcluirMemorandoGabCrh} from './componentes/gabcrh/memorandos/formExcluirMemorandoGabCrh';
+import {FormViewMemorandoGabCrh} from './componentes/gabcrh/memorandos/formViewMemorandoGabCrh';
+//GABCRH//MEMORANDOCIRCULAR
+import {MemoCircularGabCrh} from './componentes/gabcrh/memocirculares/memorandosCircularesGabCrh';
+import {FormCadMemoCircularGabCrh} from './componentes/gabcrh/memocirculares/formCadastroMemoCircularesGabCrh';
+import {FormEditMemoCircularGabCrh} from './componentes/gabcrh/memocirculares/formEditarMemoCircularesGabCrh';
+import {FormExcluirMemoCircularGabCrh} from './componentes/gabcrh/memocirculares/formExcluirMemoCircularesGabCrh';
+import {FormViewMemoCircularGabCrh} from './componentes/gabcrh/memocirculares/formViewMemoCircularesGabCrh';
+//GABCRH//OFICIOS
+import {OficiosGabCrh} from './componentes/gabcrh/oficios/oficiosGabCrh';
+import {FormCadOficiosGabCrh} from './componentes/gabcrh/oficios/formCadastroOficiosGabCrh';
+import {FormEditOficiosGabCrh} from './componentes/gabcrh/oficios/formEditarOficiosGabCrh';
+import {FormExcluirOficiosGabCrh} from './componentes/gabcrh/oficios/formExcluirOficiosGabCrh';
+import {FormViewOficiosGabCrh} from './componentes/gabcrh/oficios/formViewOficiosGabCrh';
+//GABCRH//OFICIOCIRCULAR
+import {OficioCircularGabCrh} from './componentes/gabcrh/oficioscirculares/oficiosCircularesGabCrh';
+import {FormCadOficioCircularGabCrh} from './componentes/gabcrh/oficioscirculares/formCadastroOficiosCircularesGabCrh';
+import {FormEditOficioCircularGabCrh} from './componentes/gabcrh/oficioscirculares/formEditarOficiosCircularesGabCrh';
+import {FormExcluirOficioCircularGabCrh} from './componentes/gabcrh/oficioscirculares/formExcluirOficiosCircularesGabCrh';
+import {FormViewOficioCircularGabCrh} from './componentes/gabcrh/oficioscirculares/formViewOficiosCircularesGabCrh';
+//GABCRH//PORTARIAS
+import {PortariaGabCrh} from './componentes/gabcrh/portarias/portariasGabCrh';
+import {FormCadPortariaGabCrh} from './componentes/gabcrh/portarias/formCadastrarPortariaGabCrh';
+import {FormEditPortariaGabCrh} from './componentes/gabcrh/portarias/formEditarPortariaGabCrh';
+import {FormExcluirPortariaGabCrh} from './componentes/gabcrh/portarias/formExcluirPortariaGabCrh';
+import {FormViewPortariaGabCrh} from './componentes/gabcrh/portarias/formViewPortariaGabCrh';
 
 
 
@@ -87,7 +129,6 @@ const PrivateRoute = ({component: Component, ...rest}) => (
     )
   )}/>
 )
-
 
 
 function App() {
@@ -166,6 +207,48 @@ function App() {
              <PrivateRoute path="/formEditDespachosGabCrh/:id" component={FormEditDespachosGabCrh} /> 
              <PrivateRoute path="/formExcluirDespachosGabCrh/:id" component={FormExcluirDespachosGabCrh} /> 
              <PrivateRoute path="/formViewDespachosGabCrh/:id" component={FormViewDespachosGabCrh} /> 
+             {/*INFORMACAO*/}
+             <PrivateRoute path="/InformacoesGabCrh" component={InformacoesGabCrh} />
+             <PrivateRoute path="/formCadInformacaoGabCrh/" component={FormCadInformacaoGabCrh} /> 
+             <PrivateRoute path="/formEditInformacaoGabCrh/:id" component={FormEditInformacaoGabCrh} /> 
+             <PrivateRoute path="/formExcluirInformacaoGabCrh/:id" component={FormExcluirInformacaoGabCrh} /> 
+             <PrivateRoute path="/formViewInformacaoGabCrh/:id" component={FormViewInformacaoGabCrh} /> 
+             {/*INSTRUÇÃO*/}
+             <PrivateRoute path="/InstrucoesGabCrh" component={InstrucoesGabCrh} />
+             <PrivateRoute path="/formCadInstrucaoGabCrh/" component={FormCadInstrucaoGabCrh} /> 
+             <PrivateRoute path="/formEditInstrucaoGabCrh/:id" component={FormEditInstrucaoGabCrh} /> 
+             <PrivateRoute path="/formExcluirInstrucaoGabCrh/:id" component={FormExcluirInstrucaoGabCrh} /> 
+             <PrivateRoute path="/formViewInstrucaoGabCrh/:id" component={FormViewInstrucaoGabCrh} /> 
+             {/*MEMORANDOS*/}
+             <PrivateRoute path="/MemorandoGabCrh" component={MemorandosGabCrh} />
+             <PrivateRoute path="/formCadMemorandoGabCrh/" component={FormCadMemorandoGabCrh} /> 
+             <PrivateRoute path="/formEditMemorandoGabCrh/:id" component={FormEditMemorandoGabCrh} /> 
+             <PrivateRoute path="/formExcluirMemorandoGabCrh/:id" component={FormExcluirMemorandoGabCrh} /> 
+             <PrivateRoute path="/formViewMemorandoGabCrh/:id" component={FormViewMemorandoGabCrh} /> 
+             {/*MEMORANDOS CIRCULARES*/}
+             <PrivateRoute path="/MemorandoCircularGabCrh" component={MemoCircularGabCrh} />
+             <PrivateRoute path="/formCadMemorandoCircularGabCrh/" component={FormCadMemoCircularGabCrh} /> 
+             <PrivateRoute path="/formEditMemorandoCircularGabCrh/:id" component={FormEditMemoCircularGabCrh} /> 
+             <PrivateRoute path="/formExcluirMemorandoCircularGabCrh/:id" component={FormExcluirMemoCircularGabCrh} /> 
+             <PrivateRoute path="/formViewMemorandoCircularGabCrh/:id" component={FormViewMemoCircularGabCrh} /> 
+             {/*OFICIOS*/}
+             <PrivateRoute path="/OficiosGabCrh" component={OficiosGabCrh} />
+             <PrivateRoute path="/formCadOficiosGabCrh/" component={FormCadOficiosGabCrh} /> 
+             <PrivateRoute path="/formEditOficiosGabCrh/:id" component={FormEditOficiosGabCrh} /> 
+             <PrivateRoute path="/formExcluirOficiosGabCrh/:id" component={FormExcluirOficiosGabCrh} /> 
+             <PrivateRoute path="/formViewOficiosGabCrh/:id" component={FormViewOficiosGabCrh} /> 
+             {/*OFICIOS CIRCULARES*/}
+             <PrivateRoute path="/OficiosCircularesGabCrh" component={OficioCircularGabCrh} />
+             <PrivateRoute path="/formCadOficioCircularGabCrh/" component={FormCadOficioCircularGabCrh} /> 
+             <PrivateRoute path="/formEditOficioCircularGabCrh/:id" component={FormEditOficioCircularGabCrh} /> 
+             <PrivateRoute path="/formExcluirOficioCircularGabCrh/:id" component={FormExcluirOficioCircularGabCrh} /> 
+             <PrivateRoute path="/formViewOficioCircularGabCrh/:id" component={FormViewOficioCircularGabCrh} />
+             {/*PORTARIAS*/}
+             <PrivateRoute path="/PortariaGabCrh" component={PortariaGabCrh} />
+             <PrivateRoute path="/formCadPortariaGabCrh/" component={FormCadPortariaGabCrh} /> 
+             <PrivateRoute path="/formEditPortariaGabCrh/:id" component={FormEditPortariaGabCrh} /> 
+             <PrivateRoute path="/formExcluirPortariaGabCrh/:id" component={FormExcluirPortariaGabCrh} /> 
+             <PrivateRoute path="/formViewPortariaGabCrh/:id" component={FormViewPortariaGabCrh} />  
             
             {/*FIM GAB SECRETARIO*/}
           </Switch>

@@ -9,16 +9,17 @@ export const FormViewComunicadosGabCrh = (props) => {
     
     const [data, setData] = useState([]);
 
-    const getComunicadoGabCrh = async () => {
-        await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_COMUNICADO + id)
-            .then((response) => response.json())
-            .then((responseJson) => {
-                setData(responseJson.comunicado)
-            })
-    }
+   
     useEffect(() => {
-        getComunicadoGabCrh();
-        
+
+        const getComunicadoGabCrh = async () => {
+            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_COMUNICADO + id)
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    setData(responseJson.comunicado)
+                })
+        }
+        getComunicadoGabCrh();        
     }, [id]);
 
     return (

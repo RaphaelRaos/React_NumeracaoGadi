@@ -22,37 +22,37 @@ export const MenuGabCrh = () => {
                         </Link>
                     </DivBotao>
                     <DivBotao>
-                        <Link to="/menu">
+                        <Link to="/InformacoesGabCrh">
                             <ButtonMenu>INFORMAÇÕES</ButtonMenu>
                         </Link>
                     </DivBotao>
                     <DivBotao>
-                        <Link to="/menu">
+                        <Link to="/InstrucoesGabCrh">
                             <ButtonMenu>INSTRUÇÕES</ButtonMenu>
                         </Link>
                     </DivBotao>
                     <DivBotao>
-                        <Link to="/menu">
+                        <Link to="/MemorandoGabCrh">
                             <ButtonMenu>MEMORANDOS</ButtonMenu>
                         </Link>
                     </DivBotao>
                     <DivBotao>
-                        <Link to="/menu">
+                        <Link to="/MemorandoCircularGabCrh">
                             <ButtonMenu>MEMORANDOS CIRCULARES</ButtonMenu>
                         </Link>
                     </DivBotao>
                     <DivBotao>
-                        <Link to="/menu">
+                        <Link to="/OficiosGabCrh">
                             <ButtonMenu>OFICIOS </ButtonMenu>
                         </Link>
                     </DivBotao>
                     <DivBotao>
-                        <Link to="/menu">
+                        <Link to="/OficiosCircularesGabCrh">
                             <ButtonMenu>OFICIOS CIRCULARES</ButtonMenu>
                         </Link>
                     </DivBotao>
                     <DivBotao>
-                        <Link to="/menu">
+                        <Link to="/PortariaGabCrh">
                             <ButtonMenu>PORTARIAS</ButtonMenu>
                         </Link>
                     </DivBotao>

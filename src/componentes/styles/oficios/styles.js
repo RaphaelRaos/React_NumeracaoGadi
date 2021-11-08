@@ -101,7 +101,7 @@ export const TableForm = styled.table`
 `;
 
 export const TextArea = styled.textarea`
-    width: 99%;
+    width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -113,7 +113,7 @@ export const TextArea = styled.textarea`
 `;
 
 export const Input = styled.input`
-    width: 99%;
+    width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -125,7 +125,7 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
-    width: 99%;
+    width: 100%;
     padding: 12px;
     margin-top: 6px;
     margin-bottom: 16px;
@@ -133,7 +133,7 @@ export const Label = styled.label`
 `;
 
 export const Select = styled.select`
-    width: 99%;
+    width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -183,7 +183,7 @@ export const AlertDanger = styled.p`
    padding: 7px;
 
 `;
-export const ContDespachos = styled.p`    
+export const ConteudoOficio = styled.p`    
     font-size: 23px;
     color: #3e3e3e;
 `;

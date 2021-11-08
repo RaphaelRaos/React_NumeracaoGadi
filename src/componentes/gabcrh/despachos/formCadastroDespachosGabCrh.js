@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Header } from '../../header/header';
-import { ToastContainer, toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess } from '../../styles/despachos/styles';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +14,7 @@ export const FormCadDespachosGabCrh = () => {
         observacao_despacho: "",
     });
 
-    const notify = () => toast("Wow so easy!");
+
 
     const [nomenclaturaDepartamento, setDepartamento] = useState([]);
     const [assunto_despacho, setAssunto] = useState([]);    
@@ -98,11 +96,11 @@ export const FormCadDespachosGabCrh = () => {
                         </Link>
                     </BotaoAcao>
                 </ConteudoTitulo>
-                <button onClick={notify}>Notify!</button>
+                
                 {status.type === 'erro' ? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
-                {status.type === 'success' ? <AlertSuccess>{notify}</AlertSuccess> : ""}                
+                {status.type === 'success' ? <AlertSuccess>NÚMERO DO DESPACHO: {status.mensagem}</AlertSuccess> : ""}             
                 <form onSubmit={cadDespacho}>
-                <ToastContainer />
+               
                     <TableForm>
                         <tbody>
                             <tr>

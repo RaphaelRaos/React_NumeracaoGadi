@@ -16,4 +16,3 @@ In the project directory, you can run:
 
 ### npm install react-icons --save
 
-### npm install --save react-toastify

@@ -1,19 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, {useEffect, useState} from 'react'
 import { Header } from '../../header/header';
-import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess } from '../../styles/despachos/styles';
+import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess } from '../../styles/informacoes/styles';
 import { Link } from 'react-router-dom';
 
 
-export const FormEditDespachosGabCrh = (props) => {
-
-
-    const [id_despacho] = useState(props.match.params.id);
-    const [assunto_despacho, setCodAssunto] = useState('');
-    const [assuntoDescricao_despacho, setAssuntoDescricao] = useState('');
-    const [executor_despacho, setExecutor] = useState('');
-    const [setorElaboracao_despacho, setCodAreaDespacho] = useState('');
-    const [descricaoArea_despacho, setAreaDespacho] = useState('');
-    const [observacao_despacho, setObservacao] = useState('');
+export const FormEditInformacaoGabCrh = (props) =>{
+ 
+    const [id_informacao] = useState(props.match.params.id);
+    const [assunto_informacao, setCodAssunto] = useState('');
+    const [assuntoDescricao_informacao, setAssuntoDescricao] = useState('');
+    const [executor_informacao, setExecutor] = useState('');
+    const [setorElaboracao_informacao, setCodAreaDespacho] = useState('');
+    const [descricaoArea_informacao, setAreaDespacho] = useState('');
+    const [observacao_informacao, setObservacao] = useState('');
 
     const [nomenclaturaDepartamento, setSetor] = useState([]);
     const [assuntosGabCrh, setGabCrhAssunto] = useState([]);
@@ -24,15 +23,15 @@ export const FormEditDespachosGabCrh = (props) => {
         mensagem: ''
     })
 
-    const editDespacho = async e => {
+    const editInformacao = async e => {
         e.preventDefault();
 
-        await fetch(process.env.REACT_APP_GABCRH_EDITAR_DESPACHOS, {
+        await fetch(process.env.REACT_APP_GABCRH_EDITAR_INFORMACAO, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({id_despacho, assunto_despacho, executor_despacho, setorElaboracao_despacho, observacao_despacho})
+            body: JSON.stringify({id_informacao, assunto_informacao, executor_informacao, setorElaboracao_informacao, observacao_informacao})
         }).then((response) => response.json())
             .then((responseJson) => {
                 if (responseJson.erro) {
@@ -49,7 +48,7 @@ export const FormEditDespachosGabCrh = (props) => {
             }).catch(() => {
                 setStatus({
                     type: 'error',
-                    mensagem: "Produto não editado com sucesso, tente mais tarde!"
+                    mensagem: "INFORMAÇÃO não editada, tente mais tarde!"
                 });
             });
     }
@@ -66,16 +65,16 @@ export const FormEditDespachosGabCrh = (props) => {
 
 
     useEffect(() => {
-        const getDespachoGabCrh = async () => {
-            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_DESPACHOS + id_despacho)
+        const getInformacaoGabCrh = async () => {
+            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_INFORMACAO + id_informacao)
                 .then((response) => response.json())
                 .then((responseJson) => {
-                    setCodAssunto(responseJson.despacho.assunto_despacho)
-                    setAssuntoDescricao(responseJson.despacho.assuntodespacho)
-                    setExecutor(responseJson.despacho.executor_despacho)
-                    setCodAreaDespacho(responseJson.despacho.setorElaboracao_despacho)
-                    setAreaDespacho(responseJson.despacho.setordespacho)
-                    setObservacao(responseJson.despacho.observacao_despacho)
+                    setCodAssunto(responseJson.informacao.assunto_informacao)
+                    setAssuntoDescricao(responseJson.informacao.assuntoInformacao)
+                    setExecutor(responseJson.informacao.executor_informacao)
+                    setCodAreaDespacho(responseJson.informacao.setorElaboracao_informacao)
+                    setAreaDespacho(responseJson.informacao.setorInformacao)
+                    setObservacao(responseJson.informacao.observacao_informacao)
                 })
         }
         const assuntosGabCrh = async () => {
@@ -86,20 +85,20 @@ export const FormEditDespachosGabCrh = (props) => {
                 })
         }
 
-        getDespachoGabCrh();
+        getInformacaoGabCrh();
         setores();
         assuntosGabCrh();
 
-    }, [id_despacho]);
+    }, [id_informacao]);
 
     return (
         <div>
             <Header />
             <Container>
                 <ConteudoTitulo>
-                    <Titulo>EDITAR DESPACHOS</Titulo>
+                    <Titulo>EDITAR INFORMAÇÃO </Titulo>
                     <BotaoAcao>
-                        <Link to="/DespachosGabCrh">
+                        <Link to="/InformacoesGabCrh">
                             <ButtonSuccess>Index</ButtonSuccess>
                         </Link>
                     </BotaoAcao>
@@ -107,29 +106,29 @@ export const FormEditDespachosGabCrh = (props) => {
                 {status.type === 'erro' ? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
                 {status.type === 'success' ? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
 
-                <form onSubmit={editDespacho}>
+                <form onSubmit={editInformacao}>
                     <TableForm>
                         <tbody>
                             <tr>
                                 <th>
                                     <Label>ASSUNTO</Label>
-                                    <Select name="assunto_despacho" onChange={e => setCodAssunto(e.target.value)}>
-                                        <option value={assunto_despacho}>{assuntoDescricao_despacho}</option>
+                                    <Select name="assunto_informacao" onChange={e => setCodAssunto(e.target.value)}>
+                                        <option value={assunto_informacao}>{assuntoDescricao_informacao}</option>
                                         {Object.values(assuntosGabCrh).map(assuntos => (
                                             <option key={assuntos.id_assunto} value={assuntos.id_assunto}> {assuntos.assunto}</option>
                                         ))}
                                     </Select>
                                     <Label>EXECUTOR</Label>
-                                    <Input type="text" placeholder="Executor Despacho" name="executor_despacho" value={executor_despacho} onChange={e => setExecutor(e.target.value)}></Input>
+                                    <Input type="text" placeholder="Executor Informacao" name="executor_informacao" value={executor_informacao} onChange={e => setExecutor(e.target.value)}></Input>
                                     <Label>SETOR</Label>
                                     <Select name="setorElaboracao_comunicado" onChange={e => setCodAreaDespacho(e.target.value)}>
-                                        <option value={setorElaboracao_despacho}>{descricaoArea_despacho}</option>
+                                        <option value={setorElaboracao_informacao}>{descricaoArea_informacao}</option>
                                         {Object.values(nomenclaturaDepartamento).map(setor => (
                                             <option key={setor.id_deparatamento} value={setor.id_deparatamento}> {setor.nome_departamento}</option>
                                         ))}
                                     </Select>
                                     <Label>OBSERVAÇAO</Label>
-                                    <TextArea name="observacao_despacho" cols="50 rows" rows="5" id="" value={observacao_despacho} onChange={e => setObservacao(e.target.value)}></TextArea>
+                                    <TextArea name="observacao_informacao" cols="50 rows" rows="5" id="" value={observacao_informacao} onChange={e => setObservacao(e.target.value)}></TextArea>
                                 </th>
                             </tr>
                         </tbody>

@@ -1,16 +1,17 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState} from 'react'
 import { Header } from '../../header/header';
-import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess } from '../../styles/memocirculares/styles';
+import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess } from '../../styles/instrucoes/styles';
 import { Link } from 'react-router-dom';
 
-export const FormEditMemoCircularGabCrh = (props) => {
 
-    const [id_memorandoCircular] = useState(props.match.params.id);
-    const [assunto_memorandoCircular, setAssuntoDescricao] = useState('');
-    const [executor_memorandoCircular, setExecutor] = useState('');
-    const [setorElaboracao_memorandoCircular, setCodAreaDespacho] = useState('');
-    const [setormemorandoCircular, setAreaDespacho] = useState('');
-    const [observacao_memorandoCircular, setObservacao] = useState('');
+export const FormEditInstrucaoGabCrh = (props) => {
+
+    const [id_instrucao] = useState(props.match.params.id);
+    const [assunto_instrucao, setAssunto] = useState('');    
+    const [executor_instrucao, setExecutor] = useState('');
+    const [setorElaboracao_instrucao, setCodAreaDespacho] = useState('');
+    const [descricaoArea_instrucao, setAreaDespacho] = useState('');
+    const [observacao_instrucao, setObservacao] = useState('');
 
     const [nomenclaturaDepartamento, setSetor] = useState([]);
     
@@ -19,15 +20,15 @@ export const FormEditMemoCircularGabCrh = (props) => {
         mensagem: ''
     })
 
-    const editMemoCircular = async e => {
+    const editInstrucao = async e => {
         e.preventDefault();
 
-        await fetch(process.env.REACT_APP_GABCRH_EDITAR_MEMOCIRCULARES, {
+        await fetch(process.env.REACT_APP_GABCRH_EDITAR_INSTRUCOES, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({id_memorandoCircular, assunto_memorandoCircular, executor_memorandoCircular, setorElaboracao_memorandoCircular, observacao_memorandoCircular})
+            body: JSON.stringify({id_instrucao, assunto_instrucao, executor_instrucao, setorElaboracao_instrucao, observacao_instrucao})
         }).then((response) => response.json())
             .then((responseJson) => {
                 if (responseJson.erro) {
@@ -44,10 +45,12 @@ export const FormEditMemoCircularGabCrh = (props) => {
             }).catch(() => {
                 setStatus({
                     type: 'error',
-                    mensagem: "MEMORANDO CIRCULAR não editado, tente mais tarde!"
+                    mensagem: "INFORMAÇÃO não editada, tente mais tarde!"
                 });
             });
     }
+
+
 
     const setores = async () => {
         await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_DEPARTAMENTOS)
@@ -57,31 +60,32 @@ export const FormEditMemoCircularGabCrh = (props) => {
             })
     }
 
+
     useEffect(() => {
-        const getMemorandoCircularGabCrh = async () => {
-            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_MEMOCIRCULARES + id_memorandoCircular)
+        const getInformacaoGabCrh = async () => {
+            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_INSTRUCOES + id_instrucao)
                 .then((response) => response.json())
                 .then((responseJson) => {
-                    setAssuntoDescricao(responseJson.memorandoCircular.assunto_memorandoCircular)
-                    setExecutor(responseJson.memorandoCircular.executor_memorandoCircular)
-                    setCodAreaDespacho(responseJson.memorandoCircular.setorElaboracao_memorandoCircular)
-                    setAreaDespacho(responseJson.memorandoCircular.setormemorandoCircular)
-                    setObservacao(responseJson.memorandoCircular.observacao_memorandoCircular)
+                    setAssunto(responseJson.instrucao.assunto_instrucao)                    
+                    setExecutor(responseJson.instrucao.executor_instrucao)
+                    setCodAreaDespacho(responseJson.instrucao.setorElaboracao_instrucao)
+                    setAreaDespacho(responseJson.instrucao.setor_instrucao)
+                    setObservacao(responseJson.instrucao.observacao_instrucao)
                 })
         }
-        getMemorandoCircularGabCrh();
-        setores();        
-
-    }, [id_memorandoCircular]);
+        getInformacaoGabCrh();
+        setores();
+       
+    }, [id_instrucao]);
 
     return (
         <div>
             <Header />
             <Container>
                 <ConteudoTitulo>
-                    <Titulo>EDITAR MEMORANDO CIRCULAR</Titulo>
+                    <Titulo>EDITAR INSTRUÇÕES</Titulo>
                     <BotaoAcao>
-                        <Link to="/MemorandoCircularGabCrh">
+                        <Link to="/InstrucoesGabCrh">
                             <ButtonSuccess>Index</ButtonSuccess>
                         </Link>
                     </BotaoAcao>
@@ -89,24 +93,24 @@ export const FormEditMemoCircularGabCrh = (props) => {
                 {status.type === 'erro' ? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
                 {status.type === 'success' ? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
 
-                <form onSubmit={editMemoCircular}>
+                <form onSubmit={editInstrucao}>
                     <TableForm>
                         <tbody>
                             <tr>
                                 <th>
                                     <Label>ASSUNTO</Label>
-                                    <Input type="text" placeholder="Assunto Memorando" name="assunto_memorandoCircular" value={assunto_memorandoCircular} onChange={e => setAssuntoDescricao(e.target.value)}></Input>
+                                    <Input type="text" placeholder="Assunto Informacao" name="assunto_instrucao" value={assunto_instrucao} onChange={e => setAssunto(e.target.value)}></Input>
                                     <Label>EXECUTOR</Label>
-                                    <Input type="text" placeholder="Executor Memorando" name="executor_memorandoCircular" value={executor_memorandoCircular} onChange={e => setExecutor(e.target.value)}></Input>
+                                    <Input type="text" placeholder="Executor Informacao" name="executor_instrucao" value={executor_instrucao} onChange={e => setExecutor(e.target.value)}></Input>
                                     <Label>SETOR</Label>
                                     <Select name="setorElaboracao_comunicado" onChange={e => setCodAreaDespacho(e.target.value)}>
-                                        <option value={setorElaboracao_memorandoCircular}>{setormemorandoCircular}</option>
+                                        <option value={setorElaboracao_instrucao}>{descricaoArea_instrucao}</option>
                                         {Object.values(nomenclaturaDepartamento).map(setor => (
                                             <option key={setor.id_deparatamento} value={setor.id_deparatamento}> {setor.nome_departamento}</option>
                                         ))}
                                     </Select>
                                     <Label>OBSERVAÇAO</Label>
-                                    <TextArea name="observacao_memorandoCircular" cols="50 rows" rows="5" id="" value={observacao_memorandoCircular} onChange={e => setObservacao(e.target.value)}></TextArea>
+                                    <TextArea name="observacao_instrucao" cols="50 rows" rows="5" id="" value={observacao_instrucao} onChange={e => setObservacao(e.target.value)}></TextArea>
                                 </th>
                             </tr>
                         </tbody>
@@ -116,8 +120,10 @@ export const FormEditMemoCircularGabCrh = (props) => {
                         <ButtonCadastrar type="submit">Editar</ButtonCadastrar>
                     </DivButton>
                 </form>
+
             </Container>
         </div>
     );
+
 
 }

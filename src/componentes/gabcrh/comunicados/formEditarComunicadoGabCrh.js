@@ -18,10 +18,9 @@ export const FormEditComunicadosGabCrh = (props) => {
         type: '',
         mensagem: ''
     })
+
     const [nomenclaturaDepartamento, setSetor] = useState([]);
     const [assuntosGabCrh, setGabCrhAssunto] = useState([]);
-
-
 
     const editComunicado = async e => {
         e.preventDefault();
@@ -55,9 +54,8 @@ export const FormEditComunicadosGabCrh = (props) => {
             });
     }
 
-
     useEffect(() => {
-        const getComunicados = async () => {
+        const getComunicadosGabCrh = async () => {
             await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_COMUNICADO + id_comunicado)
                 .then((response) => response.json())
                 .then((responseJson) => {
@@ -86,7 +84,7 @@ export const FormEditComunicadosGabCrh = (props) => {
                 })
         }
         setores();
-        getComunicados();
+        getComunicadosGabCrh();
         assuntosGabCrh();
     }, [id_comunicado]);
     return (

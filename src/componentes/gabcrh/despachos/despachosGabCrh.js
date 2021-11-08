@@ -55,7 +55,7 @@ export const DespachosGabCrh = () =>{
                     <thead>
                         <tr>
                             <th>NUMERO DESPACHO</th>
-                            <th>PROCESSO / SISRAD</th>
+                            <th>SETOR ELABORAÇÃO</th>
                             <th>ASSUNTO</th>
                             <th>AÇÕES</th>                        
                         </tr>
@@ -67,7 +67,7 @@ export const DespachosGabCrh = () =>{
                          <LineTD>{despachos.setordespacho}</LineTD>
                          <LineTD>{despachos.assuntodespacho}</LineTD>
                          <LineTD>
-                             <Link to = {"/formEditDespachosGabCrh/" + despachos.id_despacho}>
+                             <Link to = {"/formViewDespachosGabCrh/" + despachos.id_despacho}>
                                 <ButtonPrimary>Visualizar</ButtonPrimary>
                              </Link>{" "}
                              <Link to = {"/formEditDespachosGabCrh/" + despachos.id_despacho}>
