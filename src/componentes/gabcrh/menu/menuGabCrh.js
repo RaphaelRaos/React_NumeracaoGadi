@@ -57,7 +57,7 @@ export const MenuGabCrh = () => {
                         </Link>
                     </DivBotao>
                     <DivBotao>
-                        <Link to="/menu">
+                        <Link to="/RemessaGabCrh">
                             <ButtonMenu>REMESSAS</ButtonMenu>
                         </Link>
                     </DivBotao>

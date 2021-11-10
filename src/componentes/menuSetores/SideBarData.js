@@ -8,7 +8,7 @@ import'./Navbar.css'
 export const SideBarData = [
     {
         title: 'Home',
-        path: '/',
+        path: '/home',
         icon: <AiIcons.AiFillHome />,
         cName: 'nav-text'
     },

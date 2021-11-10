@@ -1,11 +1,12 @@
-import React, {useState, useEffect} from "react";
-import { Container, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, ConteudoPortaria, DivButton, ButtonCadastrar, AlertDanger, AlertSuccess } from '../../styles/portarias/styles';
-import { Link } from "react-router-dom";
+import React, {useEffect, useState} from 'react';
 import { Header } from '../../header/header';
+import { Container, DivButton, ButtonCadastrar, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, AlertDanger, AlertSuccess, ConteudoRemessa } from '../../styles/remessas/styles';
+import { Link } from 'react-router-dom';
 
-export const FormExcluirPortariaGabCrh = (props) => {
 
-    const [id_portaria] = useState(props.match.params.id);
+export const FormExcluirRemessaGabCrh = (props) => {
+
+    const [id_remessa] = useState(props.match.params.id);
 
     const [data, setData] = useState([]);
 
@@ -17,12 +18,12 @@ export const FormExcluirPortariaGabCrh = (props) => {
     const excluirOficio = async e => {
         e.preventDefault();
 
-        await fetch(process.env.REACT_APP_GABCRH_EXCLUIR_PORTARIAS, {
+        await fetch(process.env.REACT_APP_GABCRH_EXCLUIR_REMESSA, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ id_portaria })
+            body: JSON.stringify({ id_remessa })
         }).then((response) => response.json())
             .then((responseJson) => {
                 if (responseJson.erro) {
@@ -39,22 +40,22 @@ export const FormExcluirPortariaGabCrh = (props) => {
             }).catch(() => {
                 setStatus({
                     type: 'error',
-                    mensagem: "Oficio Circular não Excluído, tente mais tarde!"
+                    mensagem: "Remessa não Excluída, tente mais tarde!"
                 });
             });
     }
 
     useEffect(() => {
         const getPortariaGabCrh = async () => {
-            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_PORTARIAS + id_portaria)
+            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_REMESSA + id_remessa)
                 .then((response) => response.json())
                 .then((responseJson) => {
-                    setData(responseJson.portaria)
+                    setData(responseJson.remessa)
                 })
             }
 
         getPortariaGabCrh();
-    }, [id_portaria]);
+    }, [id_remessa]);
 
     return (
         <div>
@@ -63,7 +64,7 @@ export const FormExcluirPortariaGabCrh = (props) => {
                 <ConteudoTitulo>
                     <Titulo>EXCLUIR OFICIOS </Titulo>
                     <BotaoAcao>
-                        <Link to="/PortariaGabCrh">
+                        <Link to="/RemessaGabCrh">
                             <ButtonSuccess>Index</ButtonSuccess>
                         </Link>
                     </BotaoAcao>
@@ -75,12 +76,12 @@ export const FormExcluirPortariaGabCrh = (props) => {
                         <tbody>
                             <tr>
                                 <td>
-                                    <ConteudoPortaria>NÚMERO OFICIOS: {data.numero_portaria}</ConteudoPortaria>
-                                    <ConteudoPortaria>ASSUNTO OFICIOS: {data.assuntoportaria}</ConteudoPortaria>
-                                    <ConteudoPortaria>DATA EMISSÃO OFICIOS: {data.datElaboracao_portaria}</ConteudoPortaria>
-                                    <ConteudoPortaria>EXECUTOR: {data.executor_portaria}</ConteudoPortaria>
-                                    <ConteudoPortaria>SETOR CADASTRANTE: {data.setorportaria}</ConteudoPortaria>
-                                    <ConteudoPortaria>OBSERVAÇÃO: {data.observacao_portaria}</ConteudoPortaria>
+                                    <ConteudoRemessa>NÚMERO OFICIOS: {data.numero_remessa}</ConteudoRemessa>
+                                    <ConteudoRemessa>ASSUNTO OFICIOS: {data.assuntoremessa}</ConteudoRemessa>
+                                    <ConteudoRemessa>DATA EMISSÃO OFICIOS: {data.datElaboracao_remessa}</ConteudoRemessa>
+                                    <ConteudoRemessa>EXECUTOR: {data.executor_remessa}</ConteudoRemessa>
+                                    <ConteudoRemessa>SETOR CADASTRANTE: {data.setorremessa}</ConteudoRemessa>
+                                    <ConteudoRemessa>OBSERVAÇÃO: {data.observacao_remessa}</ConteudoRemessa>
                                 </td>
                             </tr>
                         </tbody>
@@ -93,5 +94,4 @@ export const FormExcluirPortariaGabCrh = (props) => {
             </Container>
         </div>
     );
-    
 }

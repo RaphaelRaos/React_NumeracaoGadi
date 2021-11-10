@@ -1,17 +1,18 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from "react";
 import { Header } from '../../header/header';
 import { Container, DivButton, ButtonCadastrar, TextArea, Titulo, ConteudoTitulo, BotaoAcao, ButtonSuccess, TableForm, Label, Input, Select, AlertDanger, AlertSuccess } from '../../styles/portarias/styles';
 import { Link } from 'react-router-dom';
 
-export const FormEditPortariaGabCrh = (props) => {
 
-    const [id_portaria] = useState(props.match.params.id);
-    const [assunto_portaria, setCodAssunto] = useState('');
-    const [assuntoDescricao_portaria, setAssuntoDescricao] = useState('');
-    const [executor_portaria, setExecutor] = useState('');
-    const [setorElaboracao_portaria, setCodAreaDespacho] = useState('');
-    const [descricaoArea_portaria, setAreaDespacho] = useState('');
-    const [observacao_portaria, setObservacao] = useState('');
+export const FormEditRemessaGabCrh = (props) => {
+
+    const [id_remessa] = useState(props.match.params.id);
+    const [assunto_remessa, setCodAssunto] = useState('');
+    const [assuntoDescricao_remessa, setAssuntoDescricao] = useState('');
+    const [executor_remessa, setExecutor] = useState('');
+    const [setorElaboracao_remessa, setCodAreaDespacho] = useState('');
+    const [descricaoArea_remessa, setAreaDespacho] = useState('');
+    const [observacao_remessa, setObservacao] = useState('');
 
     const [nomenclaturaDepartamento, setSetor] = useState([]);
     const [assuntosGabCrh, setGabCrhAssunto] = useState([]);
@@ -22,15 +23,15 @@ export const FormEditPortariaGabCrh = (props) => {
         mensagem: ''
     })
 
-    const editPortaria = async e => {
+    const editRemessa = async e => {
         e.preventDefault();
 
-        await fetch(process.env.REACT_APP_GABCRH_EDITAR_PORTARIAS, {
+        await fetch(process.env.REACT_APP_GABCRH_EDITAR_REMESSA, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({id_portaria, assunto_portaria, executor_portaria, setorElaboracao_portaria, observacao_portaria})
+            body: JSON.stringify({id_remessa, assunto_remessa, executor_remessa, setorElaboracao_remessa, observacao_remessa})
         }).then((response) => response.json())
             .then((responseJson) => {
                 if (responseJson.erro) {
@@ -47,7 +48,7 @@ export const FormEditPortariaGabCrh = (props) => {
             }).catch(() => {
                 setStatus({
                     type: 'error',
-                    mensagem: "OFICIO CIRCULAR não editado, tente mais tarde!"
+                    mensagem: "Remessa não editada, tente mais tarde!"
                 });
             });
     }
@@ -61,16 +62,16 @@ export const FormEditPortariaGabCrh = (props) => {
     }
 
     useEffect(() => {
-        const getOficioCircularGabCrh = async () => {
-            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_PORTARIAS + id_portaria)
+        const getRemessaGabCrh = async () => {
+            await fetch(process.env.REACT_APP_GABCRH_VISUALIZAR_REMESSA + id_remessa)
                 .then((response) => response.json())
                 .then((responseJson) => {
-                    setCodAssunto(responseJson.portaria.assunto_portaria)
-                    setAssuntoDescricao(responseJson.portaria.assuntoportaria)
-                    setExecutor(responseJson.portaria.executor_portaria)
-                    setCodAreaDespacho(responseJson.portaria.setorElaboracao_portaria)
-                    setAreaDespacho(responseJson.portaria.setorportaria)
-                    setObservacao(responseJson.portaria.observacao_portaria)
+                    setCodAssunto(responseJson.remessa.assunto_remessa)
+                    setAssuntoDescricao(responseJson.remessa.assuntoremessa)
+                    setExecutor(responseJson.remessa.executor_remessa)
+                    setCodAreaDespacho(responseJson.remessa.setorElaboracao_remessa)
+                    setAreaDespacho(responseJson.remessa.setorremessa)
+                    setObservacao(responseJson.remessa.observacao_remessa)
                 })
         }
         const assuntosGabCrh = async () => {
@@ -81,20 +82,20 @@ export const FormEditPortariaGabCrh = (props) => {
                 })
         }
 
-        getOficioCircularGabCrh();
+        getRemessaGabCrh();
         setores();
         assuntosGabCrh();
 
-    }, [id_portaria]);
+    }, [id_remessa]);
 
     return (
         <div>
             <Header />
             <Container>
                 <ConteudoTitulo>
-                    <Titulo>EDITAR PORTARIA </Titulo>
+                    <Titulo>EDITAR REMESSA </Titulo>
                     <BotaoAcao>
-                        <Link to="/PortariaGabCrh">
+                        <Link to="/RemessaGabCrh">
                             <ButtonSuccess>Index</ButtonSuccess>
                         </Link>
                     </BotaoAcao>
@@ -102,29 +103,29 @@ export const FormEditPortariaGabCrh = (props) => {
                 {status.type === 'erro' ? <AlertDanger>{status.mensagem}</AlertDanger> : ""}
                 {status.type === 'success' ? <AlertSuccess>{status.mensagem}</AlertSuccess> : ""}
 
-                <form onSubmit={editPortaria}>
+                <form onSubmit={editRemessa}>
                     <TableForm>
                         <tbody>
                             <tr>
                                 <th>
                                     <Label>ASSUNTO</Label>
-                                    <Select name="assunto_portaria" onChange={e => setCodAssunto(e.target.value)}>
-                                        <option value={assunto_portaria}>{assuntoDescricao_portaria}</option>
+                                    <Select name="assunto_remessa" onChange={e => setCodAssunto(e.target.value)}>
+                                        <option value={assunto_remessa}>{assuntoDescricao_remessa}</option>
                                         {Object.values(assuntosGabCrh).map(assuntos => (
                                             <option key={assuntos.id_assunto} value={assuntos.id_assunto}> {assuntos.assunto}</option>
                                         ))}
                                     </Select>
                                     <Label>EXECUTOR</Label>
-                                    <Input type="text" placeholder="Executor Oficio" name="executor_portaria" value={executor_portaria} onChange={e => setExecutor(e.target.value)}></Input>
+                                    <Input type="text" placeholder="Executor Oficio" name="executor_remessa" value={executor_remessa} onChange={e => setExecutor(e.target.value)}></Input>
                                     <Label>SETOR</Label>
                                     <Select name="setorElaboracao_comunicado" onChange={e => setCodAreaDespacho(e.target.value)}>
-                                        <option value={setorElaboracao_portaria}>{descricaoArea_portaria}</option>
+                                        <option value={setorElaboracao_remessa}>{descricaoArea_remessa}</option>
                                         {Object.values(nomenclaturaDepartamento).map(setor => (
                                             <option key={setor.id_deparatamento} value={setor.id_deparatamento}> {setor.nome_departamento}</option>
                                         ))}
                                     </Select>
                                     <Label>OBSERVAÇAO</Label>
-                                    <TextArea name="observacao_portaria" cols="50 rows" rows="5" id="" value={observacao_portaria} onChange={e => setObservacao(e.target.value)}></TextArea>
+                                    <TextArea name="observacao_remessa" cols="50 rows" rows="5" id="" value={observacao_remessa} onChange={e => setObservacao(e.target.value)}></TextArea>
                                 </th>
                             </tr>
                         </tbody>
@@ -136,5 +137,6 @@ export const FormEditPortariaGabCrh = (props) => {
                 </form>
             </Container>
         </div>
-    );    
+    ); 
+    
 }

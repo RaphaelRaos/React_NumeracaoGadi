@@ -5,6 +5,7 @@ import './App.css';
 import { Login } from './componentes/login/login'
 import {MenuVert} from './componentes/menuSetores/menuVert'
 import { Header } from './componentes/header/header'
+import {Home} from './componentes/home/home'
 
 
 //GADI
@@ -115,6 +116,12 @@ import {FormCadPortariaGabCrh} from './componentes/gabcrh/portarias/formCadastra
 import {FormEditPortariaGabCrh} from './componentes/gabcrh/portarias/formEditarPortariaGabCrh';
 import {FormExcluirPortariaGabCrh} from './componentes/gabcrh/portarias/formExcluirPortariaGabCrh';
 import {FormViewPortariaGabCrh} from './componentes/gabcrh/portarias/formViewPortariaGabCrh';
+//GABCRH//REMESSAS
+import {RemessaGabCrh} from './componentes/gabcrh/remessas/remessasGabCrh';
+import {FormCadRemessaGabCrh} from './componentes/gabcrh/remessas/formCadastrarRemessaGabCrh';
+import {FormEditRemessaGabCrh} from './componentes/gabcrh/remessas/formEditarRemessaGabCrh';
+import {FormExcluirRemessaGabCrh} from './componentes/gabcrh/remessas/formExcluirRemessaGabCrh';
+import {FormViewRemessaGabCrh} from './componentes/gabcrh/remessas/formViewRemessaGabCrh';
 
 
 
@@ -141,6 +148,7 @@ function App() {
             <Route exact path="/" component={Login} />            
             <PrivateRoute path="/menuvert" component={MenuVert} />
             <PrivateRoute path="/header" component={Header} />
+            <PrivateRoute path='/home' component={Home} />
             
             {/* GADI*/}
             <PrivateRoute path="/menu" component={Menu} />
@@ -248,8 +256,13 @@ function App() {
              <PrivateRoute path="/formCadPortariaGabCrh/" component={FormCadPortariaGabCrh} /> 
              <PrivateRoute path="/formEditPortariaGabCrh/:id" component={FormEditPortariaGabCrh} /> 
              <PrivateRoute path="/formExcluirPortariaGabCrh/:id" component={FormExcluirPortariaGabCrh} /> 
-             <PrivateRoute path="/formViewPortariaGabCrh/:id" component={FormViewPortariaGabCrh} />  
-            
+             <PrivateRoute path="/formViewPortariaGabCrh/:id" component={FormViewPortariaGabCrh} />
+             {/*REMESSAS*/}
+             <PrivateRoute path="/RemessaGabCrh" component={RemessaGabCrh} />
+             <PrivateRoute path="/formCadRemessaGabCrh/" component={FormCadRemessaGabCrh} /> 
+             <PrivateRoute path="/formEditRemessaGabCrh/:id" component={FormEditRemessaGabCrh} /> 
+             <PrivateRoute path="/formExcluirRemessaGabCrh/:id" component={FormExcluirRemessaGabCrh} /> 
+             <PrivateRoute path="/formViewRemessaGabCrh/:id" component={FormViewRemessaGabCrh} />            
             {/*FIM GAB SECRETARIO*/}
           </Switch>
         </Router>
