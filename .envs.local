@@ -1,0 +1,143 @@
+{-LOGIN}
+
+REACT_APP_LOGIN =http://172.18.103.27/dashboard/sistemaNumeracao/login/logar_sistema.php
+
+{GADI } -----
+{-GLOBAIS}
+
+REACT_APP_VISUALIZAR_SETOR =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/setores/visualizar_setor.php
+REACT_APP_VISUALIZAR_ASSUNTO =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/assuntos/visualizar_assunto.php
+REACT_APP_VISUALIZAR_UNIDADES =http://172.18.103.27/dashboard/sistemaNumeracao/unidades/visualizar_unidades.php
+REACT_APP_VISUALIZAR_STATUS_PROCESSO =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/andamento_processo/visualizarStatus.php
+
+{- COMUNICADOS}
+REACT_APP_CADASTRAR_COMUNICADO =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/comunicados/cadastrar_comunicados.php
+REACT_APP_EDITAR_COMUNICADO =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/comunicados/editar_comunicados.php
+REACT_APP_VISUALIZAR_COMUNICADO =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/comunicados/visualizar_comunicados.php?id=
+REACT_APP_LISTAR_COMUNICADO =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/comunicados/newListar_comunicado.php
+REACT_APP_EXCLUIR_COMUNICADO =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/comunicados/excluir_comunicado.php
+
+
+{-DESPACHOS}
+REACT_APP_LISTAR_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/despachos/newListar_despacho.php
+REACT_APP_CADASTRAR_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/despachos/cadastrar_despachos.php
+REACT_APP_EDITAR_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/despachos/editar_despacho.php
+REACT_APP_VISUALIZAR_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/despachos/visualizar_despachos.php?id=
+REACT_APP_EXCLUIR_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/despachos/excluir_despachos.php
+REACT_APP_SAIDA_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/despachos/saida_despachos.php
+
+{-INSTRUÇÕES}
+REACT_APP_LISTAR_INSTRUCOES =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/instrucoes/newListar_instrucao.php
+REACT_APP_CADASTRAR_INSTRUCOES =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/instrucoes/cadastrar_instrucoes.php
+REACT_APP_EDITAR_INSTRUCOES =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/instrucoes/editar_instrucoes.php
+REACT_APP_VISUALIZAR_INSTRUCOES =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/instrucoes/visualizar_instrucoes.php?id=
+REACT_APP_EXCLUIR_INSTRUCOES =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/instrucoes/excluir_instrucoes.php
+
+{-MEMORANDOS}
+REACT_APP_LISTAR_MEMORANDOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/memorandos/newListar_memorando.php
+REACT_APP_CADASTRAR_MEMORANDOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/memorandos/cadastrar_memorando.php
+REACT_APP_EDITAR_MEMORANDOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/memorandos/editar_memorando.php
+REACT_APP_VISUALIZAR_MEMORANDO =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/memorandos/visualizar_memorando.php?id=
+REACT_APP_EXCLUIR_MEMORANDO =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/memorandos/excluir_memorando.php
+
+
+{-NUMERO DE REFERÊNCIA}
+REACT_APP_CADASTRAR_REFERENCIA =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/num_referencia/cadastrar_referencia.php
+REACT_APP_LISTAR_REFERENCIAS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/num_referencia/newListar_referencia.php
+REACT_APP_EDITAR_REFERENCIAS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/num_referencia/editar_referencia.php
+REACT_APP_VISUALIZAR_REFERENCIA =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/num_referencia/visualizar_referencia.php?id=
+REACT_APP_EXCLUIR_REFERENCIA =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/num_referencia/excluir_referencia.php
+REACT_APP_SAIDA_REFERENCIA =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/num_referencia/saida_referencia.php
+
+{-OFICIOS}
+REACT_APP_LISTAR_OFICIOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/oficios/newListar_oficio.php
+REACT_APP_CADASTRAR_OFICIOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/oficios/cadastrar_oficio.php
+REACT_APP_EDITAR_OFICIOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/oficios/editar_oficio.php
+REACT_APP_VISUALIZAR_OFICIOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/oficios/visualizar_oficio.php?id=
+REACT_APP_EXCLUIR_OFICIOS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/oficios/excluir_oficio.php
+
+{-REMESSAS}
+REACT_APP_LISTAR_REMESSAS =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/relacao_remessa/newListar_remessa.php
+REACT_APP_CADASTRAR_REMESSA =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/relacao_remessa/cadastrar_remessa.php
+REACT_APP_EDITAR_REMESSA =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/relacao_remessa/editar_remessa.php
+REACT_APP_VISUALIZAR_REMESSA =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/relacao_remessa/visualizar_remessas.php?id=
+REACT_APP_EXCLUIR_REMESSA =http://172.18.103.27/dashboard/sistemaNumeracao/gadi/relacao_remessa/excluir_remessa.php
+
+-----{ FIM GADI } 
+
+{GAB CRH} ----
+
+{-GLOBAIS}
+REACT_APP_GABCRH_VISUALIZAR_ASSUNTO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/assuntos/visualizarAssuntosGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_DEPARTAMENTOS=http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/setores/listar_setoresGabCrh.php
+
+{- COMUNICADOS}
+REACT_APP_GABCRH_CADASTRAR_COMUNICADO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/comunicados/cadastrar_comunicadosGabCrh.php
+REACT_APP_GABCRH_EDITAR_COMUNICADO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/comunicados/editar_comunicadosGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_COMUNICADO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/comunicados/visualizar_comunicadosGabCrh.php?id=                                       
+REACT_APP_GABCRH_LISTAR_COMUNICADO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/comunicados/newListar_comunicadosGabCrh.php
+REACT_APP_GABCRH_EXCLUIR_COMUNICADO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/comunicados/excluir_comunicadosGabCrh.php
+
+{-DESPACHOS}
+REACT_APP_GABCRH_LISTAR_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/despachos/newListar_despachosGabCrh.php
+REACT_APP_GABCRH_CADASTRAR_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/despachos/cadastrar_despachosGabCrh.php
+REACT_APP_GABCRH_EDITAR_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/despachos/editar_despachosGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/despachos/visualizar_despachosGabCrh.php?id=
+REACT_APP_GABCRH_EXCLUIR_DESPACHOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/despachos/excluir_despachosGabCrh.php
+
+{-INFORMACAO}
+REACT_APP_GABCRH_CADASTRAR_INFORMACAO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/informacao/cadastrar_informacaoGabCrh.php
+REACT_APP_GABCRH_LISTAR_INFORMACAO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/informacao/newListar_informacaoGabCrh.php
+REACT_APP_GABCRH_EDITAR_INFORMACAO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/informacao/editar_informacaoGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_INFORMACAO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/informacao/visualizar_informacaoGabCrh.php?id=
+REACT_APP_GABCRH_EXCLUIR_INFORMACAO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/informacao/excluir_informacaoGabCrh.php
+
+{-INSTRUÇÕES}
+REACT_APP_GABCRH_LISTAR_INSTRUCOES =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/instrucao/newListar_instrucaoGabCrh.php
+REACT_APP_GABCRH_CADASTRAR_INSTRUCOES =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/instrucao/cadastrar_instrucaoGabCrh.php
+REACT_APP_GABCRH_EDITAR_INSTRUCOES =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/instrucao/editar_instrucaoGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_INSTRUCOES =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/instrucao/visualizar_instrucaoGabCrh.php?id=
+REACT_APP_GABCRH_EXCLUIR_INSTRUCOES =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/instrucao/excluir_instrucaoGabCrh.php
+
+{-MEMORANDOS}
+REACT_APP_GABCRH_LISTAR_MEMORANDOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/memorando/newListar_memorandoGabCrh.php
+REACT_APP_GABCRH_CADASTRAR_MEMORANDOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/memorando/cadastrar_memorandoGabCrh.php
+REACT_APP_GABCRH_EDITAR_MEMORANDOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/memorando/editar_memorandoGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_MEMORANDO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/memorando/visualizar_memorandoGabCrh.php?id=
+REACT_APP_GABCRH_EXCLUIR_MEMORANDO =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/memorando/excluir_memorandoGabCrh.php
+
+{-MEMORANDOS CIRCULARES}
+REACT_APP_GABCRH_LISTAR_MEMOCIRCULARES =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/memocircular/newListar_memorandoCircularGabCrh.php
+REACT_APP_GABCRH_CADASTRAR_MEMOCIRCULARES =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/memocircular/cadastrar_memorandoCircularGabCrh.php
+REACT_APP_GABCRH_EDITAR_MEMOCIRCULARES =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/memocircular/editar_memorandoCircularGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_MEMOCIRCULARES =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/memocircular/visualizar_memorandoCircularGabCrh.php?id=
+REACT_APP_GABCRH_EXCLUIR_MEMOCIRCULARES =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/memocircular/excluir_memorandoCircularGabCrh.php
+
+{-OFICIOS}
+REACT_APP_GABCRH_LISTAR_OFICIOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/oficio/newListar_oficioGabCrh.php
+REACT_APP_GABCRH_CADASTRAR_OFICIOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/oficio/cadastrar_oficioGabCrh.php
+REACT_APP_GABCRH_EDITAR_OFICIOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/oficio/editar_oficioGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_OFICIOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/oficio/visualizar_oficioGabCrh.php?id=
+REACT_APP_GABCRH_EXCLUIR_OFICIOS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/oficio/excluir_oficioGabCrh.php
+
+{-OFICIOS CIRCULARES}
+REACT_APP_GABCRH_LISTAR_OFICIOCIRCULAR =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/oficiocircular/newListar_oficioCircularGabCrh.php
+REACT_APP_GABCRH_CADASTRAR_OFICIOCIRCULAR =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/oficiocircular/cadastrar_oficioCircularGabCrh.php
+REACT_APP_GABCRH_EDITAR_OFICIOCIRCULAR = http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/oficiocircular/editar_oficioCircularGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_OFICIOCIRCULAR =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/oficiocircular/visualizar_oficioCircularGabCrh.php?id=
+REACT_APP_GABCRH_EXCLUIR_OFICIOCIRCULAR =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/oficiocircular/excluir_oficioCircularGabCrh.php
+
+{-PORTARIA}
+REACT_APP_GABCRH_LISTAR_PORTARIAS  =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/portarias/newListar_portariaGabCrh.php
+REACT_APP_GABCRH_CADASTRAR_PORTARIAS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/portarias/cadastrar_portariaGabCrh.php
+REACT_APP_GABCRH_EDITAR_PORTARIAS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/portarias/editar_portariaGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_PORTARIAS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/portarias/visualizar_portariaGabCrh.php?id=
+REACT_APP_GABCRH_EXCLUIR_PORTARIAS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/portarias/excluir_portariaGabCrh.php
+
+{-REMESSAS}
+REACT_APP_GABCRH_LISTAR_REMESSAS =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/remessas/newListar_remessaGabCrh.php
+REACT_APP_GABCRH_CADASTRAR_REMESSA =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/remessas/cadastrar_remessaGabCrh.php
+REACT_APP_GABCRH_EDITAR_REMESSA =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/remessas/editar_remessaGabCrh.php
+REACT_APP_GABCRH_VISUALIZAR_REMESSA =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/remessas/visualizar_remessaGabCrh.php?id=
+REACT_APP_GABCRH_EXCLUIR_REMESSA =http://172.18.103.27/dashboard/sistemaNumeracao/gabcrh/remessas/excluir_remessaGabCrh.php
+

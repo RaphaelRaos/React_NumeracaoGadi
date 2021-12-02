@@ -49,10 +49,12 @@ export const Login = () => {
                     
                 });
             } else {
-                alert ("BEM VINDO AO SISTEMA DE NUMERAÇÃO")
+                alert ("BEM VINDO AO SISTEMA DE NUMERAÇÃO")                
                 history.push("/home");
+               
             }
-        });                     
+        }); 
+                     
     }
 
     return (

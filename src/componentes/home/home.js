@@ -2,8 +2,10 @@ import React from 'react';
 import { Body, Container } from './styles'
 import { Header } from '../header/header';
 
-export const Home = () => {
 
+
+export const Home = () =>  {
+   
     return (
         <div>
             <Header />

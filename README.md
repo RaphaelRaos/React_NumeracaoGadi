@@ -6,13 +6,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `npm start`
 
-### npm install react-router-dom
+### npm install react-router-dom@5.2.0
 
 ### npm install --save styled-components
 
 ### npm install --save dotenv
 
 ### npm install react-icons --save
+
+### `npm start`
+
 
